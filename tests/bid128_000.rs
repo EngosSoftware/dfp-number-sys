@@ -32,6 +32,13 @@ mod tests_000 {
   }
 
   #[test]
+  fn test_bid128_abs() {
+    let x = bid128_from_int32(-2);
+    let y = bid128_abs(x);
+    eq("+2E+0", y);
+  }
+
+  #[test]
   fn test_bid128_add_0001() {
     let x = bid128_from_int32(2);
     let y = bid128_from_int32(5);
@@ -157,6 +164,12 @@ mod tests_000 {
   fn test_bid128_is_finite() {
     assert!(bid128_is_finite(bid128_from_int32(-1)));
     assert!(!bid128_is_finite(d128("NaN")));
+  }
+
+  #[test]
+  fn test_bid128_is_signed() {
+    assert!(bid128_is_signed(bid128_from_int32(-2)));
+    assert!(!bid128_is_signed(bid128_from_int32(2)));
   }
 
   #[test]
@@ -426,6 +439,16 @@ mod tests_000 {
     let z = bid128_quiet_less_equal(x, y, &mut flags);
     assert_eq!(FB_CLEAR, flags);
     assert!(!z);
+  }
+
+  #[test]
+  fn test_bid128_rem() {
+    let x = d128("10");
+    let y = d128("3");
+    let mut flags = FB_CLEAR;
+    let z = bid128_rem(x, y, &mut flags);
+    assert_eq!(FB_CLEAR, flags);
+    eq("+1E+0", z);
   }
 
   #[test]
