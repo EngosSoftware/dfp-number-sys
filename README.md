@@ -7,6 +7,7 @@
 ![build MacOs][build-badge-macos]
 [![MIT licensed][mit-badge]][mit-url]
 [![Apache 2.0 licensed][apache-badge]][apache-url]
+[![EULA licensed][eula-badge]][eula-url]
 [![Contributor Covenant][coc-badge]][coc-url]
 
 [crates-badge]: https://img.shields.io/crates/v/dfp-number-sys.svg
@@ -15,6 +16,8 @@
 [mit-url]: LICENSE-MIT
 [apache-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
 [apache-url]: LICENSE-APACHE
+[eula-badge]: https://img.shields.io/badge/License-EULA-blue.svg
+[eula-url]: IntelRDFPMathLib20U2/eula.txt
 [build-badge-linux]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-linux.yml/badge.svg
 [build-badge-windows]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-windows.yml/badge.svg
 [build-badge-macos]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-macos.yml/badge.svg
