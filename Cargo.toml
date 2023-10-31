@@ -1,0 +1,27 @@
+[package]
+name = "dfp-number-sys"
+version = "0.0.14"
+authors = ["Dariusz Depta <wisbery@users.noreply.github.com>"]
+description = "Rust bindings for Intel® Decimal Floating-Point Math Library"
+documentation = "https://docs.rs/dfp-number-sys"
+repository = "https://github.com/wisbery/dfp-number-sys.git"
+keywords = ["decimal", "floating", "point", "arithmetic"]
+categories = ["api-bindings"]
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[dependencies]
+libc = "0.2.149"
+
+[build-dependencies]
+cc = "1.0.83"
+
+[features]
+# Function arguments and return values will be passed by reference when this feature is set.
+call-by-reference = []
+
+# The value of the rounding mode will be stored in a global variable when this feature is set.
+global-rounding = []
+
+# The value of the exception status flags will be stored in a global variable when this feature is set.
+global-exception-flags = []
