@@ -18,6 +18,9 @@ const DECIMAL_GLOBAL_EXCEPTION_FLAGS: &str = "1";
 #[cfg(target_arch = "x86_64")]
 const ARCHITECTURE: &str = "ix86";
 
+#[cfg(target_arch = "aarch64")]
+const ARCHITECTURE: &str = "";
+
 #[cfg(target_os = "linux")]
 const OPERATING_SYSTEM: &str = "linux";
 #[cfg(target_os = "windows")]
