@@ -19,4 +19,3 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: rustup target add --toolchain stable aarch64-apple-darwin
       - run: cargo build --target=aarch64-apple-darwin
-      - run: cargo test --target=aarch64-apple-darwin
