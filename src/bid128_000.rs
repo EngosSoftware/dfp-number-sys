@@ -235,38 +235,38 @@ pub fn bid128_rem(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_rem(x, y, flags) }
 }
 
-/// Round 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the current rounding mode; signal inexact exceptions.
+/// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
+/// in the same format, using the current rounding mode; signals inexact exceptions.
 pub fn bid128_round_integral_exact(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_round_integral_exact(x, round, flags) }
 }
 
-/// Round 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the rounding-to-nearest-away mode; do not signal inexact exceptions.
+/// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
+/// in the same format, using the **rounding-to-nearest-away** mode; does not signal inexact exceptions.
 pub fn bid128_round_integral_nearest_away(x: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_round_integral_nearest_away(x, flags) }
 }
 
-/// Round 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the rounding-to-nearest-even mode; do not signal inexact exceptions.
+/// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
+/// in the same format, using the **rounding-to-nearest-even** mode; does not signal inexact exceptions.
 pub fn bid128_round_integral_nearest_even(x: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_round_integral_nearest_even(x, flags) }
 }
 
-/// Round 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the rounding-down mode; do not signal inexact exceptions.
+/// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
+/// in the same format, using the **rounding-down** mode; does not signal inexact exceptions.
 pub fn bid128_round_integral_negative(x: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_round_integral_negative(x, flags) }
 }
 
-/// Round 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the rounding-up mode; do not signal inexact exceptions.
+/// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
+/// in the same format, using the **rounding-up** mode; does not signal inexact exceptions.
 pub fn bid128_round_integral_positive(x: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_round_integral_positive(x, flags) }
 }
 
-/// Round 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the rounding-to-zero mode; do not signal inexact exceptions.
+/// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
+/// in the same format, using the rounding-to-zero mode; does not signal inexact exceptions.
 pub fn bid128_round_integral_zero(x: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_round_integral_zero(x, flags) }
 }
@@ -286,26 +286,26 @@ pub fn bid128_sub(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_sub(x, y, round, flags) }
 }
 
-/// Convert 128-bit decimal floating-point value to 32-bit signed integer
-/// with rounding-to-zero mode, inexact exceptions are not signaled.
+/// Converts 128-bit decimal floating-point value to 32-bit signed integer
+/// with rounding-to-zero mode' inexact exceptions are not signaled.
 pub fn bid128_to_int32_int(x: BID128, flags: &mut u32) -> i32 {
   unsafe { __bid128_to_int32_int(x, flags) }
 }
 
-/// Convert 128-bit decimal floating-point value to 32-bit unsigned integer
-/// with rounding-to-zero mode, inexact exceptions are not signaled.
+/// Converts 128-bit decimal floating-point value to 32-bit unsigned integer
+/// with rounding-to-zero mode; inexact exceptions are not signaled.
 pub fn bid128_to_uint32_int(x: BID128, flags: &mut u32) -> u32 {
   unsafe { __bid128_to_uint32_int(x, flags) }
 }
 
-/// Convert 128-bit decimal floating-point value to 64-bit signed integer
-/// with rounding-to-zero mode, inexact exceptions are not signaled.
+/// Converts 128-bit decimal floating-point value to 64-bit signed integer
+/// with rounding-to-zero mode; inexact exceptions are not signaled.
 pub fn bid128_to_int64_int(x: BID128, flags: &mut u32) -> i64 {
   unsafe { __bid128_to_int64_int(x, flags) }
 }
 
-/// Convert 128-bit decimal floating-point value to 64-bit unsigned integer
-/// with rounding-to-zero mode, inexact exceptions are not signaled.
+/// Converts 128-bit decimal floating-point value to 64-bit unsigned integer
+/// with rounding-to-zero mode; inexact exceptions are not signaled.
 pub fn bid128_to_uint64_int(x: BID128, flags: &mut u32) -> u64 {
   unsafe { __bid128_to_uint64_int(x, flags) }
 }
