@@ -349,7 +349,6 @@ __bid128_fdim
 __bid128_fma
 __bid128_fmod
 __bid128_hypot
-__bid128_ilogb
 __bid128_isCanonical
 __bid128_isNaN
 __bid128_isNormal
