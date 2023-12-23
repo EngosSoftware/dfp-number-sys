@@ -66,6 +66,7 @@
 - bid128_round_integral_positive (`__bid128_round_integral_positive`)
 - bid128_round_integral_zero (`__bid128_round_integral_zero`)
 - bid128_scalbn (`__bid128_scalbn`)
+- bid128_scalbln (`__bid128_scalbln`)
 - bid128_sqrt (`__bid128_sqrt`)
 - bid128_sub (`__bid128_sub`)
 - bid128_to_int32_int (`__bid128_to_int32_int`)
@@ -132,7 +133,6 @@
 - `__bid128_quiet_unordered`
 - `__bid128_radix`
 - `__bid128_sameQuantum`
-- `__bid128_scalbln`
 - `__bid128_signaling_greater`
 - `__bid128_signaling_greater_equal`
 - `__bid128_signaling_greater_unordered`
