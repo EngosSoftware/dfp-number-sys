@@ -49,6 +49,7 @@ extern "C" {
   fn __bid128_round_integral_positive(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_round_integral_zero(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_scalbn(x: BID128, n: c_int) -> BID128;
+  fn __bid128_scalbln(x: BID128, n: c_longlong) -> BID128;
   fn __bid128_sqrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sub(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_to_int32_int(x: BID128, flags: *mut c_uint) -> c_int;
@@ -271,9 +272,14 @@ pub fn bid128_round_integral_zero(x: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_round_integral_zero(x, flags) }
 }
 
-/// Returns `x * 10^n`.
+/// Returns `x * 10^n` where `n` is of type [i32].
 pub fn bid128_scalbn(x: BID128, n: i32) -> BID128 {
   unsafe { __bid128_scalbn(x, n) }
+}
+
+/// Returns `x * 10^n` where `n` is of type [i64].
+pub fn bid128_scalbln(x: BID128, n: i64) -> BID128 {
+  unsafe { __bid128_scalbln(x, n) }
 }
 
 /// Returns decimal floating-point square root.
@@ -377,7 +383,6 @@ __bid128_quiet_ordered
 __bid128_quiet_unordered
 __bid128_radix
 __bid128_sameQuantum
-__bid128_scalbln
 __bid128_signaling_greater
 __bid128_signaling_greater_equal
 __bid128_signaling_greater_unordered
