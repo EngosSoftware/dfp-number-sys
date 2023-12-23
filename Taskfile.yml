@@ -4,6 +4,11 @@ silent: true
 
 tasks:
 
+  build:
+    desc: Builds in debug mode all settings
+    cmds:
+      - task: build000
+
   build000:
     desc: Builds in debug mode with settings 000
     cmds:
@@ -13,6 +18,11 @@ tasks:
     desc: Cleans all targets
     cmds:
       - cmd: cargo clean
+
+  clippy:
+    desc: Runs clippy for all targets for all settings
+    cmds:
+      - task: clippy000
 
   clippy000:
     desc: Runs clippy for all targets
@@ -38,6 +48,11 @@ tasks:
     desc: Runs the code formatter
     cmds:
       - cmd: cargo +nightly fmt
+
+  test:
+    desc: Tests in debug mode for all settings
+    cmds:
+      - task: test000
 
   test000:
     desc: Tests in debug mode
