@@ -137,7 +137,7 @@ pub fn bid128_is_infinite(x: BID128) -> bool {
   unsafe { __bid128_isInf(x) != 0 }
 }
 
-/// Returns `true` if and only if x has negative sign.
+/// Returns `true` if and only if x has a negative sign.
 pub fn bid128_is_signed(x: BID128) -> bool {
   unsafe { __bid128_isSigned(x) != 0 }
 }
