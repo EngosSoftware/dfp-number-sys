@@ -15,7 +15,7 @@
 [mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg
 [mit-url]: LICENSE-MIT
 [apache-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-[apache-url]: LICENSE-APACHE
+[apache-url]: LICENSE
 [eula-badge]: https://img.shields.io/badge/License-EULA-blue.svg
 [eula-url]: IntelRDFPMathLib20U2/eula.txt
 [build-badge-linux]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-linux.yml/badge.svg
@@ -264,7 +264,7 @@
 Licensed under either of
 
 - [MIT license](https://opensource.org/licenses/MIT) ([LICENSE-MIT](LICENSE-MIT)), or
-- [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) ([LICENSE-APACHE](LICENSE-APACHE))
+- [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) ([LICENSE](LICENSE))
 
 at your option.
 

@@ -1,4 +1,11 @@
 //! # Common definitions for all tests
 
 mod bid128_000;
-mod common;
+
+macro_rules! flags {
+  () => {
+    &mut FB_CLEAR.clone()
+  };
+}
+
+use flags;

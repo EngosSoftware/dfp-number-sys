@@ -63,7 +63,7 @@ extern "C" {
   fn __bid128_to_string(s: *mut c_char, x: BID128, flags: *mut c_uint);
 }
 
-/// Value `1` represented as 128-bit decimal floating-point.
+/// Value `1` represented as a 128-bit decimal floating-point.
 ///
 /// # Example
 ///
@@ -74,6 +74,18 @@ extern "C" {
 /// assert_eq!("+1E+0", bid128_quiet_to_string(x));
 /// ```
 pub const BID128_ONE: BID128 = BID128 { w: [0x1, 0x3040000000000000] };
+
+/// Value `0.1` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_ONE_TENTH;
+/// assert_eq!("+1E-1", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_ONE_TENTH: BID128 = BID128 { w: [0x1, 0x303E000000000000] };
 
 /// Copies a 128-bit decimal floating-point operand x to a destination in the same format
 /// changing the sign to positive.
