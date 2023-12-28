@@ -15,13 +15,3 @@ libc = "0.2.151"
 
 [build-dependencies]
 cc = "1.0.83"
-
-[features]
-# Function arguments and return values will be passed by reference when this feature is set.
-call-by-reference = []
-
-# The value of the rounding mode will be stored in a global variable when this feature is set.
-global-rounding = []
-
-# The value of the exception status flags will be stored in a global variable when this feature is set.
-global-exception-flags = []

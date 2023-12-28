@@ -2,6 +2,7 @@
 
 extern crate test;
 
+use dfp_number_sys::bid128_000::*;
 use dfp_number_sys::*;
 use test::Bencher;
 

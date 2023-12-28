@@ -1,10 +1,20 @@
 //! # Common definitions
 
+use std::fmt;
+use std::fmt::{Debug, Display};
+
 /// A structure representing a 128-bit decimal.
 #[repr(C, align(16))]
 #[derive(Debug, Copy, Clone)]
 pub struct BID128 {
-  pub w: [u64; 2],
+  pub(crate) w: [u64; 2],
+}
+
+impl Display for BID128 {
+  /// Implements [Display] trait for [BID128].
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    write!(f, "[0x{:X}, 0x{:X}]", self.w[0], self.w[1])
+  }
 }
 
 /// Exception flag `Invalid` as [u32] value.

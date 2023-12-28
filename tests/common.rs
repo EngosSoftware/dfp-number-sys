@@ -1,5 +1,5 @@
 mod tests_common {
-  use dfp_number_sys::*;
+  use dfp_number_sys::bid128_000::bid128_from_int32;
 
   #[test]
   fn bid128_debug_should_work() {

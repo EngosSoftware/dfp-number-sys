@@ -1,11 +1,15 @@
-//! # bid128 bindings
+//! # `bid128_000` bindings
 //!
-//! 000:
-//! - 0 arguments passed by value,
-//! - 0 rounding mode passed as argument,
-//! - 0 pointer to status flags passed as argument.
+//! ```text
+//! bid128_000
+//!   │    │││
+//!   │    ││└─ status flags passed as a separate argument
+//!   │    │└── rounding mode passed as a separate argument
+//!   │    └─── result returned by value
+//!   └──────── 128-bit decimal in BID format
+//! ```
 
-use crate::BID128;
+use crate::{BID128, FB_CLEAR};
 use libc::{c_char, c_int, c_longlong, c_uint, c_ulonglong};
 use std::ffi::{CStr, CString};
 
@@ -59,7 +63,30 @@ extern "C" {
   fn __bid128_to_string(s: *mut c_char, x: BID128, flags: *mut c_uint);
 }
 
-/// Copies a 128-bit decimal floating-point operand x to a destination in the same format, changing the sign to positive.
+/// Value `1` represented as 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_ONE;
+/// assert_eq!("+1E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_ONE: BID128 = BID128 { w: [0x1, 0x3040000000000000] };
+
+/// Copies a 128-bit decimal floating-point operand x to a destination in the same format
+/// changing the sign to positive.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = bid128_from_int32(-2);
+/// let y = bid128_abs(x);
+/// assert_eq!("+2E+0", bid128_quiet_to_string(y));
+/// ```
 pub fn bid128_abs(x: BID128) -> BID128 {
   unsafe { __bid128_abs(x) }
 }
@@ -322,6 +349,17 @@ pub fn bid128_to_string(x: BID128, flags: &mut u32) -> String {
   let mut buf = [0_u8; 1024];
   unsafe {
     __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, flags);
+    CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
+  }
+}
+
+/// Converts 128-bit decimal floating-point value (binary encoding)
+/// to string format (decimal character sequence); exceptions are not signaled.
+pub fn bid128_quiet_to_string(x: BID128) -> String {
+  let mut buf = [0_u8; 1024];
+  let mut flags = FB_CLEAR;
+  unsafe {
+    __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, &mut flags);
     CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
   }
 }
