@@ -1,4 +1,4 @@
-name: MacOS build aarch64
+name: MacOS build arm64
 
 on:
   push:
