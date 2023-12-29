@@ -13,6 +13,144 @@ use crate::{BID128, FB_CLEAR};
 use libc::{c_char, c_int, c_longlong, c_uint, c_ulonglong};
 use std::ffi::{CStr, CString};
 
+/// Value `Inf` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_INF;
+/// assert_eq!("+Inf", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_INF: BID128 = BID128 { w: [0x0, 0x7800000000000000] };
+
+/// Value `-Inf` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_MINUS_INF;
+/// assert_eq!("-Inf", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_MINUS_INF: BID128 = BID128 { w: [0x0, 0xF800000000000000] };
+
+/// Value `0` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_ZERO;
+/// assert_eq!("+0E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_ZERO: BID128 = BID128 { w: [0x0, 0x3040000000000000] };
+
+/// Value `-0` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_MINUS_ZERO;
+/// assert_eq!("-0E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_MINUS_ZERO: BID128 = BID128 { w: [0x0, 0xB040000000000000] };
+
+/// Value `1` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_ONE;
+/// assert_eq!("+1E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_ONE: BID128 = BID128 { w: [0x1, 0x3040000000000000] };
+
+/// Value `-1` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_MINUS_ONE;
+/// assert_eq!("-1E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_MINUS_ONE: BID128 = BID128 { w: [0x1, 0xB040000000000000] };
+
+/// Value `2` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_TWO;
+/// assert_eq!("+2E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_TWO: BID128 = BID128 { w: [0x2, 0x3040000000000000] };
+
+/// Value `-2` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_MINUS_TWO;
+/// assert_eq!("-2E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_MINUS_TWO: BID128 = BID128 { w: [0x2, 0xB040000000000000] };
+
+/// Value `0.1` represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_ONE_TENTH;
+/// assert_eq!("+1E-1", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_ONE_TENTH: BID128 = BID128 { w: [0x1, 0x303E000000000000] };
+
+/// Value **`1000000000`** represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_BILLION;
+/// assert_eq!("+1000000000E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_BILLION: BID128 = BID128 {
+  w: [0x3B9ACA00, 0x3040000000000000],
+};
+
+/// Value **`-1000000000`** represented as a 128-bit decimal floating-point.
+///
+/// # Example
+///
+/// ```
+/// use dfp_number_sys::bid128_000::*;
+///
+/// let x = BID128_MINUS_BILLION;
+/// assert_eq!("-1000000000E+0", bid128_quiet_to_string(x));
+/// ```
+pub const BID128_MINUS_BILLION: BID128 = BID128 {
+  w: [0x3B9ACA00, 0xB040000000000000],
+};
+
+//======================================================================================================================
+
 extern "C" {
   fn __bid128_abs(x: BID128) -> BID128;
   fn __bid128_add(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -63,29 +201,7 @@ extern "C" {
   fn __bid128_to_string(s: *mut c_char, x: BID128, flags: *mut c_uint);
 }
 
-/// Value `1` represented as a 128-bit decimal floating-point.
-///
-/// # Example
-///
-/// ```
-/// use dfp_number_sys::bid128_000::*;
-///
-/// let x = BID128_ONE;
-/// assert_eq!("+1E+0", bid128_quiet_to_string(x));
-/// ```
-pub const BID128_ONE: BID128 = BID128 { w: [0x1, 0x3040000000000000] };
-
-/// Value `0.1` represented as a 128-bit decimal floating-point.
-///
-/// # Example
-///
-/// ```
-/// use dfp_number_sys::bid128_000::*;
-///
-/// let x = BID128_ONE_TENTH;
-/// assert_eq!("+1E-1", bid128_quiet_to_string(x));
-/// ```
-pub const BID128_ONE_TENTH: BID128 = BID128 { w: [0x1, 0x303E000000000000] };
+//======================================================================================================================
 
 /// Copies a 128-bit decimal floating-point operand x to a destination in the same format
 /// changing the sign to positive.
