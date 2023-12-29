@@ -78,6 +78,7 @@
 | bid128_to_int64_int                | __bid128_to_int64_int                 |                  
 | bid128_to_uint64_int               | __bid128_to_uint64_int                |               
 | bid128_to_string                   | __bid128_to_string                    |                   
+| bid128_quiet_to_string             | __bid128_to_string                    |                   
 
 ## Bindings to be implemented
 
