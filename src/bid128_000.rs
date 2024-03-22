@@ -152,7 +152,7 @@ pub const BID128_MINUS_BILLION: BID128 = BID128 {
 //======================================================================================================================
 
 extern "C" {
-  fn __bid128_abs(x: BID128) -> BID128;
+  fn __bid128_abs(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_acos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_add(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_copy(x: BID128) -> BID128;
@@ -212,13 +212,16 @@ extern "C" {
 ///
 /// ```
 /// use dfp_number_sys::bid128_000::*;
+/// use dfp_number_sys::FB_CLEAR;
 ///
 /// let x = bid128_from_int32(-2);
-/// let y = bid128_abs(x);
+/// let mut flags = FB_CLEAR;
+/// let y = bid128_abs(x, &mut flags);
 /// assert_eq!("+2E+0", bid128_quiet_to_string(y));
+/// assert_eq!(flags, FB_CLEAR);
 /// ```
-pub fn bid128_abs(x: BID128) -> BID128 {
-  unsafe { __bid128_abs(x) }
+pub fn bid128_abs(x: BID128, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_abs(x, flags) }
 }
 
 pub fn bid128_acos(x: BID128, round: u32, flags: &mut u32) -> BID128 {
