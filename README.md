@@ -12,77 +12,90 @@
 [![Contributor Covenant][coc-badge]][coc-url]
 
 [crates-badge]: https://img.shields.io/crates/v/dfp-number-sys.svg
+
 [crates-url]: https://crates.io/crates/dfp-number-sys
+
 [mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg
+
 [mit-url]: LICENSE-MIT
+
 [apache-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
+
 [apache-url]: LICENSE
+
 [eula-badge]: https://img.shields.io/badge/License-EULA-blue.svg
+
 [eula-url]: IntelRDFPMathLib20U2/eula.txt
+
 [build-badge-linux]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-linux-ix86-64.yml/badge.svg
+
 [build-badge-windows]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-windows-ix86-64.yml/badge.svg
+
 [build-badge-macos]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-macos-ix86-64.yml/badge.svg
+
 [build-badge-macos-arm64]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-macos-arm64.yml/badge.svg
+
 [coverage-badge]: https://img.shields.io/badge/Code%20coverage-100%25-green.svg
+
 [coc-badge]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
+
 [coc-url]: CODE_OF_CONDUCT.md
 
-## Implemented bindings
+### Bindings (alphabetical order)
 
-| Rust binding name                  | Library function name                 |
-|------------------------------------|---------------------------------------|
-| bid128_abs                         | __bid128_abs                          |                        
-| bid128_add                         | __bid128_add                          |                        
-| bid128_copy                        | __bid128_copy                         |                                                                      
-| bid128_div                         | __bid128_div                          |                                                                         
-| bid128_exp                         | __bid128_exp                          |                                                                         
-| bid128_frexp                       | __bid128_frexp                        |                                                                   
-| bid128_from_int32                  | __bid128_from_int32                   |                                                    
-| bid128_from_int64                  | __bid128_from_int64                   |                                                    
-| bid128_from_string                 | __bid128_from_string                  |                                                 
-| bid128_from_uint32                 | __bid128_from_uint32                  |                                                 
-| bid128_from_uint64                 | __bid128_from_uint64                  |                                                 
-| bid128_ilogb                       | __bid128_ilogb                        |                                                                   
-| bid128_isFinite                    | __bid128_isFinite                     |                                                          
-| bid128_inf                         | __bid128_inf                          |                                                                         
-| bid128_isInf                       | __bid128_isInf                        |                                                                   
-| bid128_isSigned                    | __bid128_isSigned                     |                                                          
-| bid128_isZero                      | __bid128_isZero                       |                                                                
-| bid128_log                         | __bid128_log                          |                                                                         
-| bid128_maxnum                      | __bid128_maxnum                       |                                                                
-| bid128_minnum                      | __bid128_minnum                       |                                                                
-| bid128_negate                      | __bid128_negate                       |                                                                
-| bid128_mul                         | __bid128_mul                          |                                                                         
-| bid128_pow                         | __bid128_pow                          |                                                                         
-| bid128_quantexp                    | __bid128_quantexp                     |                                                          
-| bid128_quantum                     | __bid128_quantum                      |                                                             
-| bid128_quantize                    | __bid128_quantize                     |                                                          
-| bid128_quiet_equal                 | __bid128_quiet_equal                  |                                                 
-| bid128_quiet_greater               | __bid128_quiet_greater                |                                           
-| bid128_quiet_greater_equal         | __bid128_quiet_greater_equal          |                         
-| bid128_quiet_less                  | __bid128_quiet_less                   |                                                    
-| bid128_quiet_less_equal            | __bid128_quiet_less_equal             |                                  
-| bid128_rem                         | __bid128_rem                          |                                                                         
-| bid128_round_integral_exact        | __bid128_round_integral_exact         |                      
-| bid128_round_integral_nearest_away | __bid128_round_integral_nearest_away  | 
-| bid128_round_integral_nearest_even | __bid128_round_integral_nearest_even  | 
-| bid128_round_integral_negative     | __bid128_round_integral_negative      |     
-| bid128_round_integral_positive     | __bid128_round_integral_positive      |     
-| bid128_round_integral_zero         | __bid128_round_integral_zero          |         
-| bid128_scalbn                      | __bid128_scalbn                       |                                    
-| bid128_scalbln                     | __bid128_scalbln                      |                                 
-| bid128_sqrt                        | __bid128_sqrt                         |                                          
-| bid128_sub                         | __bid128_sub                          |                                             
-| bid128_to_int32_int                | __bid128_to_int32_int                 |                  
-| bid128_to_uint32_int               | __bid128_to_uint32_int                |               
-| bid128_to_int64_int                | __bid128_to_int64_int                 |                  
-| bid128_to_uint64_int               | __bid128_to_uint64_int                |               
-| bid128_to_string                   | __bid128_to_string                    |                   
-| bid128_quiet_to_string             | __bid128_to_string                    |                   
+- bid128_abs
+- bid128_acos
+- bid128_add
+- bid128_copy
+- bid128_cos
+- bid128_div
+- bid128_exp
+- bid128_frexp
+- bid128_from_int32
+- bid128_from_int64
+- bid128_from_string
+- bid128_from_uint32
+- bid128_from_uint64
+- bid128_ilogb
+- bid128_isFinite
+- bid128_inf
+- bid128_isInf
+- bid128_isSigned
+- bid128_isZero
+- bid128_log
+- bid128_maxnum
+- bid128_minnum
+- bid128_mul
+- bid128_negate
+- bid128_pow
+- bid128_quantexp
+- bid128_quantum
+- bid128_quantize
+- bid128_quiet_equal
+- bid128_quiet_greater
+- bid128_quiet_greater_equal
+- bid128_quiet_less
+- bid128_quiet_less_equal
+- bid128_quiet_to_string
+- bid128_rem
+- bid128_round_integral_exact
+- bid128_round_integral_nearest_away
+- bid128_round_integral_nearest_even
+- bid128_round_integral_negative
+- bid128_round_integral_positive
+- bid128_round_integral_zero
+- bid128_scalbn
+- bid128_scalbln
+- bid128_sqrt
+- bid128_sub
+- bid128_to_int32_int
+- bid128_to_uint32_int
+- bid128_to_int64_int
+- bid128_to_uint64_int
+- bid128_to_string
 
 ## Bindings to be implemented
 
-- `__bid128_acos`
 - `__bid128_acosh`
 - `__bid128_asin`
 - `__bid128_asinh`
@@ -92,7 +105,6 @@
 - `__bid128_cbrt`
 - `__bid128_class`
 - `__bid128_copySign`
-- `__bid128_cos`
 - `__bid128_cosh`
 - `__bid128_erf`
 - `__bid128_erfc`
@@ -268,8 +280,7 @@ Licensed under either of
 
 - [MIT license](https://opensource.org/licenses/MIT) ([LICENSE-MIT](LICENSE-MIT)), or
 - [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) ([LICENSE](LICENSE))
-
-at your option.
+  at your option.
 
 ## Contribution
 
