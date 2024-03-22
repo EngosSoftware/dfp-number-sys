@@ -94,7 +94,7 @@
 - bid128_to_uint64_int
 - bid128_to_string
 
-## Bindings to be implemented
+## Bindings to implement
 
 - `__bid128_acosh`
 - `__bid128_asin`
