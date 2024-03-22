@@ -239,7 +239,11 @@ pub fn bid128_exp(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_exp(x, round, flags) }
 }
 
-///
+/// If x is not a floating-point number, the results are unspecified (this
+/// implementation returns x and *exp = 0). Otherwise, the frexp function
+/// returns the value res, such that res has a magnitude in the interval
+/// [1/10, 1) or zero, and x = res*2^*exp. If x is zero, both parts of the
+/// result are zero. `frexp` does not raise any exceptions.
 pub fn bid128_frexp(x: BID128, exp: &mut i32) -> BID128 {
   unsafe { __bid128_frexp(x, exp) }
 }
