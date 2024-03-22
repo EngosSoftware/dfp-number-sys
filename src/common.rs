@@ -4,7 +4,7 @@ use crate::bid128_000::bid128_quiet_to_string;
 use std::fmt;
 use std::fmt::{Debug, Display};
 
-/// A structure representing a 128-bit decimal.
+/// A structure representing a 128-bit floating-point decimal number.
 #[repr(C, align(16))]
 #[derive(Copy, Clone)]
 pub struct BID128 {

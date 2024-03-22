@@ -205,8 +205,7 @@ extern "C" {
 
 //======================================================================================================================
 
-/// Copies a 128-bit decimal floating-point operand x to a destination in the same format
-/// changing the sign to positive.
+/// Returns the absolute value of a 128-bit decimal floating-point number.
 ///
 /// # Example
 ///
@@ -242,7 +241,7 @@ pub fn bid128_cos(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_cos(x, round, flags) }
 }
 
-/// Returns s result of decimal floating-point division.
+/// Returns a result of decimal floating-point division.
 pub fn bid128_div(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_div(x, y, round, flags) }
 }
@@ -327,7 +326,7 @@ pub fn bid128_log(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns the canonicalized floating-point number y if x < y,
 /// x if y < x, the canonicalized floating-point number if one operand
 /// is a floating-point number and the other a quiet NaN.
-/// Otherwise it is either x or y, canonicalized.
+/// Otherwise, it is either x or y, canonicalized.
 pub fn bid128_maxnum(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_maxnum(x, y, flags) }
 }
@@ -335,7 +334,7 @@ pub fn bid128_maxnum(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
 /// Returns the canonicalized floating-point number x if x < y,
 /// y if y < x, the canonicalized floating-point number if one operand
 /// is a floating-point number and the other a quiet NaN.
-/// Otherwise it is either x or y, canonicalized.
+/// Otherwise, it is either x or y, canonicalized.
 pub fn bid128_minnum(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_minnum(x, y, flags) }
 }
@@ -465,7 +464,7 @@ pub fn bid128_sub(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
 }
 
 /// Converts 128-bit decimal floating-point value to 32-bit signed integer
-/// with rounding-to-zero mode' inexact exceptions are not signaled.
+/// with rounding-to-zero mode; inexact exceptions are not signaled.
 pub fn bid128_to_int32_int(x: BID128, flags: &mut u32) -> i32 {
   unsafe { __bid128_to_int32_int(x, flags) }
 }
