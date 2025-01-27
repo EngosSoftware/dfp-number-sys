@@ -64,7 +64,7 @@
 - bid128_isZero
 - bid128_log
 - bid128_maxnum
-- bid128_minnum
+- bid128_minimum
 - bid128_mul
 - bid128_negate
 - bid128_pow
@@ -247,7 +247,6 @@
 - `__bid128_to_uint8_xrninta`
 - `__bid128_totalOrder`
 - `__bid128_totalOrderMag`
-- `__bid128d_sqrt`
 - `__bid128dd_add`
 - `__bid128dd_div`
 - `__bid128dd_mul`
