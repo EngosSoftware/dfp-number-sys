@@ -1,4 +1,4 @@
-name: Windows ix86-64
+name: macOS
 
 on:
   push:
@@ -13,9 +13,9 @@ env:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build
       - run: cargo test
