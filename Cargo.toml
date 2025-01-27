@@ -9,6 +9,7 @@ keywords = ["decimal", "floating", "point", "arithmetic"]
 categories = ["api-bindings"]
 license = "MIT OR Apache-2.0"
 edition = "2021"
+exclude = ["/downloads"]
 
 [features]
 default = []
