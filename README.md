@@ -27,58 +27,62 @@
 [coc-badge]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
 [coc-url]: CODE_OF_CONDUCT.md
 
-### Bindings (alphabetical order)
+### Bindings (in alphabetical order)
 
-- bid128_abs
-- bid128_acos
-- bid128_add
-- bid128_copy
-- bid128_cos
-- bid128_div
-- bid128_exp
-- bid128_frexp
-- bid128_from_int32
-- bid128_from_int64
-- bid128_from_string
-- bid128_from_uint32
-- bid128_from_uint64
-- bid128_ilogb
-- bid128_isFinite
-- bid128_inf
-- bid128_isInf
-- bid128_isSigned
-- bid128_isZero
-- bid128_log
-- bid128_maxnum
-- bid128_minimum
-- bid128_mul
-- bid128_negate
-- bid128_pow
-- bid128_quantexp
-- bid128_quantum
-- bid128_quantize
-- bid128_quiet_equal
-- bid128_quiet_greater
-- bid128_quiet_greater_equal
-- bid128_quiet_less
-- bid128_quiet_less_equal
-- bid128_quiet_to_string
-- bid128_rem
-- bid128_round_integral_exact
-- bid128_round_integral_nearest_away
-- bid128_round_integral_nearest_even
-- bid128_round_integral_negative
-- bid128_round_integral_positive
-- bid128_round_integral_zero
-- bid128_scalbn
-- bid128_scalbln
-- bid128_sqrt
-- bid128_sub
-- bid128_to_int32_int
-- bid128_to_uint32_int
-- bid128_to_int64_int
-- bid128_to_uint64_int
-- bid128_to_string
+| BID128                             |  |
+|------------------------------------|--|
+| bid128_abs                         |  |
+| bid128_acos                        |  |
+| bid128_add                         |  |
+| bid128_copy                        |  |
+| bid128_copy                        |  |
+| bid128_cos                         |  |
+| bid128_div                         |  |
+| bid128_exp                         |  |
+| bid128_frexp                       |  |
+| bid128_frexp                       |  |
+| bid128_from_int32                  |  |
+| bid128_from_int64                  |  |
+| bid128_from_string                 |  |
+| bid128_from_uint32                 |  |
+| bid128_from_uint64                 |  |
+| bid128_ilogb                       |  |
+| bid128_isFinite                    |  |
+| bid128_inf                         |  |
+| bid128_isInf                       |  |
+| bid128_isSigned                    |  |
+| bid128_isZero                      |  |
+| bid128_log                         |  |
+| bid128_maxnum                      |  |
+| bid128_minimum                     |  |
+| bid128_mul                         |  |
+| bid128_negate                      |  |
+| bid128_pow                         |  |
+| bid128_quantexp                    |  |
+| bid128_quantum                     |  |
+| bid128_quantize                    |  |
+| bid128_quiet_equal                 |  |
+| bid128_quiet_greater               |  |
+| bid128_quiet_greater_equal         |  |
+| bid128_quiet_less                  |  |
+| bid128_quiet_less_equal            |  |
+| bid128_quiet_to_string             |  |
+| bid128_rem                         |  |
+| bid128_round_integral_exact        |  |
+| bid128_round_integral_nearest_away |  |
+| bid128_round_integral_nearest_even |  |
+| bid128_round_integral_negative     |  |
+| bid128_round_integral_positive     |  |
+| bid128_round_integral_zero         |  |
+| bid128_scalbn                      |  |
+| bid128_scalbln                     |  |
+| bid128_sqrt                        |  |
+| bid128_sub                         |  |
+| bid128_to_int32_int                |  |
+| bid128_to_uint32_int               |  |
+| bid128_to_int64_int                |  |
+| bid128_to_uint64_int               |  |
+| bid128_to_string                   |  |
 
 ## Bindings to implement
 
