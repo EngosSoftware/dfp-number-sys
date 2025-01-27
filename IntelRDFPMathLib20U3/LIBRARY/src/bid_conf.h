@@ -877,12 +877,12 @@
 // and for bid32_lround(), bid64_lround(), bid128_lround()
 #ifndef BID_SIZE_LONG
 #if defined(WINDOWS)
-#define BID_SIZE_LONG 4
+#define BID_SIZE_LONG 8
 #else
 #if defined(__x86_64__) || defined (__ia64__)  || defined(HPUX_OS_64)
 #define BID_SIZE_LONG 8
 #else
-#define BID_SIZE_LONG 4
+#define BID_SIZE_LONG 8
 #endif
 #endif
 #endif
