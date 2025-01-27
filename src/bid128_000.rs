@@ -154,6 +154,7 @@ pub const BID128_MINUS_BILLION: BID128 = BID128 {
 extern "C" {
   fn __bid128_abs(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_acos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_acosh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_add(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_copy(x: BID128) -> BID128;
   fn __bid128_cos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -225,6 +226,10 @@ pub fn bid128_abs(x: BID128, flags: &mut u32) -> BID128 {
 
 pub fn bid128_acos(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_acos(x, round, flags) }
+}
+
+pub fn bid128_acosh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_acosh(x, round, flags) }
 }
 
 /// Returns a result of decimal floating-point addition.
