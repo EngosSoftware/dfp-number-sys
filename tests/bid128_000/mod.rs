@@ -5,6 +5,7 @@ mod bid128_acosh;
 mod bid128_constants;
 mod bid128_cos;
 mod bid128_miscellaneous;
+mod bid128_sin;
 mod bid128_to_string;
 
 use super::*;

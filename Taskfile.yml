@@ -45,3 +45,8 @@ tasks:
     desc: Tests in debug mode for all settings
     cmds:
       - cmd: cargo +stable test
+
+  testn:
+    desc: Tests in debug mode for all settings using nextest
+    cmds:
+      - cmd: cargo +stable nextest run

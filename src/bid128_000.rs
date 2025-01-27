@@ -195,6 +195,7 @@ extern "C" {
   fn __bid128_round_integral_zero(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_scalbn(x: BID128, n: c_int) -> BID128;
   fn __bid128_scalbln(x: BID128, n: c_longlong) -> BID128;
+  fn __bid128_sin(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sqrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sub(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_to_int32_int(x: BID128, flags: *mut c_uint) -> c_int;
@@ -242,6 +243,7 @@ pub fn bid128_copy(x: BID128) -> BID128 {
   unsafe { __bid128_copy(x) }
 }
 
+/// Returns `cos(x)`.
 pub fn bid128_cos(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_cos(x, round, flags) }
 }
@@ -467,6 +469,11 @@ pub fn bid128_scalbn(x: BID128, n: i32) -> BID128 {
 /// Returns `x * 10^n` where `n` is of type [i64].
 pub fn bid128_scalbln(x: BID128, n: i64) -> BID128 {
   unsafe { __bid128_scalbln(x, n) }
+}
+
+/// Returns `sin(x)`.
+pub fn bid128_sin(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_sin(x, round, flags) }
 }
 
 /// Returns decimal floating-point square root.
