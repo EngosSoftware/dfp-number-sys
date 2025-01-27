@@ -124,29 +124,24 @@
 #endif
 
 /*
- * If no user supplied signal mechanism provided, then use the ANSI C raise() to generate signal.
+ * If no user supplied signal mechanism, use the ANSI C raise() to generate signal.
  */
 
-#if !defined(DPML_SIGNAL) && !defined(MINIMAL_SILENT_MODE_EXCEPTION_HANDLER) && !defined(wnt)
+#if !defined(DPML_SIGNAL) && !defined(MINIMAL_SILENT_MODE_EXCEPTION_HANDLER) && !defined(wnt) && !defined(win64)
 
-	#if defined(win64)
-		#include <signal.h>
-	#else
-        extern int raise(int);
-		#include <sys/signal.h>
-	#endif
-
+    extern int raise(int);
+	#include <sys/signal.h>
 	#define DPML_SIGNAL(p) raise(SIGFPE)
 
 #else
 
-    #define DPML_SIGNAL(p)
+	#define DPML_SIGNAL(p)
 
 #endif
 
 
 /*
- * If no side effects are specified then set errno, signal if the environment
+ * If no side effects are specified then set errno, signal if the envirnment
  * indicates a signal and for the IEEE case update the sticky bits
  */
 
