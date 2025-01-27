@@ -327,7 +327,7 @@ pub fn bid128_log(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// x if y < x, the canonicalized floating-point number if one operand
 /// is a floating-point number and the other a quiet NaN.
 /// Otherwise, it is either x or y, canonicalized.
-pub fn bid128_maxnum(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_max_num(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_maxnum(x, y, flags) }
 }
 
@@ -335,18 +335,18 @@ pub fn bid128_maxnum(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
 /// y if y < x, the canonicalized floating-point number if one operand
 /// is a floating-point number and the other a quiet NaN.
 /// Otherwise, it is either x or y, canonicalized.
-pub fn bid128_minnum(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_min_num(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_minnum(x, y, flags) }
-}
-
-/// Returns the same value as `x` but with reversed sign.
-pub fn bid128_negate(x: BID128) -> BID128 {
-  unsafe { __bid128_negate(x) }
 }
 
 /// Returns s result of decimal floating-point multiplication.
 pub fn bid128_mul(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_mul(x, y, round, flags) }
+}
+
+/// Returns the same value as `x` but with reversed sign.
+pub fn bid128_negate(x: BID128) -> BID128 {
+  unsafe { __bid128_negate(x) }
 }
 
 /// Returns decimal floating-point power.
@@ -400,6 +400,17 @@ pub fn bid128_quiet_less(x: BID128, y: BID128, flags: &mut u32) -> bool {
 /// does not signal invalid exception for quiet NaNs.
 pub fn bid128_quiet_less_equal(x: BID128, y: BID128, flags: &mut u32) -> bool {
   unsafe { __bid128_quiet_less_equal(x, y, flags) != 0 }
+}
+
+/// Converts 128-bit decimal floating-point value (binary encoding)
+/// to string format (decimal character sequence); exceptions are not signaled.
+pub fn bid128_quiet_to_string(x: BID128) -> String {
+  let mut buf = [0_u8; 1024];
+  let mut flags = FB_CLEAR;
+  unsafe {
+    __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, &mut flags);
+    CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
+  }
 }
 
 /// Returns decimal floating-point remainder.
@@ -493,17 +504,6 @@ pub fn bid128_to_string(x: BID128, flags: &mut u32) -> String {
   let mut buf = [0_u8; 1024];
   unsafe {
     __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, flags);
-    CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
-  }
-}
-
-/// Converts 128-bit decimal floating-point value (binary encoding)
-/// to string format (decimal character sequence); exceptions are not signaled.
-pub fn bid128_quiet_to_string(x: BID128) -> String {
-  let mut buf = [0_u8; 1024];
-  let mut flags = FB_CLEAR;
-  unsafe {
-    __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, &mut flags);
     CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
   }
 }

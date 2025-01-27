@@ -199,21 +199,21 @@ fn test_bid128_log_0005() {
 }
 
 #[test]
-fn test_bid128_maxnum_0001() {
+fn test_bid128_max_num_0001() {
   let x = d128("1.234");
   let y = d128("2.256");
   let mut flags = FB_CLEAR;
-  let z = bid128_maxnum(x, y, &mut flags);
+  let z = bid128_max_num(x, y, &mut flags);
   assert_eq!(FB_CLEAR, flags);
   eq("+2256E-3", z);
 }
 
 #[test]
-fn test_bid128_minnum_0001() {
+fn test_bid128_min_num_0001() {
   let x = d128("1.2340000000");
   let y = d128("2.256000");
   let mut flags = FB_CLEAR;
-  let z = bid128_minnum(x, y, &mut flags);
+  let z = bid128_min_num(x, y, &mut flags);
   assert_eq!(FB_CLEAR, flags);
   eq("+12340000000E-10", z);
 }

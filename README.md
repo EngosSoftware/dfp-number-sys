@@ -28,7 +28,7 @@
 [coc-url]: CODE_OF_CONDUCT.md
 [repository-url]: https://github.com/EngosSoftware/dfp-number-sys
 
-### Bindings (in alphabetical order)
+### Bindings
 
 | BID128                             |  |
 |------------------------------------|--|
@@ -41,21 +41,20 @@
 | bid128_div                         |  |
 | bid128_exp                         |  |
 | bid128_frexp                       |  |
-| bid128_frexp                       |  |
 | bid128_from_int32                  |  |
 | bid128_from_int64                  |  |
 | bid128_from_string                 |  |
 | bid128_from_uint32                 |  |
 | bid128_from_uint64                 |  |
 | bid128_ilogb                       |  |
-| bid128_isFinite                    |  |
+| bid128_is_finite                   |  |
 | bid128_inf                         |  |
-| bid128_isInf                       |  |
-| bid128_isSigned                    |  |
-| bid128_isZero                      |  |
+| bid128_is_infinite                 |  |
+| bid128_is_signed                   |  |
+| bid128_is_zero                     |  |
 | bid128_log                         |  |
-| bid128_maxnum                      |  |
-| bid128_minimum                     |  |
+| bid128_max_num                     |  |
+| bid128_min_num                     |  |
 | bid128_mul                         |  |
 | bid128_negate                      |  |
 | bid128_pow                         |  |
