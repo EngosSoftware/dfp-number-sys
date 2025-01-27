@@ -26,6 +26,7 @@
 [coverage-badge]: https://img.shields.io/badge/Code%20coverage-100%25-green.svg
 [coc-badge]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
 [coc-url]: CODE_OF_CONDUCT.md
+[repository-url]: https://github.com/EngosSoftware/dfp-number-sys
 
 ### Bindings (in alphabetical order)
 
@@ -273,5 +274,6 @@ Licensed under either of
 
 ## Contribution
 
+Any contributions to [**dfp-number-sys**][repository-url] are greatly appreciated.
 All contributions intentionally submitted for inclusion in the work by you,
 shall be dual licensed as above, without any additional terms or conditions.
