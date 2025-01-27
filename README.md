@@ -12,35 +12,20 @@
 [![Contributor Covenant][coc-badge]][coc-url]
 
 [crates-badge]: https://img.shields.io/crates/v/dfp-number-sys.svg
-
 [crates-url]: https://crates.io/crates/dfp-number-sys
-
 [mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg
-
 [mit-url]: LICENSE-MIT
-
 [apache-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-
 [apache-url]: LICENSE
-
 [eula-badge]: https://img.shields.io/badge/License-EULA-blue.svg
-
 [eula-url]: IntelRDFPMathLib20U3/eula.txt
-
 [build-badge-linux]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-linux.yml/badge.svg
-
 [build-badge-windows]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-windows.yml/badge.svg
-
 [build-badge-macos]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-macos.yml/badge.svg
-
 [build-badge-macos-arm64]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-macos-m1.yml/badge.svg
-
 [coverage-badge]: https://img.shields.io/badge/Code%20coverage-100%25-green.svg
-
 [coc-badge]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
-
 [coc-url]: CODE_OF_CONDUCT.md
-
 [repository-url]: https://github.com/EngosSoftware/dfp-number-sys
 
 ### Bindings
@@ -163,7 +148,6 @@
 - `__bid128_signaling_less_unordered`
 - `__bid128_signaling_not_greater`
 - `__bid128_signaling_not_less`
-- `__bid128_sin`
 - `__bid128_sinh`
 - `__bid128_tan`
 - `__bid128_tanh`
