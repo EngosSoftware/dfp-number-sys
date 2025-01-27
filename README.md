@@ -38,6 +38,7 @@
 | bid128_add                         | `__bid128_add`   |
 | bid128_copy                        | `__bid128_copy`  |
 | bid128_cos                         | `__bid128_cos`   |
+| bid128_cosh                        | `__bid128_cosh`  |
 | bid128_div                         |                  |
 | bid128_exp                         |                  |
 | bid128_frexp                       |                  |
