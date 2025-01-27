@@ -1,4 +1,4 @@
-# Rust bindings for Intel® Decimal Floating-Point Math Library v2.2
+# Rust bindings for Intel® Decimal Floating-Point Math Library v2.3
 
 [![Crates.io][crates-badge]][crates-url]
 ![Code coverage][coverage-badge]
@@ -12,33 +12,19 @@
 [![Contributor Covenant][coc-badge]][coc-url]
 
 [crates-badge]: https://img.shields.io/crates/v/dfp-number-sys.svg
-
 [crates-url]: https://crates.io/crates/dfp-number-sys
-
 [mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg
-
 [mit-url]: LICENSE-MIT
-
 [apache-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-
 [apache-url]: LICENSE
-
 [eula-badge]: https://img.shields.io/badge/License-EULA-blue.svg
-
-[eula-url]: IntelRDFPMathLib20U2/eula.txt
-
-[build-badge-linux]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-linux-ix86-64.yml/badge.svg
-
-[build-badge-windows]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-windows-ix86-64.yml/badge.svg
-
-[build-badge-macos]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-macos-ix86-64.yml/badge.svg
-
-[build-badge-macos-arm64]: https://github.com/wisbery/dfp-number-sys/actions/workflows/build-macos-arm64.yml/badge.svg
-
+[eula-url]: IntelRDFPMathLib20U3/eula.txt
+[build-badge-linux]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-linux.yml/badge.svg
+[build-badge-windows]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-windows.yml/badge.svg
+[build-badge-macos]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-macos.yml/badge.svg
+[build-badge-macos-arm64]: https://github.com/EngosSoftware/dfp-number-sys/actions/workflows/build-macos-m1.yml/badge.svg
 [coverage-badge]: https://img.shields.io/badge/Code%20coverage-100%25-green.svg
-
 [coc-badge]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
-
 [coc-url]: CODE_OF_CONDUCT.md
 
 ### Bindings (alphabetical order)
@@ -269,9 +255,9 @@
 
 ## License
 
-### License for Intel® Decimal Floating-Point Math Library v2.2
+### License for Intel® Decimal Floating-Point Math Library v2.3
 
-- [EULA](IntelRDFPMathLib20U2/eula.txt)
+- [EULA](IntelRDFPMathLib20U3/eula.txt)
 
 ### License for Rust bindings
 

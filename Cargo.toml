@@ -1,7 +1,7 @@
 [package]
 name = "dfp-number-sys"
-version = "0.1.1"
-authors = ["Dariusz Depta <wisbery@users.noreply.github.com>"]
+version = "0.2.0"
+authors = ["Dariusz Depta <depta@engos.de>"]
 description = "Rust bindings for Intel® Decimal Floating-Point Math Library"
 documentation = "https://docs.rs/dfp-number-sys"
 repository = "https://github.com/EngosSoftware/dfp-number-sys.git"
