@@ -1,6 +1,6 @@
 [package]
 name = "dfp-number-sys"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Dariusz Depta <depta@engos.de>"]
 description = "Rust bindings for Intel® Decimal Floating-Point Math Library"
 documentation = "https://docs.rs/dfp-number-sys"
@@ -9,7 +9,7 @@ keywords = ["decimal", "floating", "point", "arithmetic"]
 categories = ["api-bindings"]
 license = "MIT OR Apache-2.0"
 edition = "2021"
-exclude = ["/downloads"]
+exclude = ["/downloads", "/Taskfile.yml", "/benches", "/tests"]
 
 [features]
 default = []
