@@ -1,17 +1,23 @@
 [package]
 name = "dfp-number-sys"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Dariusz Depta <wisbery@users.noreply.github.com>"]
 description = "Rust bindings for Intel® Decimal Floating-Point Math Library"
 documentation = "https://docs.rs/dfp-number-sys"
-repository = "https://github.com/wisbery/dfp-number-sys.git"
+repository = "https://github.com/EngosSoftware/dfp-number-sys.git"
 keywords = ["decimal", "floating", "point", "arithmetic"]
 categories = ["api-bindings"]
 license = "MIT OR Apache-2.0"
 edition = "2021"
 
+[features]
+default = []
+call-by-reference = []
+global-rounding = []
+global-exception-flags = []
+
 [dependencies]
-libc = "0.2.153"
+libc = "0.2.169"
 
 [build-dependencies]
-cc = "1.0.90"
+cc = "1.2.10"

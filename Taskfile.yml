@@ -17,12 +17,13 @@ tasks:
   clippy:
     desc: Runs clippy for all targets
     cmds:
-      - cmd: cargo +nightly clippy --all-targets
+      - cmd: cargo clippy --all-targets
 
   cov:
-    desc: Runs code coverage using grcov
+    desc: Generates the code coverage report
     cmds:
-      - cmd: ./coverage.sh
+      - cmd: cargo llvm-cov --quiet --no-cfg-coverage --no-cfg-coverage-nightly --workspace --html
+      - cmd: echo -e "\nOpen report file:///$(pwd)/target/llvm-cov/html/index.html\n"
 
   doc:
     desc: Generates documentation
