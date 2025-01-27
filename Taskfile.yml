@@ -17,7 +17,8 @@ tasks:
   clippy:
     desc: Runs clippy for all targets
     cmds:
-      - cmd: cargo clippy --all-targets
+      - cmd: cargo +stable clippy
+      - cmd: cargo +nightly clippy --all-targets
 
   cov:
     desc: Generates the code coverage report
