@@ -79,6 +79,7 @@
 | bid128_scalbln                     |                  |
 | bid128_sqrt                        |                  |
 | bid128_sin                         | `__bid128_sin`   |
+| bid128_sinh                        | `__bid128_sinh`  |
 | bid128_sub                         |                  |
 | bid128_to_int32_int                |                  |
 | bid128_to_uint32_int               |                  |
@@ -96,7 +97,6 @@
 - `__bid128_cbrt`
 - `__bid128_class`
 - `__bid128_copySign`
-- `__bid128_cosh`
 - `__bid128_erf`
 - `__bid128_erfc`
 - `__bid128_exp10`
@@ -149,7 +149,6 @@
 - `__bid128_signaling_less_unordered`
 - `__bid128_signaling_not_greater`
 - `__bid128_signaling_not_less`
-- `__bid128_sinh`
 - `__bid128_tan`
 - `__bid128_tanh`
 - `__bid128_tgamma`
