@@ -20,6 +20,10 @@ fn eq(expected: &str, actual: BID128) {
   assert_eq!(expected, bid128_quiet_to_string(actual));
 }
 
+fn eqf(expected: u32, actual: u32) {
+  assert_eq!(expected, actual);
+}
+
 fn d128(s: &str) -> BID128 {
   let mut flags = FB_CLEAR;
   let x = bid128_from_string(s, RM_NEAREST_EVEN, &mut flags);
