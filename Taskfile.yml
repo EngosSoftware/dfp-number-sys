@@ -23,7 +23,7 @@ tasks:
   cov:
     desc: Generates the code coverage report
     cmds:
-      - cmd: cargo llvm-cov --quiet --no-cfg-coverage --no-cfg-coverage-nightly --workspace --html
+      - cmd: cargo llvm-cov --no-cfg-coverage --no-cfg-coverage-nightly --workspace --html
       - cmd: echo -e "\nOpen report file:///$(pwd)/target/llvm-cov/html/index.html\n"
 
   doc:

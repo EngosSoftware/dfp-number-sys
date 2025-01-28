@@ -150,7 +150,6 @@ pub const BID128_MINUS_BILLION: BID128 = BID128 {
   w: [0x3B9ACA00, 0xB040000000000000],
 };
 
-/// Library functions.
 extern "C" {
   fn __bid128_abs(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_acos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
