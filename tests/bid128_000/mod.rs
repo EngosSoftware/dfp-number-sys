@@ -2,6 +2,8 @@ mod bid128_0000;
 mod bid128_abs;
 mod bid128_acos;
 mod bid128_acosh;
+mod bid128_asin;
+mod bid128_asinh;
 mod bid128_constants;
 mod bid128_cos;
 mod bid128_cosh;

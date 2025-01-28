@@ -156,6 +156,8 @@ extern "C" {
     fn __bid128_acos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_acosh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_add(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+    fn __bid128_asin(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+    fn __bid128_asinh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_copy(x: BID128) -> BID128;
     fn __bid128_cos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_cosh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -238,6 +240,16 @@ pub fn bid128_acosh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns a result of decimal floating-point addition.
 pub fn bid128_add(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
     unsafe { __bid128_add(x, y, round, flags) }
+}
+
+/// Returns `arcsin(x)`.
+pub fn bid128_asin(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+    unsafe { __bid128_asin(x, round, flags) }
+}
+
+/// Returns `arsinh(x)`.
+pub fn bid128_asinh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+    unsafe { __bid128_asinh(x, round, flags) }
 }
 
 /// Copies a decimal floating-point operand x to a destination in the same format, with no change.
