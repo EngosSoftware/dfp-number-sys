@@ -633,7 +633,7 @@ fn test_bid128_sqrt_0001() {
 
 #[test]
 fn test_bid128_sqrt_0002() {
-  let x = bid128_inf();
+  let x = bid128_infinite();
   let y = bid128_sqrt(x, RM_NEAREST_EVEN, flags!());
   assert!(!bid128_is_finite(y));
 }
@@ -712,7 +712,7 @@ fn test_bid128_to_uint64_int() {
 
 #[test]
 fn test_bid128_infinite() {
-  let x = bid128_inf();
+  let x = bid128_infinite();
   assert!(bid128_is_infinite(x));
   assert!(!bid128_is_finite(x));
 }

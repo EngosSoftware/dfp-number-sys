@@ -30,62 +30,62 @@
 
 ### Bindings
 
-| Bindings BID128                    | Library          |
-|------------------------------------|------------------|
-| bid128_abs                         | `__bid128_abs`   |
-| bid128_acos                        | `__bid128_acos`  |
-| bid128_acosh                       | `__bid128_acosh` |
-| bid128_add                         | `__bid128_add`   |
-| bid128_copy                        | `__bid128_copy`  |
-| bid128_cos                         | `__bid128_cos`   |
-| bid128_cosh                        | `__bid128_cosh`  |
-| bid128_div                         | `__bid128_div`   |
-| bid128_exp                         | `__bid128_exp`   |
-| bid128_frexp                       |                  |
-| bid128_from_int32                  |                  |
-| bid128_from_int64                  |                  |
-| bid128_from_string                 |                  |
-| bid128_from_uint32                 |                  |
-| bid128_from_uint64                 |                  |
-| bid128_ilogb                       |                  |
-| bid128_is_finite                   |                  |
-| bid128_inf                         |                  |
-| bid128_is_infinite                 |                  |
-| bid128_is_signed                   |                  |
-| bid128_is_zero                     |                  |
-| bid128_log                         |                  |
-| bid128_max_num                     |                  |
-| bid128_min_num                     |                  |
-| bid128_mul                         |                  |
-| bid128_negate                      |                  |
-| bid128_pow                         |                  |
-| bid128_quantexp                    |                  |
-| bid128_quantum                     |                  |
-| bid128_quantize                    |                  |
-| bid128_quiet_equal                 |                  |
-| bid128_quiet_greater               |                  |
-| bid128_quiet_greater_equal         |                  |
-| bid128_quiet_less                  |                  |
-| bid128_quiet_less_equal            |                  |
-| bid128_quiet_to_string             |                  |
-| bid128_rem                         |                  |
-| bid128_round_integral_exact        |                  |
-| bid128_round_integral_nearest_away |                  |
-| bid128_round_integral_nearest_even |                  |
-| bid128_round_integral_negative     |                  |
-| bid128_round_integral_positive     |                  |
-| bid128_round_integral_zero         |                  |
-| bid128_scalbn                      |                  |
-| bid128_scalbln                     |                  |
-| bid128_sqrt                        |                  |
-| bid128_sin                         | `__bid128_sin`   |
-| bid128_sinh                        | `__bid128_sinh`  |
-| bid128_sub                         |                  |
-| bid128_to_int32_int                |                  |
-| bid128_to_uint32_int               |                  |
-| bid128_to_int64_int                |                  |
-| bid128_to_uint64_int               |                  |
-| bid128_to_string                   |                  |
+| Bindings BID128                    | Library                                |
+|------------------------------------|----------------------------------------|
+| bid128_abs                         | `__bid128_abs`                         |
+| bid128_acos                        | `__bid128_acos`                        |
+| bid128_acosh                       | `__bid128_acosh`                       |
+| bid128_add                         | `__bid128_add`                         |
+| bid128_copy                        | `__bid128_copy`                        |
+| bid128_cos                         | `__bid128_cos`                         |
+| bid128_cosh                        | `__bid128_cosh`                        |
+| bid128_div                         | `__bid128_div`                         |
+| bid128_exp                         | `__bid128_exp`                         |
+| bid128_frexp                       | `__bid128_frexp`                       |
+| bid128_from_int32                  | `__bid128_from_int32`                  |
+| bid128_from_int64                  | `__bid128_from_int64`                  |
+| bid128_from_string                 | `__bid128_from_string`                 |
+| bid128_from_uint32                 | `__bid128_from_uint32`                 |
+| bid128_from_uint64                 | `__bid128_from_uint64`                 |
+| bid128_ilogb                       | `__bid128_ilogb`                       |
+| bid128_is_finite                   | `__bid128_isFinite`                    |
+| bid128_infinite                    | `__bid128_inf`                         |
+| bid128_is_infinite                 | `__bid128_isInf`                       |
+| bid128_is_signed                   | `__bid128_isSigned`                    |
+| bid128_is_zero                     | `__bid128_isZero`                      |
+| bid128_log                         | `__bid128_log`                         |
+| bid128_max_num                     | `__bid128_maxnum`                      |
+| bid128_min_num                     | `__bid128_minnum`                      |
+| bid128_mul                         | `__bid128_mul`                         |
+| bid128_negate                      | `__bid128_negate`                      |
+| bid128_pow                         | `__bid128_pow`                         |
+| bid128_quantexp                    | `__bid128_quantexp`                    |
+| bid128_quantum                     | `__bid128_quantum`                     |
+| bid128_quantize                    | `__bid128_quantize`                    |
+| bid128_quiet_equal                 | `__bid128_quiet_equal`                 |
+| bid128_quiet_greater               | `__bid128_quiet_greater`               |
+| bid128_quiet_greater_equal         | `__bid128_quiet_greater_equal`         |
+| bid128_quiet_less                  | `__bid128_quiet_less`                  |
+| bid128_quiet_less_equal            | `__bid128_quiet_less_equal`            |
+| bid128_quiet_to_string             | `__bid128_to_string`                   |
+| bid128_rem                         | `__bid128_rem`                         |
+| bid128_round_integral_exact        | `__bid128_round_integral_exact`        |
+| bid128_round_integral_nearest_away | `__bid128_round_integral_nearest_away` |
+| bid128_round_integral_nearest_even | `__bid128_round_integral_nearest_even` |
+| bid128_round_integral_negative     | `__bid128_round_integral_negative`     |
+| bid128_round_integral_positive     | `__bid128_round_integral_positive`     |
+| bid128_round_integral_zero         | `__bid128_round_integral_zero`         |
+| bid128_scalbn                      | `__bid128_scalbn`                      |
+| bid128_scalbln                     | `__bid128_scalbln`                     |
+| bid128_sin                         | `__bid128_sin`                         |
+| bid128_sinh                        | `__bid128_sinh`                        |
+| bid128_sqrt                        | `__bid128_sqrt`                        |
+| bid128_sub                         | `__bid128_sub`                         |
+| bid128_to_int32_int                | `__bid128_to_int32_int`                |
+| bid128_to_uint32_int               | `__bid128_to_uint32_int`               |
+| bid128_to_int64_int                | `__bid128_to_int64_int`                |
+| bid128_to_uint64_int               | `__bid128_to_uint64_int`               |
+| bid128_to_string                   | `__bid128_to_string`                   |
 
 ## Bindings to implement
 

@@ -313,7 +313,7 @@ pub fn bid128_is_finite(x: BID128) -> bool {
 }
 
 /// Returns x with infinite value.
-pub fn bid128_inf() -> BID128 {
+pub fn bid128_infinite() -> BID128 {
     unsafe { __bid128_inf() }
 }
 
