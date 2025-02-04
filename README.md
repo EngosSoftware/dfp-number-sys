@@ -83,6 +83,7 @@
 | bid128_sinh                        | __bid128_sinh                        |
 | bid128_sqrt                        | __bid128_sqrt                        |
 | bid128_sub                         | __bid128_sub                         |
+| bid128_tan                         | __bid128_tan                         |
 | bid128_to_int32_int                | __bid128_to_int32_int                |
 | bid128_to_uint32_int               | __bid128_to_uint32_int               |
 | bid128_to_int64_int                | __bid128_to_int64_int                |
@@ -149,7 +150,6 @@
 - `__bid128_signaling_less_unordered`
 - `__bid128_signaling_not_greater`
 - `__bid128_signaling_not_less`
-- `__bid128_tan`
 - `__bid128_tanh`
 - `__bid128_tgamma`
 - `__bid128_to_bid32`
