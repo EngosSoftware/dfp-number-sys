@@ -21,10 +21,10 @@ tasks:
       - cmd: cargo +nightly clippy --all-targets
 
   cov:
-    desc: Generates the code coverage report
+    desc: Generates code coverage report
     cmds:
       - cmd: cargo llvm-cov --no-cfg-coverage --no-cfg-coverage-nightly --workspace --html
-      - cmd: echo -e "\nOpen report file:///$(pwd)/target/llvm-cov/html/index.html\n"
+      - cmd: echo -e "\n\e[1;32mOpen coverage report\x3A\e[0m file:///$(pwd)/target/llvm-cov/html/index.html\n"
 
   doc:
     desc: Generates documentation
