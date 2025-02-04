@@ -11,6 +11,7 @@ mod bid128_miscellaneous;
 mod bid128_sin;
 mod bid128_sinh;
 mod bid128_tan;
+mod bid128_tanh;
 mod bid128_to_string;
 
 use super::*;

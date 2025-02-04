@@ -202,6 +202,7 @@ extern "C" {
     fn __bid128_sqrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_sub(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_tan(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+    fn __bid128_tanh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_to_int32_int(x: BID128, flags: *mut c_uint) -> c_int;
     fn __bid128_to_uint32_int(x: BID128, flags: *mut c_uint) -> c_uint;
     fn __bid128_to_int64_int(x: BID128, flags: *mut c_uint) -> c_longlong;
@@ -514,6 +515,11 @@ pub fn bid128_sub(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns `tan(x)`.
 pub fn bid128_tan(x: BID128, round: u32, flags: &mut u32) -> BID128 {
     unsafe { __bid128_tan(x, round, flags) }
+}
+
+/// Returns `tanh(x)`.
+pub fn bid128_tanh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+    unsafe { __bid128_tanh(x, round, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value to 32-bit signed integer
