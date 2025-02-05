@@ -53,8 +53,8 @@
 | bid128_from_uint32                 | __bid128_from_uint32                 |
 | bid128_from_uint64                 | __bid128_from_uint64                 |
 | bid128_ilogb                       | __bid128_ilogb                       |
-| bid128_is_finite                   | __bid128_isFinite                    |
 | bid128_infinite                    | __bid128_inf                         |
+| bid128_is_finite                   | __bid128_isFinite                    |
 | bid128_is_infinite                 | __bid128_isInf                       |
 | bid128_is_signed                   | __bid128_isSigned                    |
 | bid128_is_zero                     | __bid128_isZero                      |
@@ -112,7 +112,6 @@
 - `__bid128_isNaN`
 - `__bid128_isNormal`
 - `__bid128_isSignaling`
-- `__bid128_isSigned`
 - `__bid128_isSubnormal`
 - `__bid128_ldexp`
 - `__bid128_lgamma`
