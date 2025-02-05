@@ -4,6 +4,7 @@ mod bid128_acos;
 mod bid128_acosh;
 mod bid128_asin;
 mod bid128_asinh;
+mod bid128_atan;
 mod bid128_constants;
 mod bid128_cos;
 mod bid128_cosh;

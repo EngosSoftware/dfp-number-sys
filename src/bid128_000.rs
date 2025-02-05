@@ -158,6 +158,7 @@ extern "C" {
   fn __bid128_asin(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_asinh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_atan(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_atan2(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_atanh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_copy(x: BID128) -> BID128;
   fn __bid128_cos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -258,6 +259,11 @@ pub fn bid128_asinh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns `arctan(x)`.
 pub fn bid128_atan(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_atan(x, round, flags) }
+}
+
+/// Returns `arctan2(x, y)`.
+pub fn bid128_atan2(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_atan2(x, y, round, flags) }
 }
 
 /// Returns `artanh(x)`.

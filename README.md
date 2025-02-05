@@ -38,6 +38,9 @@
 | bid128_add                         | __bid128_add                         |
 | bid128_asin                        | __bid128_asin                        |
 | bid128_asinh                       | __bid128_asinh                       |
+| bid128_atan                        | __bid128_atan                        |
+| bid128_atan2                       | __bid128_atan2                       |
+| bid128_atanh                       | __bid128_atanh                       |
 | bid128_copy                        | __bid128_copy                        |
 | bid128_cos                         | __bid128_cos                         |
 | bid128_cosh                        | __bid128_cosh                        |
@@ -93,9 +96,6 @@
 
 ## Bindings to implement
 
-- `__bid128_atan`
-- `__bid128_atan2`
-- `__bid128_atanh`
 - `__bid128_cbrt`
 - `__bid128_class`
 - `__bid128_copySign`
