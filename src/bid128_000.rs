@@ -162,6 +162,7 @@ extern "C" {
     fn __bid128_atanh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_cbrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_copy(x: BID128) -> BID128;
+    fn __bid128_copySign(x: BID128, y: BID128) -> BID128;
     fn __bid128_cos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_cosh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_div(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -286,6 +287,11 @@ pub fn bid128_cbrt(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// in the same format, with no change.
 pub fn bid128_copy(x: BID128) -> BID128 {
     unsafe { __bid128_copy(x) }
+}
+
+/// Copies argument `x` to destination in the same format as `x`, but with the sign of `y`.
+pub fn bid128_copy_sign(x: BID128, y: BID128) -> BID128 {
+    unsafe { __bid128_copySign(x, y) }
 }
 
 /// Returns `cos(x)`.

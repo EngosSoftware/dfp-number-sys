@@ -9,6 +9,7 @@ mod bid128_atan2;
 mod bid128_atanh;
 mod bid128_cbrt;
 mod bid128_constants;
+mod bid128_copy_sign;
 mod bid128_cos;
 mod bid128_cosh;
 mod bid128_is_canonical;
