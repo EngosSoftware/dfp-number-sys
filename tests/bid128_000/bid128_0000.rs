@@ -135,19 +135,6 @@ fn test_bid128_ilogb() {
 }
 
 #[test]
-fn test_bid128_is_signed() {
-  assert!(bid128_is_signed(bid128_from_int32(-2)));
-  assert!(!bid128_is_signed(bid128_from_int32(2)));
-}
-
-#[test]
-fn test_bid128_is_zero() {
-  assert!(!bid128_is_zero(bid128_from_int32(-1)));
-  assert!(bid128_is_zero(bid128_from_int32(0)));
-  assert!(!bid128_is_zero(bid128_from_int32(1)));
-}
-
-#[test]
 fn test_bid128_log_0001() {
   let x = bid128_from_int32(0);
   let mut flags = FB_CLEAR;

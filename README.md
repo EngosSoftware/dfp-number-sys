@@ -55,6 +55,7 @@
 | bid128_from_uint64                 | __bid128_from_uint64                 |
 | bid128_ilogb                       | __bid128_ilogb                       |
 | bid128_infinite                    | __bid128_inf                         |
+| bid128_is_canonical                | __bid128_isCanonical                 |
 | bid128_is_finite                   | __bid128_isFinite                    |
 | bid128_is_infinite                 | __bid128_isInf                       |
 | bid128_is_signed                   | __bid128_isSigned                    |
@@ -108,7 +109,6 @@
 - `__bid128_fma`
 - `__bid128_fmod`
 - `__bid128_hypot`
-- `__bid128_isCanonical`
 - `__bid128_isNaN`
 - `__bid128_isNormal`
 - `__bid128_isSignaling`
