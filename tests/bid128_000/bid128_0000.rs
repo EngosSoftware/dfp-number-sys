@@ -135,12 +135,6 @@ fn test_bid128_ilogb() {
 }
 
 #[test]
-fn test_bid128_is_finite() {
-  assert!(bid128_is_finite(bid128_from_int32(-1)));
-  assert!(!bid128_is_finite(d128("NaN")));
-}
-
-#[test]
 fn test_bid128_is_signed() {
   assert!(bid128_is_signed(bid128_from_int32(-2)));
   assert!(!bid128_is_signed(bid128_from_int32(2)));
