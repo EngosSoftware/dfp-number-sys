@@ -38,7 +38,12 @@
 | bid128_add                         | __bid128_add                         |
 | bid128_asin                        | __bid128_asin                        |
 | bid128_asinh                       | __bid128_asinh                       |
+| bid128_atan                        | __bid128_atan                        |
+| bid128_atan2                       | __bid128_atan2                       |
+| bid128_atanh                       | __bid128_atanh                       |
 | bid128_copy                        | __bid128_copy                        |
+| bid128_copy_sign                   | __bid128_copySign                    |
+| bid128_cbrt                        | __bid128_cbrt                        |
 | bid128_cos                         | __bid128_cos                         |
 | bid128_cosh                        | __bid128_cosh                        |
 | bid128_div                         | __bid128_div                         |
@@ -50,15 +55,21 @@
 | bid128_from_uint32                 | __bid128_from_uint32                 |
 | bid128_from_uint64                 | __bid128_from_uint64                 |
 | bid128_ilogb                       | __bid128_ilogb                       |
-| bid128_is_finite                   | __bid128_isFinite                    |
 | bid128_infinite                    | __bid128_inf                         |
+| bid128_is_canonical                | __bid128_isCanonical                 |
+| bid128_is_finite                   | __bid128_isFinite                    |
 | bid128_is_infinite                 | __bid128_isInf                       |
+| bid128_is_nan                      | __bid128_isNaN                       |
+| bid128_is_normal                   | __bid128_isNormal                    |
+| bid128_is_signaling                | __bid128_isSignaling                 |
 | bid128_is_signed                   | __bid128_isSigned                    |
+| bid128_is_subnormal                | __bid128_isSubnormal                 |
 | bid128_is_zero                     | __bid128_isZero                      |
 | bid128_log                         | __bid128_log                         |
 | bid128_max_num                     | __bid128_maxnum                      |
 | bid128_min_num                     | __bid128_minnum                      |
 | bid128_mul                         | __bid128_mul                         |
+| bid128_nan                         | __bid128_nan                         |
 | bid128_negate                      | __bid128_negate                      |
 | bid128_pow                         | __bid128_pow                         |
 | bid128_quantexp                    | __bid128_quantexp                    |
@@ -83,6 +94,8 @@
 | bid128_sinh                        | __bid128_sinh                        |
 | bid128_sqrt                        | __bid128_sqrt                        |
 | bid128_sub                         | __bid128_sub                         |
+| bid128_tan                         | __bid128_tan                         |
+| bid128_tanh                        | __bid128_tanh                        |
 | bid128_to_int32_int                | __bid128_to_int32_int                |
 | bid128_to_uint32_int               | __bid128_to_uint32_int               |
 | bid128_to_int64_int                | __bid128_to_int64_int                |
@@ -91,12 +104,7 @@
 
 ## Bindings to implement
 
-- `__bid128_atan`
-- `__bid128_atan2`
-- `__bid128_atanh`
-- `__bid128_cbrt`
 - `__bid128_class`
-- `__bid128_copySign`
 - `__bid128_erf`
 - `__bid128_erfc`
 - `__bid128_exp10`
@@ -106,12 +114,6 @@
 - `__bid128_fma`
 - `__bid128_fmod`
 - `__bid128_hypot`
-- `__bid128_isCanonical`
-- `__bid128_isNaN`
-- `__bid128_isNormal`
-- `__bid128_isSignaling`
-- `__bid128_isSigned`
-- `__bid128_isSubnormal`
 - `__bid128_ldexp`
 - `__bid128_lgamma`
 - `__bid128_llquantexp`
@@ -126,7 +128,6 @@
 - `__bid128_maxnum_mag`
 - `__bid128_minnum_mag`
 - `__bid128_modf`
-- `__bid128_nan`
 - `__bid128_nearbyint`
 - `__bid128_nextafter`
 - `__bid128_nextdown`
@@ -149,8 +150,6 @@
 - `__bid128_signaling_less_unordered`
 - `__bid128_signaling_not_greater`
 - `__bid128_signaling_not_less`
-- `__bid128_tan`
-- `__bid128_tanh`
 - `__bid128_tgamma`
 - `__bid128_to_bid32`
 - `__bid128_to_bid64`

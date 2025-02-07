@@ -4,12 +4,28 @@ mod bid128_acos;
 mod bid128_acosh;
 mod bid128_asin;
 mod bid128_asinh;
+mod bid128_atan;
+mod bid128_atan2;
+mod bid128_atanh;
+mod bid128_cbrt;
 mod bid128_constants;
+mod bid128_copy_sign;
 mod bid128_cos;
 mod bid128_cosh;
+mod bid128_is_canonical;
+mod bid128_is_finite;
+mod bid128_is_nan;
+mod bid128_is_normal;
+mod bid128_is_signaling;
+mod bid128_is_signed;
+mod bid128_is_subnormal;
+mod bid128_is_zero;
 mod bid128_miscellaneous;
+mod bid128_nan;
 mod bid128_sin;
 mod bid128_sinh;
+mod bid128_tan;
+mod bid128_tanh;
 mod bid128_to_string;
 
 use super::*;
@@ -29,4 +45,9 @@ fn d128(s: &str) -> BID128 {
   let x = bid128_from_string(s, RM_NEAREST_EVEN, &mut flags);
   assert_eq!(FB_CLEAR, flags);
   x
+}
+
+/// Returns a subnormal value for testing purposes.
+fn subnormal() -> BID128 {
+  BID128::new(0x07a63158fbd6b32f, 0x0002000000000000)
 }

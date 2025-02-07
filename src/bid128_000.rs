@@ -157,7 +157,12 @@ extern "C" {
   fn __bid128_add(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_asin(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_asinh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_atan(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_atan2(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_atanh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_cbrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_copy(x: BID128) -> BID128;
+  fn __bid128_copySign(x: BID128, y: BID128) -> BID128;
   fn __bid128_cos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_cosh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_div(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -169,14 +174,20 @@ extern "C" {
   fn __bid128_from_uint32(x: c_uint) -> BID128;
   fn __bid128_from_uint64(x: c_ulonglong) -> BID128;
   fn __bid128_ilogb(x: BID128, flags: *mut c_uint) -> c_int;
-  fn __bid128_isFinite(x: BID128) -> c_int;
   fn __bid128_inf() -> BID128;
+  fn __bid128_isCanonical(x: BID128) -> c_int;
+  fn __bid128_isFinite(x: BID128) -> c_int;
   fn __bid128_isInf(x: BID128) -> c_int;
+  fn __bid128_isNaN(x: BID128) -> c_int;
+  fn __bid128_isNormal(x: BID128) -> c_int;
+  fn __bid128_isSignaling(x: BID128) -> c_int;
   fn __bid128_isSigned(x: BID128) -> c_int;
+  fn __bid128_isSubnormal(x: BID128) -> c_int;
   fn __bid128_isZero(x: BID128) -> c_int;
   fn __bid128_log(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_maxnum(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_minnum(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
+  fn __bid128_nan(s: *const c_char) -> BID128;
   fn __bid128_negate(x: BID128) -> BID128;
   fn __bid128_mul(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_pow(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -201,6 +212,8 @@ extern "C" {
   fn __bid128_sinh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sqrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sub(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_tan(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_tanh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_to_int32_int(x: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_to_uint32_int(x: BID128, flags: *mut c_uint) -> c_uint;
   fn __bid128_to_int64_int(x: BID128, flags: *mut c_uint) -> c_longlong;
@@ -251,10 +264,35 @@ pub fn bid128_asinh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_asinh(x, round, flags) }
 }
 
+/// Returns `arctan(x)`.
+pub fn bid128_atan(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_atan(x, round, flags) }
+}
+
+/// Returns `arctan2(x, y)`.
+pub fn bid128_atan2(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_atan2(x, y, round, flags) }
+}
+
+/// Returns `artanh(x)`.
+pub fn bid128_atanh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_atanh(x, round, flags) }
+}
+
+/// Returns the cube root of the argument `x`.
+pub fn bid128_cbrt(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_cbrt(x, round, flags) }
+}
+
 /// Copies a 128-bit decimal floating-point operand to a destination
 /// in the same format, with no change.
 pub fn bid128_copy(x: BID128) -> BID128 {
   unsafe { __bid128_copy(x) }
+}
+
+/// Copies argument `x` to destination in the same format as `x`, but with the sign of `y`.
+pub fn bid128_copy_sign(x: BID128, y: BID128) -> BID128 {
+  unsafe { __bid128_copySign(x, y) }
 }
 
 /// Returns `cos(x)`.
@@ -319,7 +357,12 @@ pub fn bid128_ilogb(x: BID128, flags: &mut u32) -> i32 {
   unsafe { __bid128_ilogb(x, flags) }
 }
 
-/// Returns `true` if and only if x is zero, subnormal or normal (not infinite or NaN).
+/// Returns `true` if and only if `x` is canonical number, infinity or NaN.
+pub fn bid128_is_canonical(x: BID128) -> bool {
+  unsafe { __bid128_isCanonical(x) != 0 }
+}
+
+/// Returns `true` if and only if `x` is zero, subnormal or normal (not infinite or NaN).
 pub fn bid128_is_finite(x: BID128) -> bool {
   unsafe { __bid128_isFinite(x) != 0 }
 }
@@ -334,9 +377,29 @@ pub fn bid128_is_infinite(x: BID128) -> bool {
   unsafe { __bid128_isInf(x) != 0 }
 }
 
+/// Returns `true` if `x` is a `NaN`.
+pub fn bid128_is_nan(x: BID128) -> bool {
+  unsafe { __bid128_isNaN(x) != 0 }
+}
+
+/// Returns `true` if and only if `x` is normal (not zero, subnormal, infinite, or NaN).
+pub fn bid128_is_normal(x: BID128) -> bool {
+  unsafe { __bid128_isNormal(x) != 0 }
+}
+
+/// Returns `true` if and only if x has a negative sign.
+pub fn bid128_is_signaling(x: BID128) -> bool {
+  unsafe { __bid128_isSignaling(x) != 0 }
+}
+
 /// Returns `true` if and only if x has a negative sign.
 pub fn bid128_is_signed(x: BID128) -> bool {
   unsafe { __bid128_isSigned(x) != 0 }
+}
+
+/// Returns `true` if and only if `x` is subnormal.
+pub fn bid128_is_subnormal(x: BID128) -> bool {
+  unsafe { __bid128_isSubnormal(x) != 0 }
 }
 
 /// Returns `true` if and only if `x` is `+0` or `-0`.
@@ -365,9 +428,15 @@ pub fn bid128_min_num(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
   unsafe { __bid128_minnum(x, y, flags) }
 }
 
-/// Returns s result of decimal floating-point multiplication.
+/// Returns a result of decimal floating-point multiplication.
 pub fn bid128_mul(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_mul(x, y, round, flags) }
+}
+
+/// Returns `NaN` with payload.
+pub fn bid128_nan(s: &str) -> BID128 {
+  let cstring = CString::new(s).unwrap();
+  unsafe { __bid128_nan(cstring.as_ptr()) }
 }
 
 /// Returns the same value as `x` but with reversed sign.
@@ -510,6 +579,16 @@ pub fn bid128_sub(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_sub(x, y, round, flags) }
 }
 
+/// Returns `tan(x)`.
+pub fn bid128_tan(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_tan(x, round, flags) }
+}
+
+/// Returns `tanh(x)`.
+pub fn bid128_tanh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_tanh(x, round, flags) }
+}
+
 /// Converts 128-bit decimal floating-point value to 32-bit signed integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
 pub fn bid128_to_int32_int(x: BID128, flags: &mut u32) -> i32 {
@@ -543,180 +622,3 @@ pub fn bid128_to_string(x: BID128, flags: &mut u32) -> String {
     CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
   }
 }
-
-/*
-
-__bid128_acos
-__bid128_acosh
-__bid128_asin
-__bid128_asinh
-__bid128_atan
-__bid128_atan2
-__bid128_atanh
-__bid128_cbrt
-__bid128_class
-__bid128_copySign
-__bid128_cos
-__bid128_cosh
-__bid128_erf
-__bid128_erfc
-__bid128_exp10
-__bid128_exp2
-__bid128_expm1
-__bid128_fdim
-__bid128_fma
-__bid128_fmod
-__bid128_hypot
-__bid128_isCanonical
-__bid128_isNaN
-__bid128_isNormal
-__bid128_isSignaling
-__bid128_isSubnormal
-__bid128_ldexp
-__bid128_lgamma
-__bid128_llquantexp
-__bid128_llrint
-__bid128_llround
-__bid128_log10
-__bid128_log1p
-__bid128_log2
-__bid128_lrint
-__bid128_lround
-__bid128_maxnum_mag
-__bid128_minnum_mag
-__bid128_modf
-__bid128_nan
-__bid128_nearbyint
-__bid128_nextafter
-__bid128_nextdown
-__bid128_nexttoward
-__bid128_nextup
-__bid128_quiet_greater_unordered
-__bid128_quiet_less_unordered
-__bid128_quiet_not_equal
-__bid128_quiet_not_greater
-__bid128_quiet_not_less
-__bid128_quiet_ordered
-__bid128_quiet_unordered
-__bid128_radix
-__bid128_sameQuantum
-__bid128_signaling_greater
-__bid128_signaling_greater_equal
-__bid128_signaling_greater_unordered
-__bid128_signaling_less
-__bid128_signaling_less_equal
-__bid128_signaling_less_unordered
-__bid128_signaling_not_greater
-__bid128_signaling_not_less
-__bid128_sin
-__bid128_sinh
-__bid128_tan
-__bid128_tanh
-__bid128_tgamma
-__bid128_to_bid32
-__bid128_to_bid64
-__bid128_to_binary128
-__bid128_to_binary32
-__bid128_to_binary64
-__bid128_to_binary80
-__bid128_to_int16_ceil
-__bid128_to_int16_floor
-__bid128_to_int16_int
-__bid128_to_int16_rnint
-__bid128_to_int16_rninta
-__bid128_to_int16_xceil
-__bid128_to_int16_xfloor
-__bid128_to_int16_xint
-__bid128_to_int16_xrnint
-__bid128_to_int16_xrninta
-__bid128_to_int32_ceil
-__bid128_to_int32_floor
-__bid128_to_int32_rnint
-__bid128_to_int32_rninta
-__bid128_to_int32_xceil
-__bid128_to_int32_xfloor
-__bid128_to_int32_xint
-__bid128_to_int32_xrnint
-__bid128_to_int32_xrninta
-__bid128_to_int64_ceil
-__bid128_to_int64_floor
-__bid128_to_int64_rnint
-__bid128_to_int64_rninta
-__bid128_to_int64_xceil
-__bid128_to_int64_xfloor
-__bid128_to_int64_xint
-__bid128_to_int64_xrnint
-__bid128_to_int64_xrninta
-__bid128_to_int8_ceil
-__bid128_to_int8_floor
-__bid128_to_int8_int
-__bid128_to_int8_rnint
-__bid128_to_int8_rninta
-__bid128_to_int8_xceil
-__bid128_to_int8_xfloor
-__bid128_to_int8_xint
-__bid128_to_int8_xrnint
-__bid128_to_int8_xrninta
-__bid128_to_uint16_ceil
-__bid128_to_uint16_floor
-__bid128_to_uint16_int
-__bid128_to_uint16_rnint
-__bid128_to_uint16_rninta
-__bid128_to_uint16_xceil
-__bid128_to_uint16_xfloor
-__bid128_to_uint16_xint
-__bid128_to_uint16_xrnint
-__bid128_to_uint16_xrninta
-__bid128_to_uint32_ceil
-__bid128_to_uint32_floor
-__bid128_to_uint32_rnint
-__bid128_to_uint32_rninta
-__bid128_to_uint32_xceil
-__bid128_to_uint32_xfloor
-__bid128_to_uint32_xint
-__bid128_to_uint32_xrnint
-__bid128_to_uint32_xrninta
-__bid128_to_uint64_ceil
-__bid128_to_uint64_floor
-__bid128_to_uint64_rnint
-__bid128_to_uint64_rninta
-__bid128_to_uint64_xceil
-__bid128_to_uint64_xfloor
-__bid128_to_uint64_xint
-__bid128_to_uint64_xrnint
-__bid128_to_uint64_xrninta
-__bid128_to_uint8_ceil
-__bid128_to_uint8_floor
-__bid128_to_uint8_int
-__bid128_to_uint8_rnint
-__bid128_to_uint8_rninta
-__bid128_to_uint8_xceil
-__bid128_to_uint8_xfloor
-__bid128_to_uint8_xint
-__bid128_to_uint8_xrnint
-__bid128_to_uint8_xrninta
-__bid128_totalOrder
-__bid128_totalOrderMag
-__bid128d_sqrt
-__bid128dd_add
-__bid128dd_div
-__bid128dd_mul
-__bid128dd_sub
-__bid128ddd_fma
-__bid128ddq_fma
-__bid128dq_add
-__bid128dq_div
-__bid128dq_mul
-__bid128dq_sub
-__bid128dqd_fma
-__bid128dqq_fma
-__bid128qd_add
-__bid128qd_div
-__bid128qd_mul
-__bid128qd_sub
-__bid128qdd_fma
-__bid128qdq_fma
-__bid128qqd_fma
-
-
-*/
