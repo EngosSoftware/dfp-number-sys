@@ -8,7 +8,14 @@ use std::fmt::{Debug, Display};
 #[repr(C, align(16))]
 #[derive(Copy, Clone)]
 pub struct BID128 {
-  pub w: [u64; 2],
+  pub(crate) w: [u64; 2],
+}
+
+impl BID128 {
+  /// Creates a new BID128 value from raw data.
+  pub fn new(lo: u64, hi: u64) -> Self {
+    BID128 { w: [lo, hi] }
+  }
 }
 
 impl Debug for BID128 {

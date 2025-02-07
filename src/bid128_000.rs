@@ -388,6 +388,11 @@ pub fn bid128_is_normal(x: BID128) -> bool {
 }
 
 /// Returns `true` if and only if x has a negative sign.
+pub fn bid128_is_signaling(x: BID128) -> bool {
+  unsafe { __bid128_isSignaling(x) != 0 }
+}
+
+/// Returns `true` if and only if x has a negative sign.
 pub fn bid128_is_signed(x: BID128) -> bool {
   unsafe { __bid128_isSigned(x) != 0 }
 }

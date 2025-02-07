@@ -16,6 +16,7 @@ mod bid128_is_canonical;
 mod bid128_is_finite;
 mod bid128_is_nan;
 mod bid128_is_normal;
+mod bid128_is_signaling;
 mod bid128_is_signed;
 mod bid128_is_subnormal;
 mod bid128_is_zero;
@@ -48,7 +49,5 @@ fn d128(s: &str) -> BID128 {
 
 /// Returns a subnormal value for testing purposes.
 fn subnormal() -> BID128 {
-  BID128 {
-    w: [0x07a63158fbd6b32f, 0x0002000000000000],
-  }
+  BID128::new(0x07a63158fbd6b32f, 0x0002000000000000)
 }
