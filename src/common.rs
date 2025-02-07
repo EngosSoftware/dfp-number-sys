@@ -14,7 +14,7 @@ pub struct BID128 {
 impl Debug for BID128 {
   /// Implements [Debug] trait for [BID128].
   fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-    write!(f, "[0x{:X}, 0x{:X}]", self.w[0], self.w[1])
+    write!(f, "[{:016X}{:016X}]", self.w[1], self.w[0])
   }
 }
 

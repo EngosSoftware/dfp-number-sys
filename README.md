@@ -65,6 +65,7 @@
 | bid128_max_num                     | __bid128_maxnum                      |
 | bid128_min_num                     | __bid128_minnum                      |
 | bid128_mul                         | __bid128_mul                         |
+| bid128_nan                         | __bid128_nan                         |
 | bid128_negate                      | __bid128_negate                      |
 | bid128_pow                         | __bid128_pow                         |
 | bid128_quantexp                    | __bid128_quantexp                    |
@@ -127,7 +128,6 @@
 - `__bid128_maxnum_mag`
 - `__bid128_minnum_mag`
 - `__bid128_modf`
-- `__bid128_nan`
 - `__bid128_nearbyint`
 - `__bid128_nextafter`
 - `__bid128_nextdown`

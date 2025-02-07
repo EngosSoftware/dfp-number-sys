@@ -17,6 +17,7 @@ mod bid128_is_finite;
 mod bid128_is_signed;
 mod bid128_is_zero;
 mod bid128_miscellaneous;
+mod bid128_nan;
 mod bid128_sin;
 mod bid128_sinh;
 mod bid128_tan;

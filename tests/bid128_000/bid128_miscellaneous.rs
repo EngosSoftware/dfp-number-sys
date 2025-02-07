@@ -2,7 +2,7 @@ use dfp_number_sys::bid128_000::*;
 
 #[test]
 fn bid12_debug_should_work() {
-  assert_eq!("[0x1, 0x3040000000000000]", format!("{:?}", bid128_from_int32(1)));
+  assert_eq!("[30400000000000000000000000000001]", format!("{:?}", bid128_from_int32(1)));
 }
 
 #[test]
