@@ -60,7 +60,9 @@
 | bid128_is_finite                   | __bid128_isFinite                    |
 | bid128_is_infinite                 | __bid128_isInf                       |
 | bid128_is_nan                      | __bid128_isNaN                       |
+| bid128_is_normal                   | __bid128_isNormal                    |
 | bid128_is_signed                   | __bid128_isSigned                    |
+| bid128_is_subnormal                | __bid128_isSubnormal                 |
 | bid128_is_zero                     | __bid128_isZero                      |
 | bid128_log                         | __bid128_log                         |
 | bid128_max_num                     | __bid128_maxnum                      |
@@ -111,9 +113,7 @@
 - `__bid128_fma`
 - `__bid128_fmod`
 - `__bid128_hypot`
-- `__bid128_isNormal`
 - `__bid128_isSignaling`
-- `__bid128_isSubnormal`
 - `__bid128_ldexp`
 - `__bid128_lgamma`
 - `__bid128_llquantexp`

@@ -8,7 +8,7 @@ use std::fmt::{Debug, Display};
 #[repr(C, align(16))]
 #[derive(Copy, Clone)]
 pub struct BID128 {
-  pub(crate) w: [u64; 2],
+  pub w: [u64; 2],
 }
 
 impl Debug for BID128 {
