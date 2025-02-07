@@ -178,7 +178,7 @@ extern "C" {
   fn __bid128_isCanonical(x: BID128) -> c_int;
   fn __bid128_isFinite(x: BID128) -> c_int;
   fn __bid128_isInf(x: BID128) -> c_int;
-  fn __bid128_isNan(x: BID128) -> c_int;
+  fn __bid128_isNaN(x: BID128) -> c_int;
   fn __bid128_isNormal(x: BID128) -> c_int;
   fn __bid128_isSignaling(x: BID128) -> c_int;
   fn __bid128_isSigned(x: BID128) -> c_int;
@@ -375,6 +375,11 @@ pub fn bid128_infinite() -> BID128 {
 /// Returns `true` if x is infinite.
 pub fn bid128_is_infinite(x: BID128) -> bool {
   unsafe { __bid128_isInf(x) != 0 }
+}
+
+/// Returns `true` if `x` is a `NaN`.
+pub fn bid128_is_nan(x: BID128) -> bool {
+  unsafe { __bid128_isNaN(x) != 0 }
 }
 
 /// Returns `true` if and only if x has a negative sign.

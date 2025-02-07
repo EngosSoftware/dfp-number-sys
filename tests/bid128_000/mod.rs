@@ -14,6 +14,7 @@ mod bid128_cos;
 mod bid128_cosh;
 mod bid128_is_canonical;
 mod bid128_is_finite;
+mod bid128_is_nan;
 mod bid128_is_signed;
 mod bid128_is_zero;
 mod bid128_miscellaneous;
