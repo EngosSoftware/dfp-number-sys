@@ -42,6 +42,7 @@
 | bid128_atan2                       | __bid128_atan2                       |
 | bid128_atanh                       | __bid128_atanh                       |
 | bid128_copy                        | __bid128_copy                        |
+| bid128_copy_sign                   | __bid128_copySign                    |
 | bid128_cbrt                        | __bid128_cbrt                        |
 | bid128_cos                         | __bid128_cos                         |
 | bid128_cosh                        | __bid128_cosh                        |
@@ -99,7 +100,6 @@
 ## Bindings to implement
 
 - `__bid128_class`
-- `__bid128_copySign`
 - `__bid128_erf`
 - `__bid128_erfc`
 - `__bid128_exp10`
