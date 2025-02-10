@@ -88,7 +88,9 @@
 | bid128_lrint                       | __bid128_lrint                       |
 | bid128_lround                      | __bid128_lround                      |
 | bid128_max_num                     | __bid128_maxnum                      |
+| bid128_max_num_mag                 | __bid128_maxnum_mag                  |
 | bid128_min_num                     | __bid128_minnum                      |
+| bid128_min_num_mag                 | __bid128_minnum_mag                  |
 | bid128_mul                         | __bid128_mul                         |
 | bid128_nan                         | __bid128_nan                         |
 | bid128_negate                      | __bid128_negate                      |
@@ -125,8 +127,6 @@
 
 ## Bindings to implement
 
-- `__bid128_maxnum_mag`
-- `__bid128_minnum_mag`
 - `__bid128_modf`
 - `__bid128_nearbyint`
 - `__bid128_nextafter`
