@@ -63,6 +63,7 @@
 | bid128_from_string                 | __bid128_from_string                 |
 | bid128_from_uint32                 | __bid128_from_uint32                 |
 | bid128_from_uint64                 | __bid128_from_uint64                 |
+| bid128_hypot                       | __bid128_hypot                       |
 | bid128_ilogb                       | __bid128_ilogb                       |
 | bid128_infinite                    | __bid128_inf                         |
 | bid128_is_canonical                | __bid128_isCanonical                 |
@@ -113,7 +114,6 @@
 
 ## Bindings to implement
 
-- `__bid128_hypot`
 - `__bid128_ldexp`
 - `__bid128_lgamma`
 - `__bid128_llquantexp`
