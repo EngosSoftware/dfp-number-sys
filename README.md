@@ -48,12 +48,12 @@
 | bid128_cosh                        | __bid128_cosh                        |
 | bid128_class                       | __bid128_class                       |
 | bid128_div                         | __bid128_div                         |
-| bid128_exp                         | __bid128_exp                         |
-| bid128_exp10                       | __bid128_exp10                       |
-| bid128_exp2                        | __bid128_exp2                        |
 | bid128_erf                         | __bid128_erf                         |
 | bid128_erfc                        | __bid128_erfc                        |
 | bid128_exp                         | __bid128_exp                         |
+| bid128_exp10                       | __bid128_exp10                       |
+| bid128_exp2                        | __bid128_exp2                        |
+| bid128_expm1                       | __bid128_expm1                       |
 | bid128_frexp                       | __bid128_frexp                       |
 | bid128_from_int32                  | __bid128_from_int32                  |
 | bid128_from_int64                  | __bid128_from_int64                  |
@@ -110,7 +110,6 @@
 
 ## Bindings to implement
 
-- `__bid128_expm1`
 - `__bid128_fdim`
 - `__bid128_fma`
 - `__bid128_fmod`
