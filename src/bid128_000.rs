@@ -530,7 +530,15 @@ pub fn bid128_logb(x: BID128, flags: &mut u32) -> BID128 {
 }
 
 /// Returns its argument `x` rounded to the nearest integer value of
+/// type [i32], rounding according to the provided rounding direction.
+#[cfg(target_pointer_width = "32")]
+pub fn bid128_lrint(x: BID128, round: u32, flags: &mut u32) -> i32 {
+  unsafe { __bid128_lrint(x, round, flags) }
+}
+
+/// Returns its argument `x` rounded to the nearest integer value of
 /// type [i64], rounding according to the provided rounding direction.
+#[cfg(target_pointer_width = "64")]
 pub fn bid128_lrint(x: BID128, round: u32, flags: &mut u32) -> i64 {
   unsafe { __bid128_lrint(x, round, flags) }
 }
