@@ -195,6 +195,7 @@ extern "C" {
   fn __bid128_isSubnormal(x: BID128) -> c_int;
   fn __bid128_isZero(x: BID128) -> c_int;
   fn __bid128_ldexp(x: BID128, n: c_int, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_lgamma(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_log(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_maxnum(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_minnum(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
@@ -472,6 +473,11 @@ pub fn bid128_is_zero(x: BID128) -> bool {
 /// Returns `x*(10^n)`.
 pub fn bid128_ldexp(x: BID128, n: i32, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_ldexp(x, n, round, flags) }
+}
+
+/// Returns...
+pub fn bid128_lgamma(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_lgamma(x, round, flags) }
 }
 
 /// Returns natural logarithm of `x`.
