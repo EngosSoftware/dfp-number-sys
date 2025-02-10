@@ -78,6 +78,10 @@
 | bid128_ldexp                       | __bid128_ldexp                       |
 | bid128_lgamma                      | __bid128_lgamma                      |
 | bid128_log                         | __bid128_log                         |
+| bid128_log10                       | __bid128_log10                       |
+| bid128_log1p                       | __bid128_log1p                       |
+| bid128_log2                        | __bid128_log2                        |
+| bid128_logb                        | __bid128_logb                        |
 | bid128_max_num                     | __bid128_maxnum                      |
 | bid128_min_num                     | __bid128_minnum                      |
 | bid128_mul                         | __bid128_mul                         |
@@ -119,10 +123,6 @@
 - `__bid128_llquantexp`
 - `__bid128_llrint`
 - `__bid128_llround`
-- `__bid128_log10`
-- `__bid128_log1p`
-- `__bid128_log2`
-- `__bid128_logb`
 - `__bid128_lrint`
 - `__bid128_lround`
 - `__bid128_maxnum_mag`

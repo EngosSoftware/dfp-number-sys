@@ -37,6 +37,7 @@ mod bid128_log;
 mod bid128_log10;
 mod bid128_log1p;
 mod bid128_log2;
+mod bid128_logb;
 mod bid128_miscellaneous;
 mod bid128_nan;
 mod bid128_sin;
