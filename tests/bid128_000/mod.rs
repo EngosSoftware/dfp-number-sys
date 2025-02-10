@@ -48,6 +48,7 @@ mod bid128_max_num_mag;
 mod bid128_min_num;
 mod bid128_min_num_mag;
 mod bid128_miscellaneous;
+mod bid128_modf;
 mod bid128_nan;
 mod bid128_quantexp;
 mod bid128_quantum;
