@@ -42,6 +42,7 @@ mod bid128_logb;
 mod bid128_miscellaneous;
 mod bid128_nan;
 mod bid128_quantexp;
+mod bid128_quantum;
 mod bid128_sin;
 mod bid128_sinh;
 mod bid128_tan;
