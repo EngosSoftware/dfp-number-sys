@@ -245,6 +245,14 @@ extern "C" {
   fn __bid128_to_string(s: *mut c_char, x: BID128, flags: *mut c_uint);
 }
 
+pub type ExcFlags = u32;
+pub type RndMode = u32;
+pub type Integer = c_int;
+pub type Unsigned = c_uint;
+pub type LongInteger = c_long;
+pub type LongLongInteger = c_longlong;
+pub type LongLongUnsigned = c_ulonglong;
+
 /// Returns the absolute value of 128-bit decimal floating-point number.
 ///
 /// # Examples
@@ -259,52 +267,52 @@ extern "C" {
 /// assert_eq!("+2E+0", bid128_quiet_to_string(y));
 /// assert_eq!(flags, FB_CLEAR);
 /// ```
-pub fn bid128_abs(x: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_abs(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_abs(x, flags) }
 }
 
 /// Returns `arcsin(x)`.
-pub fn bid128_acos(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_acos(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_acos(x, round, flags) }
 }
 
 /// Returns `arsinh(x)`.
-pub fn bid128_acosh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_acosh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_acosh(x, round, flags) }
 }
 
 /// Returns a result of decimal floating-point addition.
-pub fn bid128_add(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_add(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_add(x, y, round, flags) }
 }
 
 /// Returns `arcsin(x)`.
-pub fn bid128_asin(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_asin(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_asin(x, round, flags) }
 }
 
 /// Returns `arsinh(x)`.
-pub fn bid128_asinh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_asinh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_asinh(x, round, flags) }
 }
 
 /// Returns `arctan(x)`.
-pub fn bid128_atan(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_atan(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_atan(x, round, flags) }
 }
 
 /// Returns `arctan2(x, y)`.
-pub fn bid128_atan2(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_atan2(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_atan2(x, y, round, flags) }
 }
 
 /// Returns `artanh(x)`.
-pub fn bid128_atanh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_atanh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_atanh(x, round, flags) }
 }
 
 /// Returns the cube root of the argument `x`.
-pub fn bid128_cbrt(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_cbrt(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_cbrt(x, round, flags) }
 }
 
@@ -320,12 +328,12 @@ pub fn bid128_copy_sign(x: BID128, y: BID128) -> BID128 {
 }
 
 /// Returns `cos(x)`.
-pub fn bid128_cos(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_cos(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_cos(x, round, flags) }
 }
 
 /// Returns `cosh(x)`.
-pub fn bid128_cosh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_cosh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_cosh(x, round, flags) }
 }
 
@@ -335,53 +343,53 @@ pub fn bid128_class(x: BID128) -> Class {
 }
 
 /// Returns a result of decimal floating-point division.
-pub fn bid128_div(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_div(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_div(x, y, round, flags) }
 }
 
 /// Returns the result of Gaussian error function for specified `x`.
-pub fn bid128_erf(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_erf(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_erf(x, round, flags) }
 }
 
 /// Returns the result of the complementary Gaussian error function for specified `x`: `erfc(x) = 1 - erf(x)`.
-pub fn bid128_erfc(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_erfc(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_erfc(x, round, flags) }
 }
 
 /// Returns the value of `e` raised to the `x`th power.
-pub fn bid128_exp(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_exp(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_exp(x, round, flags) }
 }
 
 /// Returns the `10^x`.
-pub fn bid128_exp10(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_exp10(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_exp10(x, round, flags) }
 }
 
 /// Returns the `2^x`.
-pub fn bid128_exp2(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_exp2(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_exp2(x, round, flags) }
 }
 
 /// Returns the `e^x - 1`.
-pub fn bid128_expm1(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_expm1(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_expm1(x, round, flags) }
 }
 
 /// Returns positive difference between `x` and `y`.
 /// Result is x - y if x > y, and +0 is x <= y.
-pub fn bid128_fdim(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_fdim(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_fdim(x, y, round, flags) }
 }
 
 /// Returns `(x * y) + z` rounded as one ternary operation.
-pub fn bid128_fma(x: BID128, y: BID128, z: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_fma(x: BID128, y: BID128, z: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_fma(x, y, z, round, flags) }
 }
 
 /// Returns the remainder of the division `x/y`.
-pub fn bid128_fmod(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_fmod(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_fmod(x, y, flags) }
 }
 
@@ -406,7 +414,7 @@ pub fn bid128_from_int64(x: i64) -> BID128 {
 
 /// Converts a decimal floating-point value represented in string format (decimal character sequence)
 /// to 128-bit decimal floating-point format (binary encoding).
-pub fn bid128_from_string(s: &str, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_from_string(s: &str, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   let c_s = CString::new(s).unwrap();
   unsafe { __bid128_from_string(c_s.as_ptr(), round, flags) }
 }
@@ -422,13 +430,13 @@ pub fn bid128_from_uint64(x: u64) -> BID128 {
 }
 
 /// Returns the square root of the squares of two arguments.
-pub fn bid128_hypot(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_hypot(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_hypot(x, y, round, flags) }
 }
 
 /// Returns the exponent e of x, a signed integral value, determined as though x
 /// were represented with infinite range and minimum exponent.
-pub fn bid128_ilogb(x: BID128, flags: &mut u32) -> i32 {
+pub fn bid128_ilogb(x: BID128, flags: &mut ExcFlags) -> Integer {
   unsafe { __bid128_ilogb(x, flags) }
 }
 
@@ -483,62 +491,62 @@ pub fn bid128_is_zero(x: BID128) -> bool {
 }
 
 /// Returns `x*(10^n)`.
-pub fn bid128_ldexp(x: BID128, n: i32, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_ldexp(x: BID128, n: i32, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_ldexp(x, n, round, flags) }
 }
 
 /// Returns natural logarithm from gamma function.
-pub fn bid128_lgamma(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_lgamma(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_lgamma(x, round, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value of
 /// type [i64], rounding according to the provided rounding direction.
-pub fn bid128_llrint(x: BID128, round: u32, flags: &mut u32) -> i64 {
+pub fn bid128_llrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongLongInteger {
   unsafe { __bid128_llrint(x, round, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value of
 /// type [i64], using rounding to nearest-away.
-pub fn bid128_llround(x: BID128, flags: &mut u32) -> i64 {
+pub fn bid128_llround(x: BID128, flags: &mut ExcFlags) -> LongLongInteger {
   unsafe { __bid128_llround(x, flags) }
 }
 
 /// Returns natural logarithm of `x`.
-pub fn bid128_log(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_log(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_log(x, round, flags) }
 }
 
 /// Returns base 10 logarithm of `x`.
-pub fn bid128_log10(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_log10(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_log10(x, round, flags) }
 }
 
 /// Returns natural logarithm of `1 + x`.
-pub fn bid128_log1p(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_log1p(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_log1p(x, round, flags) }
 }
 
 /// Returns base 2 logarithm of `x`.
-pub fn bid128_log2(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_log2(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_log2(x, round, flags) }
 }
 
 /// Returns the unbiased radix-independent exponent from `x`.
-pub fn bid128_logb(x: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_logb(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_logb(x, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value,
 /// rounding according to the provided rounding direction.
 #[cfg(target_pointer_width = "64")]
-pub fn bid128_lrint(x: BID128, round: u32, flags: &mut u32) -> c_long {
+pub fn bid128_lrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongInteger {
   unsafe { __bid128_lrint(x, round, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value,
 /// using rounding to nearest-away.
-pub fn bid128_lround(x: BID128, flags: &mut u32) -> c_long {
+pub fn bid128_lround(x: BID128, flags: &mut ExcFlags) -> LongInteger {
   unsafe { __bid128_lround(x, flags) }
 }
 
@@ -546,11 +554,11 @@ pub fn bid128_lround(x: BID128, flags: &mut u32) -> c_long {
 /// x if y < x, the canonicalized floating-point number if one operand
 /// is a floating-point number and the other a quiet NaN.
 /// Otherwise, it is either x or y, canonicalized.
-pub fn bid128_max_num(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_max_num(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_maxnum(x, y, flags) }
 }
 
-pub fn bid128_max_num_mag(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_max_num_mag(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_maxnum_mag(x, y, flags) }
 }
 
@@ -558,21 +566,21 @@ pub fn bid128_max_num_mag(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
 /// y if y < x, the canonicalized floating-point number if one operand
 /// is a floating-point number and the other a quiet NaN.
 /// Otherwise, it is either x or y, canonicalized.
-pub fn bid128_min_num(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_min_num(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_minnum(x, y, flags) }
 }
 
-pub fn bid128_min_num_mag(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_min_num_mag(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_minnum_mag(x, y, flags) }
 }
 
 /// Splits the number `x` into integral and fractional part.
-pub fn bid128_modf(x: BID128, int: &mut BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_modf(x: BID128, int: &mut BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_modf(x, int, flags) }
 }
 
 /// Returns a result of decimal floating-point multiplication.
-pub fn bid128_mul(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_mul(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_mul(x, y, round, flags) }
 }
 
@@ -588,17 +596,17 @@ pub fn bid128_negate(x: BID128) -> BID128 {
 }
 
 /// Returns decimal floating-point power.
-pub fn bid128_pow(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_pow(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_pow(x, y, round, flags) }
 }
 
 /// Returns the quantum of a finite argument as a signed integer value.
-pub fn bid128_quantexp(x: BID128) -> i32 {
+pub fn bid128_quantexp(x: BID128) -> Integer {
   unsafe { __bid128_quantexp(x) }
 }
 
 /// Returns the quantum of a finite argument as a signed long long integer value.
-pub fn bid128_llquantexp(x: BID128) -> i64 {
+pub fn bid128_llquantexp(x: BID128) -> LongLongInteger {
   unsafe { __bid128_llquantexp(x) }
 }
 
@@ -611,37 +619,37 @@ pub fn bid128_quantum(x: BID128) -> BID128 {
 /// Returns the number which is equal in value (except for any rounding) and sign
 /// to the first (left-hand) operand and which has an exponent set to be equal
 /// to the exponent of the second (right-hand) operand.
-pub fn bid128_quantize(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_quantize(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_quantize(x, y, round, flags) }
 }
 
 /// Compares 128-bit decimal floating-point numbers for specified relation,
 /// does not signal invalid exception for quiet NaNs.
-pub fn bid128_quiet_equal(x: BID128, y: BID128, flags: &mut u32) -> bool {
+pub fn bid128_quiet_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
   unsafe { __bid128_quiet_equal(x, y, flags) != 0 }
 }
 
 /// Compares 128-bit decimal floating-point numbers for specified relation,
 /// does not signal invalid exception for quiet NaNs.
-pub fn bid128_quiet_greater(x: BID128, y: BID128, flags: &mut u32) -> bool {
+pub fn bid128_quiet_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
   unsafe { __bid128_quiet_greater(x, y, flags) != 0 }
 }
 
 /// Compares 128-bit decimal floating-point numbers for specified relation,
 /// does not signal invalid exception for quiet NaNs.
-pub fn bid128_quiet_greater_equal(x: BID128, y: BID128, flags: &mut u32) -> bool {
+pub fn bid128_quiet_greater_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
   unsafe { __bid128_quiet_greater_equal(x, y, flags) != 0 }
 }
 
 /// Compares 128-bit decimal floating-point numbers for specified relation,
 /// does not signal invalid exception for quiet NaNs.
-pub fn bid128_quiet_less(x: BID128, y: BID128, flags: &mut u32) -> bool {
+pub fn bid128_quiet_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
   unsafe { __bid128_quiet_less(x, y, flags) != 0 }
 }
 
 /// Compares 128-bit decimal floating-point numbers for specified relation,
 /// does not signal invalid exception for quiet NaNs.
-pub fn bid128_quiet_less_equal(x: BID128, y: BID128, flags: &mut u32) -> bool {
+pub fn bid128_quiet_less_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
   unsafe { __bid128_quiet_less_equal(x, y, flags) != 0 }
 }
 
@@ -657,43 +665,43 @@ pub fn bid128_quiet_to_string(x: BID128) -> String {
 }
 
 /// Returns decimal floating-point remainder.
-pub fn bid128_rem(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_rem(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_rem(x, y, flags) }
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
 /// in the same format, using the current [rounding mode](crate::RoundingModes); signals inexact exceptions.
-pub fn bid128_round_integral_exact(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_round_integral_exact(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_exact(x, round, flags) }
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
 /// in the same format, using the **rounding-to-nearest-away** mode; does not signal inexact exceptions.
-pub fn bid128_round_integral_nearest_away(x: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_round_integral_nearest_away(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_nearest_away(x, flags) }
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
 /// in the same format, using the **rounding-to-nearest-even** mode; does not signal inexact exceptions.
-pub fn bid128_round_integral_nearest_even(x: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_round_integral_nearest_even(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_nearest_even(x, flags) }
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
 /// in the same format, using the **rounding-down** mode; does not signal inexact exceptions.
-pub fn bid128_round_integral_negative(x: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_round_integral_negative(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_negative(x, flags) }
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
 /// in the same format, using the **rounding-up** mode; does not signal inexact exceptions.
-pub fn bid128_round_integral_positive(x: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_round_integral_positive(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_positive(x, flags) }
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
 /// in the same format, using the **rounding-to-zero** mode; does not signal inexact exceptions.
-pub fn bid128_round_integral_zero(x: BID128, flags: &mut u32) -> BID128 {
+pub fn bid128_round_integral_zero(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_zero(x, flags) }
 }
 
@@ -708,62 +716,62 @@ pub fn bid128_scalbln(x: BID128, n: i64) -> BID128 {
 }
 
 /// Returns `sin(x)`.
-pub fn bid128_sin(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_sin(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_sin(x, round, flags) }
 }
 
 /// Returns `sinh(x)`.
-pub fn bid128_sinh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_sinh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_sinh(x, round, flags) }
 }
 
 /// Returns decimal floating-point square root.
-pub fn bid128_sqrt(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_sqrt(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_sqrt(x, round, flags) }
 }
 
 /// Returns a result of decimal floating-point subtraction.
-pub fn bid128_sub(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_sub(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_sub(x, y, round, flags) }
 }
 
 /// Returns `tan(x)`.
-pub fn bid128_tan(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_tan(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_tan(x, round, flags) }
 }
 
 /// Returns `tanh(x)`.
-pub fn bid128_tanh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+pub fn bid128_tanh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_tanh(x, round, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value to 32-bit signed integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_int32_int(x: BID128, flags: &mut u32) -> i32 {
+pub fn bid128_to_int32_int(x: BID128, flags: &mut ExcFlags) -> Integer {
   unsafe { __bid128_to_int32_int(x, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value to 32-bit unsigned integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_uint32_int(x: BID128, flags: &mut u32) -> u32 {
+pub fn bid128_to_uint32_int(x: BID128, flags: &mut ExcFlags) -> Unsigned {
   unsafe { __bid128_to_uint32_int(x, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value to 64-bit signed integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_int64_int(x: BID128, flags: &mut u32) -> i64 {
+pub fn bid128_to_int64_int(x: BID128, flags: &mut ExcFlags) -> LongLongInteger {
   unsafe { __bid128_to_int64_int(x, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value to 64-bit unsigned integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_uint64_int(x: BID128, flags: &mut u32) -> u64 {
+pub fn bid128_to_uint64_int(x: BID128, flags: &mut ExcFlags) -> LongLongUnsigned {
   unsafe { __bid128_to_uint64_int(x, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value (binary encoding)
 /// to string format (decimal character sequence).
-pub fn bid128_to_string(x: BID128, flags: &mut u32) -> String {
+pub fn bid128_to_string(x: BID128, flags: &mut ExcFlags) -> String {
   let mut buf = [0_u8; 1024];
   unsafe {
     __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, flags);
