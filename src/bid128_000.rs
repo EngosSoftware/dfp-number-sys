@@ -475,7 +475,7 @@ pub fn bid128_ldexp(x: BID128, n: i32, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_ldexp(x, n, round, flags) }
 }
 
-/// Returns...
+/// Returns natural logarithm from gamma function.
 pub fn bid128_lgamma(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_lgamma(x, round, flags) }
 }
