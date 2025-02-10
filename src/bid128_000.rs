@@ -175,6 +175,7 @@ extern "C" {
   fn __bid128_erfc(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_fdim(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_fma(x: BID128, y: BID128, z: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_fmod(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_frexp(x: BID128, exp: *mut c_int) -> BID128;
   fn __bid128_from_int32(x: c_int) -> BID128;
   fn __bid128_from_int64(x: c_longlong) -> BID128;
@@ -362,6 +363,11 @@ pub fn bid128_fdim(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 
 /// Returns `(x * y) + z` rounded as one ternary operation.
 pub fn bid128_fma(x: BID128, y: BID128, z: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_fma(x, y, z, round, flags) }
+}
+
+/// Returns the remainder of the division `x/y`.
+pub fn bid128_fmod(x: BID128, y: BID128, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_fmod(x, y, flags) }
 }
 
 /// If x is not a floating-point number, the results are unspecified (this
