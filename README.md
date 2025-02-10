@@ -77,6 +77,7 @@
 | bid128_is_zero                     | __bid128_isZero                      |
 | bid128_ldexp                       | __bid128_ldexp                       |
 | bid128_lgamma                      | __bid128_lgamma                      |
+| bid128_llquantexp                  | __bid128_llquantexp                  |
 | bid128_log                         | __bid128_log                         |
 | bid128_log10                       | __bid128_log10                       |
 | bid128_log1p                       | __bid128_log1p                       |
@@ -120,7 +121,6 @@
 
 ## Bindings to implement
 
-- `__bid128_llquantexp`
 - `__bid128_llrint`
 - `__bid128_llround`
 - `__bid128_lrint`

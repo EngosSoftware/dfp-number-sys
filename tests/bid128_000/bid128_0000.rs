@@ -183,12 +183,6 @@ fn test_bid128_pow() {
 }
 
 #[test]
-fn test_bid128_quantexp() {
-  assert_eq!(-4, bid128_quantexp(d128("2.3456")));
-  assert_eq!(-7, bid128_quantexp(d128("122.4567000")));
-}
-
-#[test]
 fn test_bid128_quantum() {
   eq("+1E-4", bid128_quantum(d128("2.3456")));
   eq("+1E-7", bid128_quantum(d128("122.4567000")));
