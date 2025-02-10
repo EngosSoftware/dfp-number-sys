@@ -75,6 +75,7 @@
 | bid128_is_signed                   | __bid128_isSigned                    |
 | bid128_is_subnormal                | __bid128_isSubnormal                 |
 | bid128_is_zero                     | __bid128_isZero                      |
+| bid128_ldexp                       | __bid128_ldexp                       |
 | bid128_log                         | __bid128_log                         |
 | bid128_max_num                     | __bid128_maxnum                      |
 | bid128_min_num                     | __bid128_minnum                      |
@@ -114,7 +115,6 @@
 
 ## Bindings to implement
 
-- `__bid128_ldexp`
 - `__bid128_lgamma`
 - `__bid128_llquantexp`
 - `__bid128_llrint`
