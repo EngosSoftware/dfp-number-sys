@@ -499,6 +499,7 @@ pub fn bid128_log1p(x: BID128, round: u32, flags: &mut u32) -> BID128 {
     unsafe { __bid128_log1p(x, round, flags) }
 }
 
+/// Returns base 2 logarithm of `x`.
 pub fn bid128_log2(x: BID128, round: u32, flags: &mut u32) -> BID128 {
     unsafe { __bid128_log2(x, round, flags) }
 }
