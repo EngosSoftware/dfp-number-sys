@@ -85,3 +85,43 @@ pub enum RoundingModes {
   TowardZero = 3,
   NearestAway = 4,
 }
+
+/// Value classes.
+#[repr(u32)]
+#[derive(Debug, PartialEq)]
+pub enum Class {
+  SignalingNaN = 0,
+  QuietNaN = 1,
+  NegativeInfinity = 2,
+  NegativeNormal = 3,
+  NegativeSubnormal = 4,
+  NegativeZero = 5,
+  PositiveZero = 6,
+  PositiveSubnormal = 7,
+  PositiveNormal = 8,
+  PositiveInfinity = 9,
+}
+
+impl From<u32> for Class {
+  /// Converts integer value into the [Class] enumeration.
+  /// Only values 0..9 are valid.
+  ///
+  /// # Panics
+  ///
+  /// Panics if `value` is out of range [0..9].
+  fn from(value: u32) -> Self {
+    match value {
+      0 => Class::SignalingNaN,
+      1 => Class::QuietNaN,
+      2 => Class::NegativeInfinity,
+      3 => Class::NegativeNormal,
+      4 => Class::NegativeSubnormal,
+      5 => Class::NegativeZero,
+      6 => Class::PositiveZero,
+      7 => Class::PositiveSubnormal,
+      8 => Class::PositiveNormal,
+      9 => Class::PositiveInfinity,
+      _ => unreachable!(),
+    }
+  }
+}

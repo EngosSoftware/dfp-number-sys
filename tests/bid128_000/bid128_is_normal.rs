@@ -18,5 +18,10 @@ fn _0003() {
 
 #[test]
 fn _0004() {
-  assert!(!bid128_is_normal(subnormal()));
+  assert!(!bid128_is_normal(positive_subnormal()));
+}
+
+#[test]
+fn _0005() {
+  assert!(!bid128_is_normal(negative_subnormal()));
 }

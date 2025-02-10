@@ -8,5 +8,5 @@ fn _0001() {
 
 #[test]
 fn _0002() {
-  assert!(bid128_is_subnormal(subnormal()));
+  assert!(bid128_is_subnormal(positive_subnormal()));
 }

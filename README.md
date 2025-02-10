@@ -46,14 +46,24 @@
 | bid128_cbrt                        | __bid128_cbrt                        |
 | bid128_cos                         | __bid128_cos                         |
 | bid128_cosh                        | __bid128_cosh                        |
+| bid128_class                       | __bid128_class                       |
 | bid128_div                         | __bid128_div                         |
+| bid128_erf                         | __bid128_erf                         |
+| bid128_erfc                        | __bid128_erfc                        |
 | bid128_exp                         | __bid128_exp                         |
+| bid128_exp10                       | __bid128_exp10                       |
+| bid128_exp2                        | __bid128_exp2                        |
+| bid128_expm1                       | __bid128_expm1                       |
 | bid128_frexp                       | __bid128_frexp                       |
+| bid128_fdim                        | __bid128_fdim                        |
+| bid128_fma                         | __bid128_fma                         |
+| bid128_fmod                        | __bid128_fmod                        |
 | bid128_from_int32                  | __bid128_from_int32                  |
 | bid128_from_int64                  | __bid128_from_int64                  |
 | bid128_from_string                 | __bid128_from_string                 |
 | bid128_from_uint32                 | __bid128_from_uint32                 |
 | bid128_from_uint64                 | __bid128_from_uint64                 |
+| bid128_hypot                       | __bid128_hypot                       |
 | bid128_ilogb                       | __bid128_ilogb                       |
 | bid128_infinite                    | __bid128_inf                         |
 | bid128_is_canonical                | __bid128_isCanonical                 |
@@ -65,9 +75,23 @@
 | bid128_is_signed                   | __bid128_isSigned                    |
 | bid128_is_subnormal                | __bid128_isSubnormal                 |
 | bid128_is_zero                     | __bid128_isZero                      |
+| bid128_ldexp                       | __bid128_ldexp                       |
+| bid128_lgamma                      | __bid128_lgamma                      |
+| bid128_llrint                      | __bid128_llrint                      |
+| bid128_llround                     | __bid128_llround                     |
+| bid128_llquantexp                  | __bid128_llquantexp                  |
 | bid128_log                         | __bid128_log                         |
+| bid128_log10                       | __bid128_log10                       |
+| bid128_log1p                       | __bid128_log1p                       |
+| bid128_log2                        | __bid128_log2                        |
+| bid128_logb                        | __bid128_logb                        |
+| bid128_lrint                       | __bid128_lrint                       |
+| bid128_lround                      | __bid128_lround                      |
 | bid128_max_num                     | __bid128_maxnum                      |
+| bid128_max_num_mag                 | __bid128_maxnum_mag                  |
 | bid128_min_num                     | __bid128_minnum                      |
+| bid128_min_num_mag                 | __bid128_minnum_mag                  |
+| bid128_modf                        | __bid128_modf                        |
 | bid128_mul                         | __bid128_mul                         |
 | bid128_nan                         | __bid128_nan                         |
 | bid128_negate                      | __bid128_negate                      |
@@ -104,30 +128,6 @@
 
 ## Bindings to implement
 
-- `__bid128_class`
-- `__bid128_erf`
-- `__bid128_erfc`
-- `__bid128_exp10`
-- `__bid128_exp2`
-- `__bid128_expm1`
-- `__bid128_fdim`
-- `__bid128_fma`
-- `__bid128_fmod`
-- `__bid128_hypot`
-- `__bid128_ldexp`
-- `__bid128_lgamma`
-- `__bid128_llquantexp`
-- `__bid128_llrint`
-- `__bid128_llround`
-- `__bid128_log10`
-- `__bid128_log1p`
-- `__bid128_log2`
-- `__bid128_logb`
-- `__bid128_lrint`
-- `__bid128_lround`
-- `__bid128_maxnum_mag`
-- `__bid128_minnum_mag`
-- `__bid128_modf`
 - `__bid128_nearbyint`
 - `__bid128_nextafter`
 - `__bid128_nextdown`
