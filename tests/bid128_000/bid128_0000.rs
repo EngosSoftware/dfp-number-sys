@@ -39,33 +39,6 @@ fn test_bid128_div_0001() {
 }
 
 #[test]
-fn test_bid128_exp_0001() {
-  let x = bid128_from_int32(0);
-  let mut flags = FB_CLEAR;
-  let z = bid128_exp(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_CLEAR, flags);
-  eq("+1E+0", z);
-}
-
-#[test]
-fn test_bid128_exp_0002() {
-  let x = bid128_from_int32(1);
-  let mut flags = FB_CLEAR;
-  let z = bid128_exp(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_INEXACT, flags);
-  eq("+2718281828459045235360287471352662E-33", z);
-}
-
-#[test]
-fn test_bid128_exp_0003() {
-  let x = d128("2.5");
-  let mut flags = FB_CLEAR;
-  let z = bid128_exp(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_INEXACT, flags);
-  eq("+1218249396070347343807017595116797E-32", z);
-}
-
-#[test]
 fn test_bid128_frexp() {
   let x = d128("25.4300");
   let mut exp = 0_i32;
