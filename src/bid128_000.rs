@@ -173,6 +173,7 @@ extern "C" {
     fn __bid128_expm1(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_erf(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_erfc(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+    fn __bid128_fdim(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_frexp(x: BID128, exp: *mut c_int) -> BID128;
     fn __bid128_from_int32(x: c_int) -> BID128;
     fn __bid128_from_int64(x: c_longlong) -> BID128;
@@ -349,6 +350,12 @@ pub fn bid128_exp2(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns the `e^x - 1`.
 pub fn bid128_expm1(x: BID128, round: u32, flags: &mut u32) -> BID128 {
     unsafe { __bid128_expm1(x, round, flags) }
+}
+
+/// Returns positive difference between `x` and `y`.
+/// Result is x - y if x > y, and +0 is x <= y.
+pub fn bid128_fdim(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
+    unsafe { __bid128_fdim(x, y, round, flags) }
 }
 
 /// If x is not a floating-point number, the results are unspecified (this
