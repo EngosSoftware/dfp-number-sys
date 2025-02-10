@@ -56,6 +56,7 @@
 | bid128_expm1                       | __bid128_expm1                       |
 | bid128_frexp                       | __bid128_frexp                       |
 | bid128_fdim                        | __bid128_fdim                        |
+| bid128_fma                         | __bid128_fma                         |
 | bid128_from_int32                  | __bid128_from_int32                  |
 | bid128_from_int64                  | __bid128_from_int64                  |
 | bid128_from_string                 | __bid128_from_string                 |
@@ -111,7 +112,6 @@
 
 ## Bindings to implement
 
-- `__bid128_fma`
 - `__bid128_fmod`
 - `__bid128_hypot`
 - `__bid128_ldexp`
