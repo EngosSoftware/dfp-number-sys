@@ -168,6 +168,8 @@ extern "C" {
   fn __bid128_class(x: BID128) -> c_int;
   fn __bid128_div(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_exp(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_erf(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_erfc(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_frexp(x: BID128, exp: *mut c_int) -> BID128;
   fn __bid128_from_int32(x: c_int) -> BID128;
   fn __bid128_from_int64(x: c_longlong) -> BID128;
@@ -319,6 +321,14 @@ pub fn bid128_div(x: BID128, y: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns the value of `e` raised to the `x`th power.
 pub fn bid128_exp(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_exp(x, round, flags) }
+}
+
+pub fn bid128_erf(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_erf(x, round, flags) }
+}
+
+pub fn bid128_erfc(x: BID128, round: u32, flags: &mut u32) -> BID128 {
+  unsafe { __bid128_erfc(x, round, flags) }
 }
 
 /// If x is not a floating-point number, the results are unspecified (this

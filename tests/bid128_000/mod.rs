@@ -13,6 +13,8 @@ mod bid128_constants;
 mod bid128_copy_sign;
 mod bid128_cos;
 mod bid128_cosh;
+mod bid128_erf;
+mod bid128_erfc;
 mod bid128_is_canonical;
 mod bid128_is_finite;
 mod bid128_is_nan;
