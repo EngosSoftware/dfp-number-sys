@@ -11,7 +11,7 @@
 //! ```
 
 use crate::{Class, BID128, FB_CLEAR};
-use libc::{c_char, c_int, c_longlong, c_uint, c_ulonglong};
+use libc::{c_char, c_int, c_long, c_longlong, c_uint, c_ulonglong};
 use std::ffi::{CStr, CString};
 
 /// Value `Inf` represented as a 128-bit decimal floating-point.
@@ -196,11 +196,14 @@ extern "C" {
     fn __bid128_isZero(x: BID128) -> c_int;
     fn __bid128_ldexp(x: BID128, n: c_int, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_lgamma(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+    fn __bid128_llrint(x: BID128, round: c_uint, flags: *mut c_uint) -> c_longlong;
+    fn __bid128_llquantexp(x: BID128) -> c_longlong;
     fn __bid128_log(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_log10(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_log1p(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_log2(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_logb(x: BID128, flags: *mut c_uint) -> BID128;
+    fn __bid128_lrint(x: BID128, round: c_uint, flags: *mut c_uint) -> c_long;
     fn __bid128_maxnum(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
     fn __bid128_minnum(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
     fn __bid128_nan(s: *const c_char) -> BID128;
@@ -208,7 +211,6 @@ extern "C" {
     fn __bid128_mul(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_pow(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_quantexp(x: BID128) -> c_int;
-    fn __bid128_llquantexp(x: BID128) -> c_longlong;
     fn __bid128_quantum(x: BID128) -> BID128;
     fn __bid128_quantize(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_quiet_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
@@ -485,6 +487,12 @@ pub fn bid128_lgamma(x: BID128, round: u32, flags: &mut u32) -> BID128 {
     unsafe { __bid128_lgamma(x, round, flags) }
 }
 
+/// Returns its argument `x` rounded to the nearest integer value of
+/// type [i64], rounding according to the provided rounding direction.
+pub fn bid128_llrint(x: BID128, round: u32, flags: &mut u32) -> i64 {
+    unsafe { __bid128_llrint(x, round, flags) }
+}
+
 /// Returns natural logarithm of `x`.
 pub fn bid128_log(x: BID128, round: u32, flags: &mut u32) -> BID128 {
     unsafe { __bid128_log(x, round, flags) }
@@ -508,6 +516,12 @@ pub fn bid128_log2(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns the unbiased radix-independent exponent from `x`.
 pub fn bid128_logb(x: BID128, flags: &mut u32) -> BID128 {
     unsafe { __bid128_logb(x, flags) }
+}
+
+/// Returns its argument `x` rounded to the nearest integer value of
+/// type [i64], rounding according to the provided rounding direction.
+pub fn bid128_lrint(x: BID128, round: u32, flags: &mut u32) -> i64 {
+    unsafe { __bid128_lrint(x, round, flags) }
 }
 
 /// Returns the canonicalized floating-point number y if x < y,
