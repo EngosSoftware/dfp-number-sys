@@ -33,6 +33,7 @@ mod bid128_is_subnormal;
 mod bid128_is_zero;
 mod bid128_ldexp;
 mod bid128_lgamma;
+mod bid128_log;
 mod bid128_miscellaneous;
 mod bid128_nan;
 mod bid128_sin;

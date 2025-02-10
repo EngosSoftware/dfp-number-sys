@@ -108,51 +108,6 @@ fn test_bid128_ilogb() {
 }
 
 #[test]
-fn test_bid128_log_0001() {
-  let x = bid128_from_int32(0);
-  let mut flags = FB_CLEAR;
-  let z = bid128_log(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_ZERO_DIVIDE, flags);
-  eq("-Inf", z);
-}
-
-#[test]
-fn test_bid128_log_0002() {
-  let x = bid128_from_int32(1);
-  let mut flags = FB_CLEAR;
-  let z = bid128_log(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_CLEAR, flags);
-  eq("+0E+0", z);
-}
-
-#[test]
-fn test_bid128_log_0003() {
-  let x = d128("2.7182818284590452353602874713527");
-  let mut flags = FB_CLEAR;
-  let z = bid128_log(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_INEXACT, flags);
-  eq("+1000000000000000000000000000000014E-33", z);
-}
-
-#[test]
-fn test_bid128_log_0004() {
-  let x = d128("10.0");
-  let mut flags = FB_CLEAR;
-  let z = bid128_log(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_INEXACT, flags);
-  eq("+2302585092994045684017991454684364E-33", z);
-}
-
-#[test]
-fn test_bid128_log_0005() {
-  let x = d128("+Inf");
-  let mut flags = FB_CLEAR;
-  let z = bid128_log(x, RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_CLEAR, flags);
-  eq("+Inf", z);
-}
-
-#[test]
 fn test_bid128_max_num_0001() {
   let x = d128("1.234");
   let y = d128("2.256");
