@@ -108,26 +108,6 @@ fn test_bid128_ilogb() {
 }
 
 #[test]
-fn test_bid128_max_num_0001() {
-  let x = d128("1.234");
-  let y = d128("2.256");
-  let mut flags = FB_CLEAR;
-  let z = bid128_max_num(x, y, &mut flags);
-  assert_eq!(FB_CLEAR, flags);
-  eq("+2256E-3", z);
-}
-
-#[test]
-fn test_bid128_min_num_0001() {
-  let x = d128("1.2340000000");
-  let y = d128("2.256000");
-  let mut flags = FB_CLEAR;
-  let z = bid128_min_num(x, y, &mut flags);
-  assert_eq!(FB_CLEAR, flags);
-  eq("+12340000000E-10", z);
-}
-
-#[test]
 fn test_bid128_mul_0001() {
   let x = bid128_from_int32(2);
   let y = bid128_from_int32(5);

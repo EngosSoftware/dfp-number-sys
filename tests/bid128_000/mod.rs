@@ -43,6 +43,8 @@ mod bid128_log2;
 mod bid128_logb;
 mod bid128_lrint;
 mod bid128_lround;
+mod bid128_max_num;
+mod bid128_min_num;
 mod bid128_miscellaneous;
 mod bid128_nan;
 mod bid128_quantexp;
