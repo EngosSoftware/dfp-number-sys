@@ -8,6 +8,7 @@ mod bid128_atan;
 mod bid128_atan2;
 mod bid128_atanh;
 mod bid128_cbrt;
+mod bid128_class;
 mod bid128_constants;
 mod bid128_copy_sign;
 mod bid128_cos;
@@ -48,6 +49,10 @@ fn d128(s: &str) -> BID128 {
 }
 
 /// Returns a subnormal value for testing purposes.
-fn subnormal() -> BID128 {
+fn positive_subnormal() -> BID128 {
   BID128::new(0x07a63158fbd6b32f, 0x0002000000000000)
+}
+
+fn negative_subnormal() -> BID128 {
+  BID128::new(0x07a63158fbd6b32f, 0x8002000000000000)
 }

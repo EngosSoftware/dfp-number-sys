@@ -46,6 +46,7 @@
 | bid128_cbrt                        | __bid128_cbrt                        |
 | bid128_cos                         | __bid128_cos                         |
 | bid128_cosh                        | __bid128_cosh                        |
+| bid128_class                       | __bid128_class                       |
 | bid128_div                         | __bid128_div                         |
 | bid128_exp                         | __bid128_exp                         |
 | bid128_frexp                       | __bid128_frexp                       |
@@ -104,7 +105,6 @@
 
 ## Bindings to implement
 
-- `__bid128_class`
 - `__bid128_erf`
 - `__bid128_erfc`
 - `__bid128_exp10`

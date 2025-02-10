@@ -10,7 +10,7 @@
 //!   └─────── 128-bit decimal in BID format
 //! ```
 
-use crate::{BID128, FB_CLEAR};
+use crate::{Class, BID128, FB_CLEAR};
 use libc::{c_char, c_int, c_longlong, c_uint, c_ulonglong};
 use std::ffi::{CStr, CString};
 
@@ -165,6 +165,7 @@ extern "C" {
   fn __bid128_copySign(x: BID128, y: BID128) -> BID128;
   fn __bid128_cos(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_cosh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_class(x: BID128) -> c_int;
   fn __bid128_div(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_exp(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_frexp(x: BID128, exp: *mut c_int) -> BID128;
@@ -303,6 +304,11 @@ pub fn bid128_cos(x: BID128, round: u32, flags: &mut u32) -> BID128 {
 /// Returns `cosh(x)`.
 pub fn bid128_cosh(x: BID128, round: u32, flags: &mut u32) -> BID128 {
   unsafe { __bid128_cosh(x, round, flags) }
+}
+
+/// Returns the class of the specified argument `x`.
+pub fn bid128_class(x: BID128) -> Class {
+  unsafe { __bid128_class(x) as u32 }.into()
 }
 
 /// Returns a result of decimal floating-point division.
