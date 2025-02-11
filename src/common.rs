@@ -7,21 +7,19 @@ use std::fmt::{Debug, Display};
 /// A structure representing 128-bit floating-point decimal number.
 #[repr(C, align(16))]
 #[derive(Copy, Clone)]
-pub struct BID128 {
-  pub(crate) w: [u64; 2],
-}
+pub struct BID128(pub(crate) [u64; 2]);
 
 impl BID128 {
   /// Creates a new BID128 value from raw data.
   pub fn new(lo: u64, hi: u64) -> Self {
-    BID128 { w: [lo, hi] }
+    BID128([lo, hi])
   }
 }
 
 impl Debug for BID128 {
   /// Implements [Debug] trait for [BID128].
   fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-    write!(f, "[{:016X}{:016X}]", self.w[1], self.w[0])
+    write!(f, "[{:016X}{:016X}]", self.0[1], self.0[0])
   }
 }
 
@@ -31,6 +29,16 @@ impl Display for BID128 {
     write!(f, "{}", bid128_quiet_to_string(*self))
   }
 }
+
+/// A structure representing 64-bit floating-point decimal number.
+#[repr(C, align(16))]
+#[derive(Copy, Clone)]
+pub struct BID64(pub(crate) u64);
+
+/// A structure representing 32-bit floating-point decimal number.
+#[repr(C, align(16))]
+#[derive(Copy, Clone)]
+pub struct BID32(pub(crate) u32);
 
 /// Exception flag `Invalid` as [u32] value.
 pub const FB_INVALID: u32 = FlagBits::Invalid as u32;
