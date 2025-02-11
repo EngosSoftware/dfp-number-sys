@@ -229,6 +229,10 @@ extern "C" {
   fn __bid128_quiet_greater_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_less_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_less_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_not_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_not_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_not_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_rem(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_round_integral_exact(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_round_integral_nearest_away(x: BID128, flags: *mut c_uint) -> BID128;
@@ -682,6 +686,22 @@ pub fn bid128_quiet_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
 /// does not signal invalid exception for quiet NaNs.
 pub fn bid128_quiet_less_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
   unsafe { __bid128_quiet_less_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_less_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_less_unordered(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_not_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_not_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_not_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_not_greater(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_not_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_not_less(x, y, flags) != 0 }
 }
 
 /// Converts 128-bit decimal floating-point value (binary encoding)
