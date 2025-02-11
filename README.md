@@ -143,10 +143,86 @@
 | bid128_tan                         | __bid128_tan                         |
 | bid128_tanh                        | __bid128_tanh                        |
 | bid128_tgamma                      | __bid128_tgamma                      |
+| bid128_to_int16_ceil               | __bid128_to_int16_ceil               |
+| bid128_to_int16_floor              | __bid128_to_int16_floor              |
+| bid128_to_int16_int                | __bid128_to_int16_int                |
+| bid128_to_int16_rnint              | __bid128_to_int16_rnint              |
+| bid128_to_int16_rninta             | __bid128_to_int16_rninta             |
+| bid128_to_int16_xceil              | __bid128_to_int16_xceil              |
+| bid128_to_int16_xfloor             | __bid128_to_int16_xfloor             |
+| bid128_to_int16_xint               | __bid128_to_int16_xint               |
+| bid128_to_int16_xrnint             | __bid128_to_int16_xrnint             |
+| bid128_to_int16_xrninta            | __bid128_to_int16_xrninta            |
+| bid128_to_int32_ceil               | __bid128_to_int32_ceil               |
+| bid128_to_int32_floor              | __bid128_to_int32_floor              |
 | bid128_to_int32_int                | __bid128_to_int32_int                |
-| bid128_to_uint32_int               | __bid128_to_uint32_int               |
+| bid128_to_int32_rnint              | __bid128_to_int32_rnint              |
+| bid128_to_int32_rninta             | __bid128_to_int32_rninta             |
+| bid128_to_int32_xceil              | __bid128_to_int32_xceil              |
+| bid128_to_int32_xfloor             | __bid128_to_int32_xfloor             |
+| bid128_to_int32_xint               | __bid128_to_int32_xint               |
+| bid128_to_int32_xrnint             | __bid128_to_int32_xrnint             |
+| bid128_to_int32_xrninta            | __bid128_to_int32_xrninta            |
+| bid128_to_int64_ceil               | __bid128_to_int64_ceil               |
+| bid128_to_int64_floor              | __bid128_to_int64_floor              |
 | bid128_to_int64_int                | __bid128_to_int64_int                |
+| bid128_to_int64_rnint              | __bid128_to_int64_rnint              |
+| bid128_to_int64_rninta             | __bid128_to_int64_rninta             |
+| bid128_to_int64_xceil              | __bid128_to_int64_xceil              |
+| bid128_to_int64_xfloor             | __bid128_to_int64_xfloor             |
+| bid128_to_int64_xint               | __bid128_to_int64_xint               |
+| bid128_to_int64_xrnint             | __bid128_to_int64_xrnint             |
+| bid128_to_int64_xrninta            | __bid128_to_int64_xrninta            |
+| bid128_to_int8_ceil                | __bid128_to_int8_ceil                |
+| bid128_to_int8_floor               | __bid128_to_int8_floor               |
+| bid128_to_int8_int                 | __bid128_to_int8_int                 |
+| bid128_to_int8_rnint               | __bid128_to_int8_rnint               |
+| bid128_to_int8_rninta              | __bid128_to_int8_rninta              |
+| bid128_to_int8_xceil               | __bid128_to_int8_xceil               |
+| bid128_to_int8_xfloor              | __bid128_to_int8_xfloor              |
+| bid128_to_int8_xint                | __bid128_to_int8_xint                |
+| bid128_to_int8_xrnint              | __bid128_to_int8_xrnint              |
+| bid128_to_int8_xrninta             | __bid128_to_int8_xrninta             |
+| bid128_to_uint16_ceil              | __bid128_to_uint16_ceil              |
+| bid128_to_uint16_floor             | __bid128_to_uint16_floor             |
+| bid128_to_uint16_int               | __bid128_to_uint16_int               |
+| bid128_to_uint16_rnint             | __bid128_to_uint16_rnint             |
+| bid128_to_uint16_rninta            | __bid128_to_uint16_rninta            |
+| bid128_to_uint16_xceil             | __bid128_to_uint16_xceil             |
+| bid128_to_uint16_xfloor            | __bid128_to_uint16_xfloor            |
+| bid128_to_uint16_xint              | __bid128_to_uint16_xint              |
+| bid128_to_uint16_xrnint            | __bid128_to_uint16_xrnint            |
+| bid128_to_uint16_xrninta           | __bid128_to_uint16_xrninta           |
+| bid128_to_uint32_ceil              | __bid128_to_uint32_ceil              |
+| bid128_to_uint32_floor             | __bid128_to_uint32_floor             |
+| bid128_to_uint32_int               | __bid128_to_uint32_int               |
+| bid128_to_uint32_rnint             | __bid128_to_uint32_rnint             |
+| bid128_to_uint32_rninta            | __bid128_to_uint32_rninta            |
+| bid128_to_uint32_xceil             | __bid128_to_uint32_xceil             |
+| bid128_to_uint32_xfloor            | __bid128_to_uint32_xfloor            |
+| bid128_to_uint32_xint              | __bid128_to_uint32_xint              |
+| bid128_to_uint32_xrnint            | __bid128_to_uint32_xrnint            |
+| bid128_to_uint32_xrninta           | __bid128_to_uint32_xrninta           |
+| bid128_to_uint64_ceil              | __bid128_to_uint64_ceil              |
+| bid128_to_uint64_floor             | __bid128_to_uint64_floor             |
 | bid128_to_uint64_int               | __bid128_to_uint64_int               |
+| bid128_to_uint64_rnint             | __bid128_to_uint64_rnint             |
+| bid128_to_uint64_rninta            | __bid128_to_uint64_rninta            |
+| bid128_to_uint64_xceil             | __bid128_to_uint64_xceil             |
+| bid128_to_uint64_xfloor            | __bid128_to_uint64_xfloor            |
+| bid128_to_uint64_xint              | __bid128_to_uint64_xint              |
+| bid128_to_uint64_xrnint            | __bid128_to_uint64_xrnint            |
+| bid128_to_uint64_xrninta           | __bid128_to_uint64_xrninta           |
+| bid128_to_uint8_ceil               | __bid128_to_uint8_ceil               |
+| bid128_to_uint8_floor              | __bid128_to_uint8_floor              |
+| bid128_to_uint8_int                | __bid128_to_uint8_int                |
+| bid128_to_uint8_rnint              | __bid128_to_uint8_rnint              |
+| bid128_to_uint8_rninta             | __bid128_to_uint8_rninta             |
+| bid128_to_uint8_xceil              | __bid128_to_uint8_xceil              |
+| bid128_to_uint8_xfloor             | __bid128_to_uint8_xfloor             |
+| bid128_to_uint8_xint               | __bid128_to_uint8_xint               |
+| bid128_to_uint8_xrnint             | __bid128_to_uint8_xrnint             |
+| bid128_to_uint8_xrninta            | __bid128_to_uint8_xrninta            |
 | bid128_to_string                   | __bid128_to_string                   |
 
 ## Bindings to implement
@@ -157,85 +233,6 @@
 - `__bid128_to_binary32`
 - `__bid128_to_binary64`
 - `__bid128_to_binary80`
-
----
-
-- `__bid128_to_int16_ceil`
-- `__bid128_to_int16_floor`
-- `__bid128_to_int16_int`
-- `__bid128_to_int16_rnint`
-- `__bid128_to_int16_rninta`
-- `__bid128_to_int16_xceil`
-- `__bid128_to_int16_xfloor`
-- `__bid128_to_int16_xint`
-- `__bid128_to_int16_xrnint`
-- `__bid128_to_int16_xrninta`
-- `__bid128_to_int32_ceil`
-- `__bid128_to_int32_floor`
-- `__bid128_to_int32_rnint`
-- `__bid128_to_int32_rninta`
-- `__bid128_to_int32_xceil`
-- `__bid128_to_int32_xfloor`
-- `__bid128_to_int32_xint`
-- `__bid128_to_int32_xrnint`
-- `__bid128_to_int32_xrninta`
-- `__bid128_to_int64_ceil`
-- `__bid128_to_int64_floor`
-- `__bid128_to_int64_rnint`
-- `__bid128_to_int64_rninta`
-- `__bid128_to_int64_xceil`
-- `__bid128_to_int64_xfloor`
-- `__bid128_to_int64_xint`
-- `__bid128_to_int64_xrnint`
-- `__bid128_to_int64_xrninta`
-- `__bid128_to_int8_ceil`
-- `__bid128_to_int8_floor`
-- `__bid128_to_int8_int`
-- `__bid128_to_int8_rnint`
-- `__bid128_to_int8_rninta`
-- `__bid128_to_int8_xceil`
-- `__bid128_to_int8_xfloor`
-- `__bid128_to_int8_xint`
-- `__bid128_to_int8_xrnint`
-- `__bid128_to_int8_xrninta`
-- `__bid128_to_uint16_ceil`
-- `__bid128_to_uint16_floor`
-- `__bid128_to_uint16_int`
-- `__bid128_to_uint16_rnint`
-- `__bid128_to_uint16_rninta`
-- `__bid128_to_uint16_xceil`
-- `__bid128_to_uint16_xfloor`
-- `__bid128_to_uint16_xint`
-- `__bid128_to_uint16_xrnint`
-- `__bid128_to_uint16_xrninta`
-- `__bid128_to_uint32_ceil`
-- `__bid128_to_uint32_floor`
-- `__bid128_to_uint32_rnint`
-- `__bid128_to_uint32_rninta`
-- `__bid128_to_uint32_xceil`
-- `__bid128_to_uint32_xfloor`
-- `__bid128_to_uint32_xint`
-- `__bid128_to_uint32_xrnint`
-- `__bid128_to_uint32_xrninta`
-- `__bid128_to_uint64_ceil`
-- `__bid128_to_uint64_floor`
-- `__bid128_to_uint64_rnint`
-- `__bid128_to_uint64_rninta`
-- `__bid128_to_uint64_xceil`
-- `__bid128_to_uint64_xfloor`
-- `__bid128_to_uint64_xint`
-- `__bid128_to_uint64_xrnint`
-- `__bid128_to_uint64_xrninta`
-- `__bid128_to_uint8_ceil`
-- `__bid128_to_uint8_floor`
-- `__bid128_to_uint8_int`
-- `__bid128_to_uint8_rnint`
-- `__bid128_to_uint8_rninta`
-- `__bid128_to_uint8_xceil`
-- `__bid128_to_uint8_xfloor`
-- `__bid128_to_uint8_xint`
-- `__bid128_to_uint8_xrnint`
-- `__bid128_to_uint8_xrninta`
 
 ---
 

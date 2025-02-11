@@ -85,7 +85,15 @@ mod bid128_sinh;
 mod bid128_tan;
 mod bid128_tanh;
 mod bid128_tgamma;
+mod bid128_to_int16;
+mod bid128_to_int32;
+mod bid128_to_int64;
+mod bid128_to_int8;
 mod bid128_to_string;
+mod bid128_to_uint16;
+mod bid128_to_uint32;
+mod bid128_to_uint64;
+mod bid128_to_uint8;
 
 use super::*;
 use dfp_number_sys::bid128_000::*;
