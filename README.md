@@ -132,6 +132,7 @@
 | bid128_sub                         | __bid128_sub                         |
 | bid128_tan                         | __bid128_tan                         |
 | bid128_tanh                        | __bid128_tanh                        |
+| bid128_tgamma                      | __bid128_tgamma                      |
 | bid128_to_int32_int                | __bid128_to_int32_int                |
 | bid128_to_uint32_int               | __bid128_to_uint32_int               |
 | bid128_to_int64_int                | __bid128_to_int64_int                |
@@ -139,6 +140,8 @@
 | bid128_to_string                   | __bid128_to_string                   |
 
 ## Bindings to implement
+
+---
 
 - `__bid128_radix`
 - `__bid128_sameQuantum`
@@ -150,13 +153,18 @@
 - `__bid128_signaling_less_unordered`
 - `__bid128_signaling_not_greater`
 - `__bid128_signaling_not_less`
-- `__bid128_tgamma`
+
+---
+
 - `__bid128_to_bid32`
 - `__bid128_to_bid64`
 - `__bid128_to_binary128`
 - `__bid128_to_binary32`
 - `__bid128_to_binary64`
 - `__bid128_to_binary80`
+
+---
+
 - `__bid128_to_int16_ceil`
 - `__bid128_to_int16_floor`
 - `__bid128_to_int16_int`
@@ -233,8 +241,14 @@
 - `__bid128_to_uint8_xint`
 - `__bid128_to_uint8_xrnint`
 - `__bid128_to_uint8_xrninta`
+
+---
+
 - `__bid128_totalOrder`
 - `__bid128_totalOrderMag`
+
+---
+
 - `__bid128dd_add`
 - `__bid128dd_div`
 - `__bid128dd_mul`
@@ -254,6 +268,8 @@
 - `__bid128qdd_fma`
 - `__bid128qdq_fma`
 - `__bid128qqd_fma`
+
+---
 
 ## License
 
