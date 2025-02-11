@@ -52,6 +52,8 @@ mod bid128_modf;
 mod bid128_nan;
 mod bid128_nearbyint;
 mod bid128_nextafter;
+mod bid128_nextdown;
+mod bid128_nexttoward;
 mod bid128_quantexp;
 mod bid128_quantum;
 mod bid128_sin;
