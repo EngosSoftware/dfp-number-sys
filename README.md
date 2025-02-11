@@ -94,6 +94,7 @@
 | bid128_modf                        | __bid128_modf                        |
 | bid128_mul                         | __bid128_mul                         |
 | bid128_nan                         | __bid128_nan                         |
+| bid128_nearbyint                   | __bid128_nearbyint                   |
 | bid128_negate                      | __bid128_negate                      |
 | bid128_pow                         | __bid128_pow                         |
 | bid128_quantexp                    | __bid128_quantexp                    |
@@ -128,7 +129,6 @@
 
 ## Bindings to implement
 
-- `__bid128_nearbyint`
 - `__bid128_nextafter`
 - `__bid128_nextdown`
 - `__bid128_nexttoward`

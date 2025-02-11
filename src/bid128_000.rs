@@ -213,6 +213,7 @@ extern "C" {
   fn __bid128_modf(x: BID128, int: *mut BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_mul(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_nan(s: *const c_char) -> BID128;
+  fn __bid128_nearbyint(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_negate(x: BID128) -> BID128;
   fn __bid128_pow(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_quantexp(x: BID128) -> c_int;
@@ -245,8 +246,8 @@ extern "C" {
   fn __bid128_to_string(s: *mut c_char, x: BID128, flags: *mut c_uint);
 }
 
-pub type ExcFlags = u32;
-pub type RndMode = u32;
+pub type ExcFlags = c_uint;
+pub type RndMode = c_uint;
 pub type Integer = c_int;
 pub type Unsigned = c_uint;
 pub type LongInteger = c_long;
@@ -588,6 +589,10 @@ pub fn bid128_mul(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) ->
 pub fn bid128_nan(s: &str) -> BID128 {
   let cstring = CString::new(s).unwrap();
   unsafe { __bid128_nan(cstring.as_ptr()) }
+}
+
+pub fn bid128_nearbyint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_nearbyint(x, round, flags) }
 }
 
 /// Returns the same value as `x` but with reversed sign.
