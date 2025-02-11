@@ -61,6 +61,8 @@ mod bid128_quiet_equal;
 mod bid128_quiet_greater;
 mod bid128_quiet_greater_equal;
 mod bid128_quiet_greater_unordered;
+mod bid128_quiet_less;
+mod bid128_quiet_less_equal;
 mod bid128_sin;
 mod bid128_sinh;
 mod bid128_tan;
