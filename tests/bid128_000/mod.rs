@@ -22,6 +22,7 @@ mod bid128_expm1;
 mod bid128_fdim;
 mod bid128_fma;
 mod bid128_fmod;
+mod bid128_from_string;
 mod bid128_hypot;
 mod bid128_is_canonical;
 mod bid128_is_finite;

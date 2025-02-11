@@ -70,22 +70,6 @@ fn test_bid128_from_int64() {
 }
 
 #[test]
-fn test_bid128_from_string_0001() {
-  let mut flags = FB_CLEAR;
-  let x = bid128_from_string("-123.45", RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_CLEAR, flags);
-  eq("-12345E-2", x);
-}
-
-#[test]
-fn test_bid128_from_string_0002() {
-  let mut flags = FB_CLEAR;
-  let x = bid128_from_string("-12345e-2", RM_NEAREST_EVEN, &mut flags);
-  assert_eq!(FB_CLEAR, flags);
-  eq("-12345E-2", x);
-}
-
-#[test]
 fn test_bid128_from_uint32() {
   eq("+0E+0", bid128_from_uint32(0));
   eq("+1E+0", bid128_from_uint32(1));
