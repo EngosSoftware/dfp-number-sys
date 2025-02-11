@@ -107,6 +107,7 @@
 | bid128_quiet_equal                 | __bid128_quiet_equal                 |
 | bid128_quiet_greater               | __bid128_quiet_greater               |
 | bid128_quiet_greater_equal         | __bid128_quiet_greater_equal         |
+| bid128_quiet_greater_unordered     | __bid128_quiet_greater_unordered     |
 | bid128_quiet_less                  | __bid128_quiet_less                  |
 | bid128_quiet_less_equal            | __bid128_quiet_less_equal            |
 | bid128_quiet_to_string             | __bid128_to_string                   |
@@ -133,7 +134,6 @@
 
 ## Bindings to implement
 
-- `__bid128_quiet_greater_unordered`
 - `__bid128_quiet_less_unordered`
 - `__bid128_quiet_not_equal`
 - `__bid128_quiet_not_greater`

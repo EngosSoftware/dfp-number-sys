@@ -11,7 +11,7 @@
 //! ```
 
 use crate::{Class, BID128, FB_CLEAR};
-use libc::{c_char, c_int, c_long, c_longlong, c_uint, c_ulonglong};
+use libc::{c_char, c_int, c_long, c_longlong, c_uint, c_ulong, c_ulonglong};
 use std::ffi::{CStr, CString};
 
 /// Value `Inf` represented as a 128-bit decimal floating-point.
@@ -226,6 +226,7 @@ extern "C" {
   fn __bid128_quiet_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_greater_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_greater_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_less_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_rem(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
@@ -252,11 +253,12 @@ extern "C" {
 
 pub type ExcFlags = c_uint;
 pub type RndMode = c_uint;
-pub type Integer = c_int;
+pub type Signed = c_int;
 pub type Unsigned = c_uint;
-pub type LongInteger = c_long;
-pub type LongLongInteger = c_longlong;
-pub type LongLongUnsigned = c_ulonglong;
+pub type Long = c_long;
+pub type UnsignedLong = c_ulong;
+pub type LongLong = c_longlong;
+pub type UnsignedLongLong = c_ulonglong;
 
 /// Returns the absolute value of 128-bit decimal floating-point number.
 ///
@@ -441,7 +443,7 @@ pub fn bid128_hypot(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) 
 
 /// Returns the exponent e of x, a signed integral value, determined as though x
 /// were represented with infinite range and minimum exponent.
-pub fn bid128_ilogb(x: BID128, flags: &mut ExcFlags) -> Integer {
+pub fn bid128_ilogb(x: BID128, flags: &mut ExcFlags) -> Signed {
   unsafe { __bid128_ilogb(x, flags) }
 }
 
@@ -507,13 +509,13 @@ pub fn bid128_lgamma(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 
 
 /// Returns its argument `x` rounded to the nearest integer value of
 /// type [i64], rounding according to the provided rounding direction.
-pub fn bid128_llrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongLongInteger {
+pub fn bid128_llrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongLong {
   unsafe { __bid128_llrint(x, round, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value of
 /// type [i64], using rounding to nearest-away.
-pub fn bid128_llround(x: BID128, flags: &mut ExcFlags) -> LongLongInteger {
+pub fn bid128_llround(x: BID128, flags: &mut ExcFlags) -> LongLong {
   unsafe { __bid128_llround(x, flags) }
 }
 
@@ -545,13 +547,13 @@ pub fn bid128_logb(x: BID128, flags: &mut ExcFlags) -> BID128 {
 /// Returns its argument `x` rounded to the nearest integer value,
 /// rounding according to the provided rounding direction.
 #[cfg(target_pointer_width = "64")]
-pub fn bid128_lrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongInteger {
+pub fn bid128_lrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> Long {
   unsafe { __bid128_lrint(x, round, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value,
 /// using rounding to nearest-away.
-pub fn bid128_lround(x: BID128, flags: &mut ExcFlags) -> LongInteger {
+pub fn bid128_lround(x: BID128, flags: &mut ExcFlags) -> Long {
   unsafe { __bid128_lround(x, flags) }
 }
 
@@ -626,12 +628,12 @@ pub fn bid128_pow(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) ->
 }
 
 /// Returns the quantum of a finite argument as a signed integer value.
-pub fn bid128_quantexp(x: BID128) -> Integer {
+pub fn bid128_quantexp(x: BID128) -> Signed {
   unsafe { __bid128_quantexp(x) }
 }
 
 /// Returns the quantum of a finite argument as a signed long long integer value.
-pub fn bid128_llquantexp(x: BID128) -> LongLongInteger {
+pub fn bid128_llquantexp(x: BID128) -> LongLong {
   unsafe { __bid128_llquantexp(x) }
 }
 
@@ -664,6 +666,10 @@ pub fn bid128_quiet_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool 
 /// does not signal invalid exception for quiet NaNs.
 pub fn bid128_quiet_greater_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
   unsafe { __bid128_quiet_greater_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_greater_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_greater_unordered(x, y, flags) != 0 }
 }
 
 /// Compares 128-bit decimal floating-point numbers for specified relation,
@@ -772,7 +778,7 @@ pub fn bid128_tanh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
 
 /// Converts 128-bit decimal floating-point value to 32-bit signed integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_int32_int(x: BID128, flags: &mut ExcFlags) -> Integer {
+pub fn bid128_to_int32_int(x: BID128, flags: &mut ExcFlags) -> Signed {
   unsafe { __bid128_to_int32_int(x, flags) }
 }
 
@@ -784,13 +790,13 @@ pub fn bid128_to_uint32_int(x: BID128, flags: &mut ExcFlags) -> Unsigned {
 
 /// Converts 128-bit decimal floating-point value to 64-bit signed integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_int64_int(x: BID128, flags: &mut ExcFlags) -> LongLongInteger {
+pub fn bid128_to_int64_int(x: BID128, flags: &mut ExcFlags) -> LongLong {
   unsafe { __bid128_to_int64_int(x, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value to 64-bit unsigned integer
 /// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_uint64_int(x: BID128, flags: &mut ExcFlags) -> LongLongUnsigned {
+pub fn bid128_to_uint64_int(x: BID128, flags: &mut ExcFlags) -> UnsignedLongLong {
   unsafe { __bid128_to_uint64_int(x, flags) }
 }
 
