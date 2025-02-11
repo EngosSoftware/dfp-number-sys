@@ -11,7 +11,7 @@
 //! ```
 
 use crate::{Class, BID128, FB_CLEAR};
-use libc::{c_char, c_int, c_long, c_longlong, c_uint, c_ulonglong};
+use libc::{c_char, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulong, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
 /// Value `Inf` represented as a 128-bit decimal floating-point.
@@ -24,7 +24,7 @@ use std::ffi::{CStr, CString};
 /// let x = BID128_INF;
 /// assert_eq!("+Inf", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_INF: BID128 = BID128 { w: [0x0, 0x7800000000000000] };
+pub const BID128_INF: BID128 = BID128([0x0, 0x7800000000000000]);
 
 /// Value `-Inf` represented as a 128-bit decimal floating-point.
 ///
@@ -36,7 +36,7 @@ pub const BID128_INF: BID128 = BID128 { w: [0x0, 0x7800000000000000] };
 /// let x = BID128_MINUS_INF;
 /// assert_eq!("-Inf", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_MINUS_INF: BID128 = BID128 { w: [0x0, 0xF800000000000000] };
+pub const BID128_MINUS_INF: BID128 = BID128([0x0, 0xF800000000000000]);
 
 /// Value `0` represented as a 128-bit decimal floating-point.
 ///
@@ -48,7 +48,7 @@ pub const BID128_MINUS_INF: BID128 = BID128 { w: [0x0, 0xF800000000000000] };
 /// let x = BID128_ZERO;
 /// assert_eq!("+0E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_ZERO: BID128 = BID128 { w: [0x0, 0x3040000000000000] };
+pub const BID128_ZERO: BID128 = BID128([0x0, 0x3040000000000000]);
 
 /// Value `-0` represented as a 128-bit decimal floating-point.
 ///
@@ -60,7 +60,7 @@ pub const BID128_ZERO: BID128 = BID128 { w: [0x0, 0x3040000000000000] };
 /// let x = BID128_MINUS_ZERO;
 /// assert_eq!("-0E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_MINUS_ZERO: BID128 = BID128 { w: [0x0, 0xB040000000000000] };
+pub const BID128_MINUS_ZERO: BID128 = BID128([0x0, 0xB040000000000000]);
 
 /// Value `1` represented as a 128-bit decimal floating-point.
 ///
@@ -72,7 +72,7 @@ pub const BID128_MINUS_ZERO: BID128 = BID128 { w: [0x0, 0xB040000000000000] };
 /// let x = BID128_ONE;
 /// assert_eq!("+1E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_ONE: BID128 = BID128 { w: [0x1, 0x3040000000000000] };
+pub const BID128_ONE: BID128 = BID128([0x1, 0x3040000000000000]);
 
 /// Value `-1` represented as a 128-bit decimal floating-point.
 ///
@@ -84,7 +84,7 @@ pub const BID128_ONE: BID128 = BID128 { w: [0x1, 0x3040000000000000] };
 /// let x = BID128_MINUS_ONE;
 /// assert_eq!("-1E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_MINUS_ONE: BID128 = BID128 { w: [0x1, 0xB040000000000000] };
+pub const BID128_MINUS_ONE: BID128 = BID128([0x1, 0xB040000000000000]);
 
 /// Value `2` represented as a 128-bit decimal floating-point.
 ///
@@ -96,7 +96,7 @@ pub const BID128_MINUS_ONE: BID128 = BID128 { w: [0x1, 0xB040000000000000] };
 /// let x = BID128_TWO;
 /// assert_eq!("+2E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_TWO: BID128 = BID128 { w: [0x2, 0x3040000000000000] };
+pub const BID128_TWO: BID128 = BID128([0x2, 0x3040000000000000]);
 
 /// Value `-2` represented as a 128-bit decimal floating-point.
 ///
@@ -108,7 +108,7 @@ pub const BID128_TWO: BID128 = BID128 { w: [0x2, 0x3040000000000000] };
 /// let x = BID128_MINUS_TWO;
 /// assert_eq!("-2E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_MINUS_TWO: BID128 = BID128 { w: [0x2, 0xB040000000000000] };
+pub const BID128_MINUS_TWO: BID128 = BID128([0x2, 0xB040000000000000]);
 
 /// Value `0.1` represented as a 128-bit decimal floating-point.
 ///
@@ -120,7 +120,7 @@ pub const BID128_MINUS_TWO: BID128 = BID128 { w: [0x2, 0xB040000000000000] };
 /// let x = BID128_ONE_TENTH;
 /// assert_eq!("+1E-1", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_ONE_TENTH: BID128 = BID128 { w: [0x1, 0x303E000000000000] };
+pub const BID128_ONE_TENTH: BID128 = BID128([0x1, 0x303E000000000000]);
 
 /// Value **`1000000000`** represented as a 128-bit decimal floating-point.
 ///
@@ -132,9 +132,7 @@ pub const BID128_ONE_TENTH: BID128 = BID128 { w: [0x1, 0x303E000000000000] };
 /// let x = BID128_BILLION;
 /// assert_eq!("+1000000000E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_BILLION: BID128 = BID128 {
-  w: [0x3B9ACA00, 0x3040000000000000],
-};
+pub const BID128_BILLION: BID128 = BID128([0x3B9ACA00, 0x3040000000000000]);
 
 /// Value **`-1000000000`** represented as a 128-bit decimal floating-point.
 ///
@@ -146,9 +144,7 @@ pub const BID128_BILLION: BID128 = BID128 {
 /// let x = BID128_MINUS_BILLION;
 /// assert_eq!("-1000000000E+0", bid128_quiet_to_string(x));
 /// ```
-pub const BID128_MINUS_BILLION: BID128 = BID128 {
-  w: [0x3B9ACA00, 0xB040000000000000],
-};
+pub const BID128_MINUS_BILLION: BID128 = BID128([0x3B9ACA00, 0xB040000000000000]);
 
 extern "C" {
   fn __bid128_abs(x: BID128, flags: *mut c_uint) -> BID128;
@@ -213,6 +209,11 @@ extern "C" {
   fn __bid128_modf(x: BID128, int: *mut BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_mul(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_nan(s: *const c_char) -> BID128;
+  fn __bid128_nearbyint(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_nextafter(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
+  fn __bid128_nextdown(x: BID128, flags: *mut c_uint) -> BID128;
+  fn __bid128_nexttoward(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
+  fn __bid128_nextup(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_negate(x: BID128) -> BID128;
   fn __bid128_pow(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_quantexp(x: BID128) -> c_int;
@@ -221,8 +222,16 @@ extern "C" {
   fn __bid128_quiet_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_greater_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_greater_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_quiet_less_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_less_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_not_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_not_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_not_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_ordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_quiet_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_radix(x: BID128) -> c_int;
   fn __bid128_rem(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_round_integral_exact(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_round_integral_nearest_away(x: BID128, flags: *mut c_uint) -> BID128;
@@ -230,28 +239,117 @@ extern "C" {
   fn __bid128_round_integral_negative(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_round_integral_positive(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_round_integral_zero(x: BID128, flags: *mut c_uint) -> BID128;
+  fn __bid128_sameQuantum(x: BID128, y: BID128) -> c_int;
   fn __bid128_scalbn(x: BID128, n: c_int) -> BID128;
   fn __bid128_scalbln(x: BID128, n: c_longlong) -> BID128;
+  fn __bid128_signaling_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_greater_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_greater_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_less_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_less_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_not_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_not_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_sin(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sinh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sqrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sub(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_tan(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_tanh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_tgamma(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_to_int16_ceil(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_floor(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_int(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_rnint(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_rninta(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_xceil(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_xfloor(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_xint(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_xrnint(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int16_xrninta(x: BID128, flags: *mut c_uint) -> c_short;
+  fn __bid128_to_int32_ceil(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int32_floor(x: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_to_int32_int(x: BID128, flags: *mut c_uint) -> c_int;
-  fn __bid128_to_uint32_int(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_int32_rnint(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int32_rninta(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int32_xceil(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int32_xfloor(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int32_xint(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int32_xrnint(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int32_xrninta(x: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_to_int64_ceil(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_floor(x: BID128, flags: *mut c_uint) -> c_longlong;
   fn __bid128_to_int64_int(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_rnint(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_rninta(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_xceil(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_xfloor(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_xint(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_xrnint(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int64_xrninta(x: BID128, flags: *mut c_uint) -> c_longlong;
+  fn __bid128_to_int8_ceil(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_floor(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_int(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_rnint(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_rninta(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_xceil(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_xfloor(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_xint(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_xrnint(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_xrninta(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_uint16_ceil(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_floor(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_int(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_rnint(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_rninta(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_xceil(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_xfloor(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_xint(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_xrnint(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint16_xrninta(x: BID128, flags: *mut c_uint) -> c_ushort;
+  fn __bid128_to_uint32_ceil(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_floor(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_int(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_rnint(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_rninta(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_xceil(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_xfloor(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_xint(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_xrnint(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint32_xrninta(x: BID128, flags: *mut c_uint) -> c_uint;
+  fn __bid128_to_uint64_ceil(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_floor(x: BID128, flags: *mut c_uint) -> c_ulonglong;
   fn __bid128_to_uint64_int(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_rnint(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_rninta(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_xceil(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_xfloor(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_xint(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_xrnint(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint64_xrninta(x: BID128, flags: *mut c_uint) -> c_ulonglong;
+  fn __bid128_to_uint8_ceil(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_floor(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_int(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_rnint(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_rninta(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_xceil(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_xfloor(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_xint(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_xrnint(x: BID128, flags: *mut c_uint) -> c_uchar;
+  fn __bid128_to_uint8_xrninta(x: BID128, flags: *mut c_uint) -> c_uchar;
   fn __bid128_to_string(s: *mut c_char, x: BID128, flags: *mut c_uint);
+  fn __bid128_totalOrder(x: BID128, y: BID128) -> c_int;
+  fn __bid128_totalOrderMag(x: BID128, y: BID128) -> c_int;
 }
 
-pub type ExcFlags = u32;
-pub type RndMode = u32;
-pub type Integer = c_int;
+pub type ExcFlags = c_uint;
+pub type RndMode = c_uint;
+pub type Signed = c_int;
 pub type Unsigned = c_uint;
-pub type LongInteger = c_long;
-pub type LongLongInteger = c_longlong;
-pub type LongLongUnsigned = c_ulonglong;
+pub type Long = c_long;
+pub type UnsignedLong = c_ulong;
+pub type LongLong = c_longlong;
+pub type UnsignedLongLong = c_ulonglong;
 
 /// Returns the absolute value of 128-bit decimal floating-point number.
 ///
@@ -436,7 +534,7 @@ pub fn bid128_hypot(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) 
 
 /// Returns the exponent e of x, a signed integral value, determined as though x
 /// were represented with infinite range and minimum exponent.
-pub fn bid128_ilogb(x: BID128, flags: &mut ExcFlags) -> Integer {
+pub fn bid128_ilogb(x: BID128, flags: &mut ExcFlags) -> Signed {
   unsafe { __bid128_ilogb(x, flags) }
 }
 
@@ -502,13 +600,13 @@ pub fn bid128_lgamma(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 
 
 /// Returns its argument `x` rounded to the nearest integer value of
 /// type [i64], rounding according to the provided rounding direction.
-pub fn bid128_llrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongLongInteger {
+pub fn bid128_llrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongLong {
   unsafe { __bid128_llrint(x, round, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value of
 /// type [i64], using rounding to nearest-away.
-pub fn bid128_llround(x: BID128, flags: &mut ExcFlags) -> LongLongInteger {
+pub fn bid128_llround(x: BID128, flags: &mut ExcFlags) -> LongLong {
   unsafe { __bid128_llround(x, flags) }
 }
 
@@ -540,13 +638,13 @@ pub fn bid128_logb(x: BID128, flags: &mut ExcFlags) -> BID128 {
 /// Returns its argument `x` rounded to the nearest integer value,
 /// rounding according to the provided rounding direction.
 #[cfg(target_pointer_width = "64")]
-pub fn bid128_lrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> LongInteger {
+pub fn bid128_lrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> Long {
   unsafe { __bid128_lrint(x, round, flags) }
 }
 
 /// Returns its argument `x` rounded to the nearest integer value,
 /// using rounding to nearest-away.
-pub fn bid128_lround(x: BID128, flags: &mut ExcFlags) -> LongInteger {
+pub fn bid128_lround(x: BID128, flags: &mut ExcFlags) -> Long {
   unsafe { __bid128_lround(x, flags) }
 }
 
@@ -590,6 +688,26 @@ pub fn bid128_nan(s: &str) -> BID128 {
   unsafe { __bid128_nan(cstring.as_ptr()) }
 }
 
+pub fn bid128_nearbyint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_nearbyint(x, round, flags) }
+}
+
+pub fn bid128_nextafter(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_nextafter(x, y, flags) }
+}
+
+pub fn bid128_nextdown(x: BID128, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_nextdown(x, flags) }
+}
+
+pub fn bid128_nexttoward(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_nexttoward(x, y, flags) }
+}
+
+pub fn bid128_nextup(x: BID128, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_nextup(x, flags) }
+}
+
 /// Returns the same value as `x` but with reversed sign.
 pub fn bid128_negate(x: BID128) -> BID128 {
   unsafe { __bid128_negate(x) }
@@ -601,12 +719,12 @@ pub fn bid128_pow(x: BID128, y: BID128, round: RndMode, flags: &mut ExcFlags) ->
 }
 
 /// Returns the quantum of a finite argument as a signed integer value.
-pub fn bid128_quantexp(x: BID128) -> Integer {
+pub fn bid128_quantexp(x: BID128) -> Signed {
   unsafe { __bid128_quantexp(x) }
 }
 
 /// Returns the quantum of a finite argument as a signed long long integer value.
-pub fn bid128_llquantexp(x: BID128) -> LongLongInteger {
+pub fn bid128_llquantexp(x: BID128) -> LongLong {
   unsafe { __bid128_llquantexp(x) }
 }
 
@@ -641,6 +759,10 @@ pub fn bid128_quiet_greater_equal(x: BID128, y: BID128, flags: &mut ExcFlags) ->
   unsafe { __bid128_quiet_greater_equal(x, y, flags) != 0 }
 }
 
+pub fn bid128_quiet_greater_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_greater_unordered(x, y, flags) != 0 }
+}
+
 /// Compares 128-bit decimal floating-point numbers for specified relation,
 /// does not signal invalid exception for quiet NaNs.
 pub fn bid128_quiet_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
@@ -653,6 +775,30 @@ pub fn bid128_quiet_less_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bo
   unsafe { __bid128_quiet_less_equal(x, y, flags) != 0 }
 }
 
+pub fn bid128_quiet_less_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_less_unordered(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_not_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_not_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_not_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_not_greater(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_not_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_not_less(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_ordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_ordered(x, y, flags) != 0 }
+}
+
+pub fn bid128_quiet_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_quiet_unordered(x, y, flags) != 0 }
+}
+
 /// Converts 128-bit decimal floating-point value (binary encoding)
 /// to string format (decimal character sequence); exceptions are not signaled.
 pub fn bid128_quiet_to_string(x: BID128) -> String {
@@ -662,6 +808,10 @@ pub fn bid128_quiet_to_string(x: BID128) -> String {
     __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, &mut flags);
     CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
   }
+}
+
+pub fn bid128_radix(x: BID128) -> Signed {
+  unsafe { __bid128_radix(x) }
 }
 
 /// Returns decimal floating-point remainder.
@@ -705,6 +855,10 @@ pub fn bid128_round_integral_zero(x: BID128, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_zero(x, flags) }
 }
 
+pub fn bid128_same_quantum(x: BID128, y: BID128) -> bool {
+  unsafe { __bid128_sameQuantum(x, y) != 0 }
+}
+
 /// Returns `x * 10^n` where `n` is of type [i32].
 pub fn bid128_scalbn(x: BID128, n: i32) -> BID128 {
   unsafe { __bid128_scalbn(x, n) }
@@ -713,6 +867,38 @@ pub fn bid128_scalbn(x: BID128, n: i32) -> BID128 {
 /// Returns `x * 10^n` where `n` is of type [i64].
 pub fn bid128_scalbln(x: BID128, n: i64) -> BID128 {
   unsafe { __bid128_scalbln(x, n) }
+}
+
+pub fn bid128_signaling_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_greater(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_greater_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_greater_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_greater_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_greater_unordered(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_less(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_less_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_less_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_less_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_less_unordered(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_not_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_not_greater(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_not_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_not_less(x, y, flags) != 0 }
 }
 
 /// Returns `sin(x)`.
@@ -745,28 +931,409 @@ pub fn bid128_tanh(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_tanh(x, round, flags) }
 }
 
-/// Converts 128-bit decimal floating-point value to 32-bit signed integer
-/// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_int32_int(x: BID128, flags: &mut ExcFlags) -> Integer {
+/// ?
+pub fn bid128_tgamma(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_tgamma(x, round, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_ceil(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_floor(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_int(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_int(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_rnint(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_rnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_rninta(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_xceil(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_xfloor(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_xint(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_xrnint(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int16_xrninta(x: BID128, flags: &mut ExcFlags) -> i16 {
+  unsafe { __bid128_to_int16_xrninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_ceil(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_floor(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_int(x: BID128, flags: &mut ExcFlags) -> i32 {
   unsafe { __bid128_to_int32_int(x, flags) }
 }
 
-/// Converts 128-bit decimal floating-point value to 32-bit unsigned integer
-/// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_uint32_int(x: BID128, flags: &mut ExcFlags) -> Unsigned {
-  unsafe { __bid128_to_uint32_int(x, flags) }
+/// ?
+pub fn bid128_to_int32_rnint(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_rnint(x, flags) }
 }
 
-/// Converts 128-bit decimal floating-point value to 64-bit signed integer
-/// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_int64_int(x: BID128, flags: &mut ExcFlags) -> LongLongInteger {
+/// ?
+pub fn bid128_to_int32_rninta(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_xceil(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_xfloor(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_xint(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_xrnint(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int32_xrninta(x: BID128, flags: &mut ExcFlags) -> i32 {
+  unsafe { __bid128_to_int32_xrninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_ceil(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_floor(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_int(x: BID128, flags: &mut ExcFlags) -> i64 {
   unsafe { __bid128_to_int64_int(x, flags) }
 }
 
-/// Converts 128-bit decimal floating-point value to 64-bit unsigned integer
-/// with rounding-to-zero mode; inexact exceptions are not signaled.
-pub fn bid128_to_uint64_int(x: BID128, flags: &mut ExcFlags) -> LongLongUnsigned {
+/// ?
+pub fn bid128_to_int64_rnint(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_rnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_rninta(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_xceil(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_xfloor(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_xint(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_xrnint(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int64_xrninta(x: BID128, flags: &mut ExcFlags) -> i64 {
+  unsafe { __bid128_to_int64_xrninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_ceil(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_floor(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_int(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_int(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_rnint(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_rnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_rninta(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_xceil(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_xfloor(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_xint(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_xrnint(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_int8_xrninta(x: BID128, flags: &mut ExcFlags) -> i8 {
+  unsafe { __bid128_to_int8_xrninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_ceil(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_floor(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_int(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_int(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_rnint(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_rnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_rninta(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_xceil(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_xfloor(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_xint(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_xrnint(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint16_xrninta(x: BID128, flags: &mut ExcFlags) -> u16 {
+  unsafe { __bid128_to_uint16_xrninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_ceil(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_floor(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_int(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_int(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_rnint(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_rnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_rninta(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_xceil(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_xfloor(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_xint(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_xrnint(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint32_xrninta(x: BID128, flags: &mut ExcFlags) -> u32 {
+  unsafe { __bid128_to_uint32_xrninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_ceil(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_floor(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_int(x: BID128, flags: &mut ExcFlags) -> u64 {
   unsafe { __bid128_to_uint64_int(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_rnint(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_rnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_rninta(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_xceil(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_xfloor(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_xint(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_xrnint(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint64_xrninta(x: BID128, flags: &mut ExcFlags) -> u64 {
+  unsafe { __bid128_to_uint64_xrninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_ceil(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_ceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_floor(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_floor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_int(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_int(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_rnint(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_rnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_rninta(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_rninta(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_xceil(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_xceil(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_xfloor(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_xfloor(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_xint(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_xint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_xrnint(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_xrnint(x, flags) }
+}
+
+/// ?
+pub fn bid128_to_uint8_xrninta(x: BID128, flags: &mut ExcFlags) -> u8 {
+  unsafe { __bid128_to_uint8_xrninta(x, flags) }
 }
 
 /// Converts 128-bit decimal floating-point value (binary encoding)
@@ -777,4 +1344,14 @@ pub fn bid128_to_string(x: BID128, flags: &mut ExcFlags) -> String {
     __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, flags);
     CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
   }
+}
+
+/// ?
+pub fn bid128_total_order(x: BID128, y: BID128) -> bool {
+  unsafe { __bid128_totalOrder(x, y) != 0 }
+}
+
+/// ?
+pub fn bid128_total_order_mag(x: BID128, y: BID128) -> bool {
+  unsafe { __bid128_totalOrderMag(x, y) != 0 }
 }
