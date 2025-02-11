@@ -72,6 +72,8 @@ mod bid128_quiet_ordered;
 mod bid128_quiet_unordered;
 mod bid128_radix;
 mod bid128_same_quantum;
+mod bid128_signaling_greater;
+mod bid128_signaling_greater_equal;
 mod bid128_sin;
 mod bid128_sinh;
 mod bid128_tan;

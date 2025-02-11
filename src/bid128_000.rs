@@ -246,6 +246,14 @@ extern "C" {
   fn __bid128_sameQuantum(x: BID128, y: BID128) -> c_int;
   fn __bid128_scalbn(x: BID128, n: c_int) -> BID128;
   fn __bid128_scalbln(x: BID128, n: c_longlong) -> BID128;
+  fn __bid128_signaling_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_greater_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_greater_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_less_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_less_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_not_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+  fn __bid128_signaling_not_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_sin(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sinh(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_sqrt(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
@@ -785,6 +793,38 @@ pub fn bid128_scalbn(x: BID128, n: i32) -> BID128 {
 /// Returns `x * 10^n` where `n` is of type [i64].
 pub fn bid128_scalbln(x: BID128, n: i64) -> BID128 {
   unsafe { __bid128_scalbln(x, n) }
+}
+
+pub fn bid128_signaling_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_greater(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_greater_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_greater_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_greater_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_greater_unordered(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_less(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_less_equal(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_less_equal(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_less_unordered(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_less_unordered(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_not_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_not_greater(x, y, flags) != 0 }
+}
+
+pub fn bid128_signaling_not_less(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
+  unsafe { __bid128_signaling_not_less(x, y, flags) != 0 }
 }
 
 /// Returns `sin(x)`.

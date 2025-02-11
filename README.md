@@ -128,6 +128,8 @@
 | bid128_same_quantum                | __bid128_sameQuantum                 |
 | bid128_scalbn                      | __bid128_scalbn                      |
 | bid128_scalbln                     | __bid128_scalbln                     |
+| bid128_signaling_greater           | __bid128_signaling_greater           |
+| bid128_signaling_greater_equal     | __bid128_signaling_greater_equal     |
 | bid128_sin                         | __bid128_sin                         |
 | bid128_sinh                        | __bid128_sinh                        |
 | bid128_sqrt                        | __bid128_sqrt                        |
@@ -145,8 +147,6 @@
 
 ---
 
-- `__bid128_signaling_greater`
-- `__bid128_signaling_greater_equal`
 - `__bid128_signaling_greater_unordered`
 - `__bid128_signaling_less`
 - `__bid128_signaling_less_equal`
