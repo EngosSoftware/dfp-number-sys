@@ -130,6 +130,12 @@
 | bid128_scalbln                     | __bid128_scalbln                     |
 | bid128_signaling_greater           | __bid128_signaling_greater           |
 | bid128_signaling_greater_equal     | __bid128_signaling_greater_equal     |
+| bid128_signaling_greater_unordered | __bid128_signaling_greater_unordered |
+| bid128_signaling_less              | __bid128_signaling_less              |
+| bid128_signaling_less_equal        | __bid128_signaling_less_equal        |
+| bid128_signaling_less_unordered    | __bid128_signaling_less_unordered    |
+| bid128_signaling_not_greater       | __bid128_signaling_not_greater       |
+| bid128_signaling_not_less          | __bid128_signaling_not_less          |
 | bid128_sin                         | __bid128_sin                         |
 | bid128_sinh                        | __bid128_sinh                        |
 | bid128_sqrt                        | __bid128_sqrt                        |
@@ -144,17 +150,6 @@
 | bid128_to_string                   | __bid128_to_string                   |
 
 ## Bindings to implement
-
----
-
-- `__bid128_signaling_greater_unordered`
-- `__bid128_signaling_less`
-- `__bid128_signaling_less_equal`
-- `__bid128_signaling_less_unordered`
-- `__bid128_signaling_not_greater`
-- `__bid128_signaling_not_less`
-
----
 
 - `__bid128_to_bid32`
 - `__bid128_to_bid64`
