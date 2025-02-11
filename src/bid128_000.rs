@@ -214,6 +214,7 @@ extern "C" {
   fn __bid128_mul(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_nan(s: *const c_char) -> BID128;
   fn __bid128_nearbyint(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
+  fn __bid128_nextafter(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_negate(x: BID128) -> BID128;
   fn __bid128_pow(x: BID128, y: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid128_quantexp(x: BID128) -> c_int;
@@ -593,6 +594,10 @@ pub fn bid128_nan(s: &str) -> BID128 {
 
 pub fn bid128_nearbyint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_nearbyint(x, round, flags) }
+}
+
+pub fn bid128_nextafter(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
+  unsafe { __bid128_nextafter(x, y, flags) }
 }
 
 /// Returns the same value as `x` but with reversed sign.
