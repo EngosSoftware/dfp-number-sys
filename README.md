@@ -114,7 +114,9 @@
 | bid128_quiet_not_equal             | __bid128_quiet_not_equal             |
 | bid128_quiet_not_greater           | __bid128_quiet_not_greater           |
 | bid128_quiet_not_less              | __bid128_quiet_not_less              |
+| bid128_quiet_ordered               | __bid128_quiet_ordered               |
 | bid128_quiet_to_string             | __bid128_to_string                   |
+| bid128_quiet_unordered             | __bid128_quiet_unordered             |
 | bid128_rem                         | __bid128_rem                         |
 | bid128_round_integral_exact        | __bid128_round_integral_exact        |
 | bid128_round_integral_nearest_away | __bid128_round_integral_nearest_away |
@@ -138,8 +140,6 @@
 
 ## Bindings to implement
 
-- `__bid128_quiet_ordered`
-- `__bid128_quiet_unordered`
 - `__bid128_radix`
 - `__bid128_sameQuantum`
 - `__bid128_signaling_greater`
