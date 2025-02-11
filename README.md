@@ -98,6 +98,7 @@
 | bid128_negate                      | __bid128_negate                      |
 | bid128_nextafter                   | __bid128_nextafter                   |
 | bid128_nextdown                    | __bid128_nextdown                    |
+| bid128_nextup                      | __bid128_nextup                      |
 | bid128_nexttoward                  | __bid128_nexttoward                  |
 | bid128_pow                         | __bid128_pow                         |
 | bid128_quantexp                    | __bid128_quantexp                    |
@@ -132,7 +133,6 @@
 
 ## Bindings to implement
 
-- `__bid128_nextup`
 - `__bid128_quiet_greater_unordered`
 - `__bid128_quiet_less_unordered`
 - `__bid128_quiet_not_equal`
