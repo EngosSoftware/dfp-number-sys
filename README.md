@@ -125,6 +125,7 @@
 | bid128_round_integral_negative     | __bid128_round_integral_negative     |
 | bid128_round_integral_positive     | __bid128_round_integral_positive     |
 | bid128_round_integral_zero         | __bid128_round_integral_zero         |
+| bid128_same_quantum                | __bid128_sameQuantum                 |
 | bid128_scalbn                      | __bid128_scalbn                      |
 | bid128_scalbln                     | __bid128_scalbln                     |
 | bid128_sin                         | __bid128_sin                         |
@@ -144,7 +145,6 @@
 
 ---
 
-- `__bid128_sameQuantum`
 - `__bid128_signaling_greater`
 - `__bid128_signaling_greater_equal`
 - `__bid128_signaling_greater_unordered`
