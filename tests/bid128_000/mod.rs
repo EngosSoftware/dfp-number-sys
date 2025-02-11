@@ -94,6 +94,8 @@ mod bid128_to_uint16;
 mod bid128_to_uint32;
 mod bid128_to_uint64;
 mod bid128_to_uint8;
+mod bid128_total_order;
+mod bid128_total_order_mag;
 
 use super::*;
 use dfp_number_sys::bid128_000::*;

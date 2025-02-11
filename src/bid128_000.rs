@@ -342,6 +342,8 @@ extern "C" {
   fn __bid128_to_uint8_xrnint(x: BID128, flags: *mut c_uint) -> c_uchar;
   fn __bid128_to_uint8_xrninta(x: BID128, flags: *mut c_uint) -> c_uchar;
   fn __bid128_to_string(s: *mut c_char, x: BID128, flags: *mut c_uint);
+  fn __bid128_totalOrder(x: BID128, y: BID128) -> c_int;
+  fn __bid128_totalOrderMag(x: BID128, y: BID128) -> c_int;
 }
 
 pub type ExcFlags = c_uint;
@@ -1346,4 +1348,14 @@ pub fn bid128_to_string(x: BID128, flags: &mut ExcFlags) -> String {
     __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, flags);
     CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
   }
+}
+
+/// ?
+pub fn bid128_total_order(x: BID128, y: BID128) -> bool {
+  unsafe { __bid128_totalOrder(x, y) != 0 }
+}
+
+/// ?
+pub fn bid128_total_order_mag(x: BID128, y: BID128) -> bool {
+  unsafe { __bid128_totalOrderMag(x, y) != 0 }
 }

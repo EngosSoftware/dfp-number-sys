@@ -224,6 +224,8 @@
 | bid128_to_uint8_xrnint             | __bid128_to_uint8_xrnint             |
 | bid128_to_uint8_xrninta            | __bid128_to_uint8_xrninta            |
 | bid128_to_string                   | __bid128_to_string                   |
+| bid128_totalOrder                  | __bid128_totalOrder                  |
+| bid128_totalOrderMag               | __bid128_totalOrderMag               |
 
 ## Bindings to implement
 
@@ -233,11 +235,6 @@
 - `__bid128_to_binary32`
 - `__bid128_to_binary64`
 - `__bid128_to_binary80`
-
----
-
-- `__bid128_totalOrder`
-- `__bid128_totalOrderMag`
 
 ---
 
