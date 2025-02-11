@@ -235,6 +235,7 @@ extern "C" {
     fn __bid128_quiet_not_less(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
     fn __bid128_quiet_ordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
     fn __bid128_quiet_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
+    fn __bid128_radix(x: BID128) -> c_int;
     fn __bid128_rem(x: BID128, y: BID128, flags: *mut c_uint) -> BID128;
     fn __bid128_round_integral_exact(x: BID128, round: c_uint, flags: *mut c_uint) -> BID128;
     fn __bid128_round_integral_nearest_away(x: BID128, flags: *mut c_uint) -> BID128;
@@ -724,6 +725,10 @@ pub fn bid128_quiet_to_string(x: BID128) -> String {
         __bid128_to_string(buf.as_mut_ptr() as *mut c_char, x, &mut flags);
         CStr::from_ptr(buf.as_ptr() as *const c_char).to_string_lossy().into_owned()
     }
+}
+
+pub fn bid128_radix(x: BID128) -> Signed {
+    unsafe { __bid128_radix(x) }
 }
 
 /// Returns decimal floating-point remainder.
