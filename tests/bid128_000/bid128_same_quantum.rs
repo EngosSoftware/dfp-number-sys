@@ -1,7 +1,6 @@
 #![allow(clippy::bool_assert_comparison)]
 
 use super::*;
-use dfp_number_sys::bid128_000::*;
 
 #[test]
 fn _0001() {

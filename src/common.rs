@@ -1,6 +1,9 @@
 //! # Common definitions
 
-use crate::bid128_000::bid128_quiet_to_string;
+use crate::bid128_000::bid128_to_string;
+use crate::bid32_000::bid32_to_string;
+use crate::bid64_000::bid64_to_string;
+use libc::{c_double, c_float, c_int, c_long, c_longlong, c_uint, c_ulong, c_ulonglong};
 use std::fmt;
 use std::fmt::{Debug, Display};
 
@@ -26,7 +29,8 @@ impl Debug for BID128 {
 impl Display for BID128 {
   /// Implements [Display] trait for [BID128].
   fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-    write!(f, "{}", bid128_quiet_to_string(*self))
+    let mut flags = EXE_CLEAR;
+    write!(f, "{}", bid128_to_string(*self, &mut flags))
   }
 }
 
@@ -35,66 +39,95 @@ impl Display for BID128 {
 #[derive(Copy, Clone)]
 pub struct BID64(pub(crate) u64);
 
+impl Debug for BID64 {
+  /// Implements [Debug] trait for [BID64].
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    write!(f, "[{:016X}]", self.0)
+  }
+}
+
+impl Display for BID64 {
+  /// Implements [Display] trait for [BID64].
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    let mut flags = EXE_CLEAR;
+    write!(f, "{}", bid64_to_string(*self, &mut flags))
+  }
+}
+
 /// A structure representing 32-bit floating-point decimal number.
 #[repr(C, align(16))]
 #[derive(Copy, Clone)]
 pub struct BID32(pub(crate) u32);
 
-/// Exception flag `Invalid` as [u32] value.
-pub const FB_INVALID: u32 = FlagBits::Invalid as u32;
-
-/// Exception flag `ZeroDivide` as [u32] value.
-pub const FB_ZERO_DIVIDE: u32 = FlagBits::ZeroDivide as u32;
-
-/// Exception flag `Overflow` as [u32] value.
-pub const FB_OVERFLOW: u32 = FlagBits::Overflow as u32;
-
-/// Exception flag `Underflow` as [u32] value.
-pub const FB_UNDERFLOW: u32 = FlagBits::Underflow as u32;
-
-/// Exception flag `Inexact` as [u32] value.
-pub const FB_INEXACT: u32 = FlagBits::Inexact as u32;
-
-/// Exception flag `AllClear` as [u32] value.
-pub const FB_CLEAR: u32 = FlagBits::AllFlagsClear as u32;
-
-/// Exception flags.
-#[repr(u32)]
-pub enum FlagBits {
-  Invalid = 1,
-  ZeroDivide = 4,
-  Overflow = 8,
-  Underflow = 16,
-  Inexact = 32,
-  AllFlagsClear = 0,
+impl Debug for BID32 {
+  /// Implements [Debug] trait for [BID32].
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    write!(f, "[{:08X}]", self.0)
+  }
 }
 
-/// Rounding mode `NearestEven` as [u32] value.
-pub const RM_NEAREST_EVEN: u32 = RoundingModes::NearestEven as u32;
-
-/// Rounding mode `Downward` as [u32] value.
-pub const RM_DOWNWARD: u32 = RoundingModes::Downward as u32;
-
-/// Rounding mode `Upward` as [u32] value.
-pub const RM_UPWARD: u32 = RoundingModes::Upward as u32;
-
-/// Rounding mode `TowardZero` as [u32] value.
-pub const RM_TOWARD_ZERO: u32 = RoundingModes::TowardZero as u32;
-
-/// Rounding mode `NearestAway` as [u32] value.
-pub const RM_NEAREST_AWAY: u32 = RoundingModes::NearestAway as u32;
-
-/// Rounding modes.
-#[repr(u32)]
-pub enum RoundingModes {
-  NearestEven = 0,
-  Downward = 1,
-  Upward = 2,
-  TowardZero = 3,
-  NearestAway = 4,
+impl Display for BID32 {
+  /// Implements [Display] trait for [BID32].
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    let mut flags = EXE_CLEAR;
+    write!(f, "{}", bid32_to_string(*self, &mut flags))
+  }
 }
 
-/// Value classes.
+pub type ExcFlags = c_uint;
+
+pub type RndMode = c_uint;
+
+pub type Signed = c_int;
+
+pub type Unsigned = c_uint;
+
+pub type Long = c_long;
+
+pub type ULong = c_ulong;
+
+pub type LongLong = c_longlong;
+
+pub type ULongLong = c_ulonglong;
+
+pub type Float = c_float;
+
+pub type Double = c_double;
+
+/// Exception flag `Invalid`.
+pub const EXE_INVALID: u32 = 1;
+
+/// Exception flag `ZeroDivide`.
+pub const EXE_ZERO_DIVIDE: u32 = 4;
+
+/// Exception flag `Overflow`.
+pub const EXE_OVERFLOW: u32 = 8;
+
+/// Exception flag `Underflow`.
+pub const EXE_UNDERFLOW: u32 = 16;
+
+/// Exception flag `Inexact`.
+pub const EXE_INEXACT: u32 = 32;
+
+/// Exception flag `AllClear`.
+pub const EXE_CLEAR: u32 = 0;
+
+/// Rounding mode `NearestEven`.
+pub const RND_NEAREST_EVEN: u32 = 0;
+
+/// Rounding mode `Downward`.
+pub const RND_DOWNWARD: u32 = 1;
+
+/// Rounding mode `Upward`.
+pub const RND_UPWARD: u32 = 2;
+
+/// Rounding mode `TowardZero`.
+pub const RND_TOWARD_ZERO: u32 = 3;
+
+/// Rounding mode `NearestAway`.
+pub const RND_NEAREST_AWAY: u32 = 4;
+
+/// Number classes.
 #[repr(u32)]
 #[derive(Debug, PartialEq)]
 pub enum Class {
@@ -116,7 +149,7 @@ impl From<u32> for Class {
   ///
   /// # Panics
   ///
-  /// Panics if `value` is out of range [0..9].
+  /// Panics if `value` is out of range `[0..9]`.
   fn from(value: u32) -> Self {
     match value {
       0 => Class::SignalingNaN,

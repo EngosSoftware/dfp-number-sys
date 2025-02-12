@@ -1,5 +1,4 @@
 use super::*;
-use dfp_number_sys::bid128_000::*;
 
 #[test]
 fn _0001() {
@@ -27,8 +26,8 @@ fn _0004() {
 
 #[test]
 fn _0005() {
-  assert_eq!(Class::NegativeSubnormal, bid128_class(negative_subnormal()));
-  assert_eq!(4, bid128_class(negative_subnormal()) as u32);
+  assert_eq!(Class::NegativeSubnormal, bid128_class(bid128_negative_subnormal()));
+  assert_eq!(4, bid128_class(bid128_negative_subnormal()) as u32);
 }
 
 #[test]
@@ -45,8 +44,8 @@ fn _0007() {
 
 #[test]
 fn _0008() {
-  assert_eq!(Class::PositiveSubnormal, bid128_class(positive_subnormal()));
-  assert_eq!(7, bid128_class(positive_subnormal()) as u32);
+  assert_eq!(Class::PositiveSubnormal, bid128_class(bid128_positive_subnormal()));
+  assert_eq!(7, bid128_class(bid128_positive_subnormal()) as u32);
 }
 
 #[test]
