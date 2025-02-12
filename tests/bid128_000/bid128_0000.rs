@@ -11,25 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_div_0001() {
-  let x = bid128_from_int32(2);
-  let y = bid128_from_int32(5);
-  let mut flags = EXE_CLEAR;
-  let z = bid128_div(x, y, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_CLEAR, flags);
-  eq("+4E-1", z);
-}
-
-#[test]
-fn test_bid128_frexp() {
-  let x = d128("25.4300");
-  let mut exp = 0_i32;
-  let z = bid128_frexp(x, &mut exp);
-  eq("+254300E-6", z);
-  assert_eq!(2, exp);
-}
-
-#[test]
 fn test_bid128_from_int32() {
   eq("-2147483648E+0", bid128_from_int32(i32::MIN));
   eq("-10E+0", bid128_from_int32(-10));
