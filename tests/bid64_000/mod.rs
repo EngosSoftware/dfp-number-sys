@@ -10,6 +10,7 @@ mod bid64_atanh;
 mod bid64_cbrt;
 mod bid64_class;
 mod bid64_constants;
+mod bid64_copy;
 mod bid64_copy_sign;
 mod bid64_cos;
 mod bid64_cosh;

@@ -428,7 +428,7 @@ pub fn bid64_is_finite(x: BID64) -> bool {
   unsafe { __bid64_isFinite(x) != 0 }
 }
 
-/// Returns x with infinite value.
+/// Returns infinite value.
 pub fn bid64_infinite() -> BID64 {
   unsafe { __bid64_inf() }
 }

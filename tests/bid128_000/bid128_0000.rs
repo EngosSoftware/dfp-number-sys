@@ -11,12 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_copy() {
-  eq("+12345E-4", bid128_copy(d128("1.2345")));
-  eq("+1234500E-6", bid128_copy(d128("1.234500")));
-}
-
-#[test]
 fn test_bid128_div_0001() {
   let x = bid128_from_int32(2);
   let y = bid128_from_int32(5);
