@@ -35,14 +35,14 @@ impl Display for BID128 {
 }
 
 /// A structure representing 64-bit floating-point decimal number.
-#[repr(C, align(16))]
+#[repr(C, align(8))]
 #[derive(Copy, Clone)]
-pub struct BID64(pub(crate) [u64; 1]);
+pub struct BID64(pub(crate) u64);
 
 impl Debug for BID64 {
   /// Implements [Debug] trait for [BID64].
   fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-    write!(f, "[{:016X}]", self.0[0])
+    write!(f, "[{:016X}]", self.0)
   }
 }
 
@@ -55,14 +55,14 @@ impl Display for BID64 {
 }
 
 /// A structure representing 32-bit floating-point decimal number.
-#[repr(C, align(16))]
+#[repr(C, align(4))]
 #[derive(Copy, Clone)]
-pub struct BID32(pub(crate) [u32; 1]);
+pub struct BID32(pub(crate) u32);
 
 impl Debug for BID32 {
   /// Implements [Debug] trait for [BID32].
   fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-    write!(f, "[{:08X}]", self.0[0])
+    write!(f, "[{:08X}]", self.0)
   }
 }
 
