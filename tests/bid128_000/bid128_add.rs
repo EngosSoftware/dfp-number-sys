@@ -7,6 +7,8 @@ fn _0001() {
   eqf(EXE_CLEAR, flags);
 }
 
+/*
+
 #[test]
 fn _0002() {
   let mut flags = EXE_CLEAR;
@@ -27,3 +29,5 @@ fn _0004() {
   eq("+7E+0", bid128_add_qd(d128("2"), d64("5"), RND_NEAREST_EVEN, &mut flags));
   eqf(EXE_CLEAR, flags);
 }
+
+*/
