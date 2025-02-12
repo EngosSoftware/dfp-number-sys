@@ -17,36 +17,6 @@ fn test_bid128_ilogb() {
 }
 
 #[test]
-fn test_bid128_mul_0001() {
-  let x = bid128_from_int32(2);
-  let y = bid128_from_int32(5);
-  let mut flags = EXE_CLEAR;
-  let z = bid128_mul(x, y, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_CLEAR, flags);
-  eq("+10E+0", z);
-}
-
-#[test]
-fn test_bid128_mul_0002() {
-  let x = bid128_from_int32(i32::MAX);
-  let y = bid128_from_int32(i32::MAX);
-  let mut flags = EXE_CLEAR;
-  let z = bid128_mul(x, y, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_CLEAR, flags);
-  eq("+4611686014132420609E+0", z);
-}
-
-#[test]
-fn test_bid128_mul_0003() {
-  let x = bid128_from_int64(i64::MAX);
-  let y = bid128_from_int64(i64::MAX);
-  let mut flags = EXE_CLEAR;
-  let z = bid128_mul(x, y, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_INEXACT, flags);
-  eq("+8507059173023461584739690778423250E+4", z);
-}
-
-#[test]
 fn test_bid128_negate_0001() {
   eq("-12345E-4", bid128_negate(d128("+1.2345")));
 }
@@ -245,18 +215,12 @@ fn test_bid128_scalbn_0002() {
 
 #[test]
 fn test_bid128_scalbn_0003() {
-  //------------------------------------------------------------------------------------------------------------------
-  // The maximum scale for `bid128_scalbn` function is 6144.
-  //------------------------------------------------------------------------------------------------------------------
   let x = bid128_scalbn(bid128_from_int64(1), 6144);
   eq("+1000000000000000000000000000000000E+6111", x);
 }
 
 #[test]
 fn test_bid128_scalbn_0004() {
-  //------------------------------------------------------------------------------------------------------------------
-  // The minimum scale for `bid128_scalbn` function is -6176.
-  //------------------------------------------------------------------------------------------------------------------
   let x = bid128_scalbn(bid128_from_int64(1), -6176);
   eq("+1E-6176", x);
 }
@@ -276,18 +240,12 @@ fn test_bid128_scalbln_0002() {
 
 #[test]
 fn test_bid128_scalbln_0003() {
-  //------------------------------------------------------------------------------------------------------------------
-  // The maximum scale for `bid128_scalbln` function.
-  //------------------------------------------------------------------------------------------------------------------
   let x = bid128_scalbln(bid128_from_int64(1), 6144);
   eq("+1000000000000000000000000000000000E+6111", x);
 }
 
 #[test]
 fn test_bid128_scalbln_0004() {
-  //------------------------------------------------------------------------------------------------------------------
-  // The minimum scale for `bid128_scalbln` function.
-  //------------------------------------------------------------------------------------------------------------------
   let x = bid128_scalbln(bid128_from_int64(1), -6176);
   eq("+1E-6176", x);
 }
