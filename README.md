@@ -28,14 +28,17 @@
 [coc-url]: CODE_OF_CONDUCT.md
 [repository-url]: https://github.com/EngosSoftware/dfp-number-sys
 
-### Bindings
+### 128-bit bindings
 
-| Rust binding                       | Library function                     |
+| Rust function                      | Library function                     |
 |------------------------------------|--------------------------------------|
 | bid128_abs                         | __bid128_abs                         |
 | bid128_acos                        | __bid128_acos                        |
 | bid128_acosh                       | __bid128_acosh                       |
 | bid128_add                         | __bid128_add                         |
+| bid128_add_dd                      | __bid128dd_add                       |
+| bid128_add_dq                      | __bid128dq_add                       |
+| bid128_add_qd                      | __bid128qd_add                       |
 | bid128_asin                        | __bid128_asin                        |
 | bid128_asinh                       | __bid128_asinh                       |
 | bid128_atan                        | __bid128_atan                        |
@@ -48,6 +51,9 @@
 | bid128_cosh                        | __bid128_cosh                        |
 | bid128_class                       | __bid128_class                       |
 | bid128_div                         | __bid128_div                         |
+| bid128_div_dd                      | __bid128dd_div                       |
+| bid128_div_dq                      | __bid128dq_div                       |
+| bid128_div_qd                      | __bid128qd_div                       |
 | bid128_erf                         | __bid128_erf                         |
 | bid128_erfc                        | __bid128_erfc                        |
 | bid128_exp                         | __bid128_exp                         |
@@ -57,6 +63,13 @@
 | bid128_frexp                       | __bid128_frexp                       |
 | bid128_fdim                        | __bid128_fdim                        |
 | bid128_fma                         | __bid128_fma                         |
+| bid128_fma_ddd                     | __bid128ddd_fma                      |
+| bid128_fma_ddq                     | __bid128ddq_fma                      |
+| bid128_fma_dqd                     | __bid128dqd_fma                      |
+| bid128_fma_dqq                     | __bid128dqq_fma                      |
+| bid128_fma_qdd                     | __bid128qdd_fma                      |
+| bid128_fma_qdq                     | __bid128qdq_fma                      |
+| bid128_fma_qqd                     | __bid128qqd_fma                      |
 | bid128_fmod                        | __bid128_fmod                        |
 | bid128_from_int32                  | __bid128_from_int32                  |
 | bid128_from_int64                  | __bid128_from_int64                  |
@@ -93,6 +106,9 @@
 | bid128_min_num_mag                 | __bid128_minnum_mag                  |
 | bid128_modf                        | __bid128_modf                        |
 | bid128_mul                         | __bid128_mul                         |
+| bid128_mul_dd                      | __bid128dd_mul                       |
+| bid128_mul_dq                      | __bid128dq_mul                       |
+| bid128_mul_qd                      | __bid128qd_mul                       |
 | bid128_nan                         | __bid128_nan                         |
 | bid128_nearbyint                   | __bid128_nearbyint                   |
 | bid128_negate                      | __bid128_negate                      |
@@ -140,9 +156,16 @@
 | bid128_sinh                        | __bid128_sinh                        |
 | bid128_sqrt                        | __bid128_sqrt                        |
 | bid128_sub                         | __bid128_sub                         |
+| bid128_sub_dd                      | __bid128dd_sub                       |
+| bid128_sub_dq                      | __bid128dq_sub                       |
+| bid128_sub_qd                      | __bid128qd_sub                       |
 | bid128_tan                         | __bid128_tan                         |
 | bid128_tanh                        | __bid128_tanh                        |
 | bid128_tgamma                      | __bid128_tgamma                      |
+| bid128_to_bid32                    | __bid128_to_bid32                    |
+| bid128_to_bid64                    | __bid128_to_bid64                    |
+| bid128_to_binary32                 | __bid128_to_binary32                 |
+| bid128_to_binary64                 | __bid128_to_binary64                 |
 | bid128_to_int16_ceil               | __bid128_to_int16_ceil               |
 | bid128_to_int16_floor              | __bid128_to_int16_floor              |
 | bid128_to_int16_int                | __bid128_to_int16_int                |
@@ -226,39 +249,6 @@
 | bid128_to_string                   | __bid128_to_string                   |
 | bid128_totalOrder                  | __bid128_totalOrder                  |
 | bid128_totalOrderMag               | __bid128_totalOrderMag               |
-
-## Bindings to implement
-
-- `__bid128_to_bid32`
-- `__bid128_to_bid64`
-- `__bid128_to_binary128`
-- `__bid128_to_binary32`
-- `__bid128_to_binary64`
-- `__bid128_to_binary80`
-
----
-
-- `__bid128dd_add`
-- `__bid128dd_div`
-- `__bid128dd_mul`
-- `__bid128dd_sub`
-- `__bid128ddd_fma`
-- `__bid128ddq_fma`
-- `__bid128dq_add`
-- `__bid128dq_div`
-- `__bid128dq_mul`
-- `__bid128dq_sub`
-- `__bid128dqd_fma`
-- `__bid128dqq_fma`
-- `__bid128qd_add`
-- `__bid128qd_div`
-- `__bid128qd_mul`
-- `__bid128qd_sub`
-- `__bid128qdd_fma`
-- `__bid128qdq_fma`
-- `__bid128qqd_fma`
-
----
 
 ## License
 

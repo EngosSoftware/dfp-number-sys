@@ -1,5 +1,4 @@
 use super::*;
-use dfp_number_sys::bid128_000::*;
 
 #[test]
 fn _0001() {
@@ -18,10 +17,10 @@ fn _0003() {
 
 #[test]
 fn _0004() {
-  assert!(!bid128_is_normal(positive_subnormal()));
+  assert!(!bid128_is_normal(bid128_positive_subnormal()));
 }
 
 #[test]
 fn _0005() {
-  assert!(!bid128_is_normal(negative_subnormal()));
+  assert!(!bid128_is_normal(bid128_negative_subnormal()));
 }
