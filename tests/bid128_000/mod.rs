@@ -26,6 +26,7 @@ mod bid128_fdim;
 mod bid128_fma;
 mod bid128_fmod;
 mod bid128_frexp;
+mod bid128_from;
 mod bid128_from_string;
 mod bid128_hypot;
 mod bid128_is_canonical;

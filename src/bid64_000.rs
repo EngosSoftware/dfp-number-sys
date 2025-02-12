@@ -54,10 +54,10 @@ extern "C" {
   fn __bid64_fmod(x: BID64, y: BID64, flags: *mut c_uint) -> BID64;
   fn __bid64_frexp(x: BID64, exp: *mut c_int) -> BID64;
   fn __bid64_from_int32(x: c_int) -> BID64;
-  fn __bid64_from_int64(x: c_longlong) -> BID64;
+  fn __bid64_from_int64(x: c_longlong, round: c_uint, flags: *mut c_uint) -> BID64;
   fn __bid64_from_string(s: *const c_char, round: c_uint, flags: *mut c_uint) -> BID64;
   fn __bid64_from_uint32(x: c_uint) -> BID64;
-  fn __bid64_from_uint64(x: c_ulonglong) -> BID64;
+  fn __bid64_from_uint64(x: c_ulonglong, round: c_uint, flags: *mut c_uint) -> BID64;
   fn __bid64_hypot(x: BID64, y: BID64, round: c_uint, flags: *mut c_uint) -> BID64;
   fn __bid64_ilogb(x: BID64, flags: *mut c_uint) -> c_int;
   fn __bid64_inf() -> BID64;
@@ -386,8 +386,8 @@ pub fn bid64_from_int32(x: i32) -> BID64 {
 }
 
 /// Converts 64-bit signed integer to 64-bit decimal floating-point number.
-pub fn bid64_from_int64(x: i64) -> BID64 {
-  unsafe { __bid64_from_int64(x) }
+pub fn bid64_from_int64(x: i64, round: RndMode, flags: &mut ExcFlags) -> BID64 {
+  unsafe { __bid64_from_int64(x, round, flags) }
 }
 
 /// Converts a number represented as string format (decimal character sequence)
@@ -403,8 +403,8 @@ pub fn bid64_from_uint32(x: u32) -> BID64 {
 }
 
 /// Converts 64-bit unsigned integer to 64-bit decimal floating-point number.
-pub fn bid64_from_uint64(x: u64) -> BID64 {
-  unsafe { __bid64_from_uint64(x) }
+pub fn bid64_from_uint64(x: u64, round: RndMode, flags: &mut ExcFlags) -> BID64 {
+  unsafe { __bid64_from_uint64(x, round, flags) }
 }
 
 /// Returns the square root of the squares of two arguments.

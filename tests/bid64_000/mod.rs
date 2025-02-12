@@ -25,6 +25,7 @@ mod bid64_fdim;
 mod bid64_fma;
 mod bid64_fmod;
 mod bid64_frexp;
+mod bid64_from;
 mod bid64_from_string;
 mod bid64_hypot;
 mod bid64_is_canonical;
