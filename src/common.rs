@@ -13,7 +13,7 @@ use std::fmt::{Debug, Display};
 pub struct BID128(pub(crate) [u64; 2]);
 
 impl BID128 {
-  /// Creates a new BID128 value from raw data.
+  /// Creates a new [BID128] value from raw data.
   pub fn new(lo: u64, hi: u64) -> Self {
     BID128([lo, hi])
   }
@@ -39,6 +39,13 @@ impl Display for BID128 {
 #[derive(Copy, Clone)]
 pub struct BID64(pub(crate) u64);
 
+impl BID64 {
+  /// Creates a new [BID64] value from raw data.
+  pub fn new(d: u64) -> Self {
+    BID64(d)
+  }
+}
+
 impl Debug for BID64 {
   /// Implements [Debug] trait for [BID64].
   fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -58,6 +65,13 @@ impl Display for BID64 {
 #[repr(C, align(4))]
 #[derive(Copy, Clone)]
 pub struct BID32(pub(crate) u32);
+
+impl BID32 {
+  /// Creates a new [BID32] value from raw data.
+  pub fn new(d: u32) -> Self {
+    BID32(d)
+  }
+}
 
 impl Debug for BID32 {
   /// Implements [Debug] trait for [BID32].
