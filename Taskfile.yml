@@ -49,4 +49,4 @@ tasks:
   testn:
     desc: Tests in debug mode for all settings using nextest
     cmds:
-      - cmd: cargo +stable nextest run
+      - cmd: cargo +stable nextest run --no-fail-fast

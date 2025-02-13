@@ -1,4 +1,6 @@
 mod bid32_from_string;
+mod bid32_is_nan;
+mod bid32_is_normal;
 mod bid32_miscellaneous;
 mod bid32_to_string;
 
@@ -14,12 +16,12 @@ fn eqf(expected: u32, actual: u32) {
   assert_eq!(expected, actual);
 }
 
-// /// Returns a positive subnormal value for testing purposes.
-// fn bid128_positive_subnormal() -> BID128 {
-//   BID128::new(0x07a63158fbd6b32f, 0x0002000000000000)
-// }
-//
-// /// Returns a negative subnormal value for testing purposes.
-// fn bid128_negative_subnormal() -> BID128 {
-//   BID128::new(0x07a63158fbd6b32f, 0x8002000000000000)
-// }
+/// Returns a positive subnormal value for testing purposes.
+fn bid32_positive_subnormal() -> BID32 {
+  BID32::new(0x00000001)
+}
+
+/// Returns a negative subnormal value for testing purposes.
+fn bid32_negative_subnormal() -> BID32 {
+  BID32::new(0x80000001)
+}
