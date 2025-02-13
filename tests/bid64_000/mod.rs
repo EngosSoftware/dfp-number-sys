@@ -29,6 +29,7 @@ mod bid64_from;
 mod bid64_from_string;
 mod bid64_hypot;
 mod bid64_ilogb;
+mod bid64_infinite;
 mod bid64_is_canonical;
 mod bid64_is_finite;
 mod bid64_is_nan;

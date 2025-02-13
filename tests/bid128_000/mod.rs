@@ -1,4 +1,3 @@
-mod bid128_0000;
 mod bid128_abs;
 mod bid128_acos;
 mod bid128_acosh;
@@ -30,6 +29,7 @@ mod bid128_from;
 mod bid128_from_string;
 mod bid128_hypot;
 mod bid128_ilogb;
+mod bid128_infinite;
 mod bid128_is_canonical;
 mod bid128_is_finite;
 mod bid128_is_nan;
