@@ -21,6 +21,18 @@ fn _0003() {
 
 #[test]
 fn _0004() {
+  let x = bid32_scalbn(d32("1"), 97);
+  eq("+1000000E+90", x);
+}
+
+#[test]
+fn _0005() {
   let x = bid32_scalbn(d32("1"), -101);
+  eq("+1E-101", x);
+}
+
+#[test]
+fn _0006() {
+  let x = bid32_scalbn(d32("1"), -102);
   eq("+1E-101", x);
 }

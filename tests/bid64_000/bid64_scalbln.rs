@@ -21,6 +21,18 @@ fn _0003() {
 
 #[test]
 fn _0004() {
+  let x = bid64_scalbln(d64("1"), 385);
+  eq("+1000000000000000E+369", x);
+}
+
+#[test]
+fn _0005() {
   let x = bid64_scalbln(d64("1"), -398);
+  eq("+1E-398", x);
+}
+
+#[test]
+fn _0006() {
+  let x = bid64_scalbln(d64("1"), -399);
   eq("+1E-398", x);
 }

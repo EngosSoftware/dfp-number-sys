@@ -897,12 +897,12 @@ pub fn bid128_same_quantum(x: BID128, y: BID128) -> bool {
 
 /// Returns `x * 10^n` where `n` is of type [i32].
 pub fn bid128_scalbn(x: BID128, n: i32) -> BID128 {
-  unsafe { __bid128_scalbn(x, n) }
+  unsafe { __bid128_scalbn(x, n.clamp(-6176, 6144)) }
 }
 
 /// Returns `x * 10^n` where `n` is of type [i64].
-pub fn bid128_scalbln(x: BID128, n: i64) -> BID128 {
-  unsafe { __bid128_scalbln(x, n) }
+pub fn bid128_scalbln(x: BID128, n: Long) -> BID128 {
+  unsafe { __bid128_scalbln(x, n.clamp(-6176, 6144)) }
 }
 
 pub fn bid128_signaling_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {
