@@ -1,0 +1,26 @@
+use super::*;
+
+#[test]
+fn _0001() {
+  let x = bid64_scalbln(d64("2356789100"), -9);
+  eq("+2356789100E-9", x);
+}
+
+#[test]
+fn _0002() {
+  let x = bid64_scalbln(d64("2356789100"), -9);
+  let y = bid64_scalbln(x, 2);
+  eq("+2356789100E-7", y);
+}
+
+#[test]
+fn _0003() {
+  let x = bid64_scalbln(d64("1"), 384);
+  eq("+1000000000000000E+369", x);
+}
+
+#[test]
+fn _0004() {
+  let x = bid64_scalbln(d64("1"), -398);
+  eq("+1E-398", x);
+}

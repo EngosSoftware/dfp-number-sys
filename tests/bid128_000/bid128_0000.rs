@@ -11,56 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_scalbn_0001() {
-  let x = bid128_scalbn(bid128_from_int64(2356789100), -9);
-  eq("+2356789100E-9", x);
-}
-
-#[test]
-fn test_bid128_scalbn_0002() {
-  let x = bid128_scalbn(bid128_from_int64(2356789100), -9);
-  let y = bid128_scalbn(x, 2);
-  eq("+2356789100E-7", y);
-}
-
-#[test]
-fn test_bid128_scalbn_0003() {
-  let x = bid128_scalbn(bid128_from_int64(1), 6144);
-  eq("+1000000000000000000000000000000000E+6111", x);
-}
-
-#[test]
-fn test_bid128_scalbn_0004() {
-  let x = bid128_scalbn(bid128_from_int64(1), -6176);
-  eq("+1E-6176", x);
-}
-
-#[test]
-fn test_bid128_scalbln_0001() {
-  let x = bid128_scalbln(bid128_from_int64(2356789100), -9);
-  eq("+2356789100E-9", x);
-}
-
-#[test]
-fn test_bid128_scalbln_0002() {
-  let x = bid128_scalbln(bid128_from_int64(2356789100), -9);
-  let y = bid128_scalbln(x, 2);
-  eq("+2356789100E-7", y);
-}
-
-#[test]
-fn test_bid128_scalbln_0003() {
-  let x = bid128_scalbln(bid128_from_int64(1), 6144);
-  eq("+1000000000000000000000000000000000E+6111", x);
-}
-
-#[test]
-fn test_bid128_scalbln_0004() {
-  let x = bid128_scalbln(bid128_from_int64(1), -6176);
-  eq("+1E-6176", x);
-}
-
-#[test]
 fn test_bid128_sqrt_0001() {
   eq("+1414213562373095048801688724209698E-33", bid128_sqrt(d128("2"), RND_NEAREST_EVEN, flags!()));
 }

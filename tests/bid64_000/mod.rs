@@ -83,6 +83,8 @@ mod bid64_radix;
 mod bid64_rem;
 mod bid64_rounding;
 mod bid64_same_quantum;
+mod bid64_scalbln;
+mod bid64_scalbn;
 mod bid64_signaling_greater;
 mod bid64_signaling_greater_equal;
 mod bid64_signaling_greater_unordered;

@@ -84,6 +84,8 @@ mod bid128_radix;
 mod bid128_rem;
 mod bid128_rounding;
 mod bid128_same_quantum;
+mod bid128_scalbln;
+mod bid128_scalbn;
 mod bid128_signaling_greater;
 mod bid128_signaling_greater_equal;
 mod bid128_signaling_greater_unordered;
