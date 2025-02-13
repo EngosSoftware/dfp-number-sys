@@ -123,7 +123,7 @@ extern "C" {
   fn __bid64_round_integral_zero(x: BID64, flags: *mut c_uint) -> BID64;
   fn __bid64_sameQuantum(x: BID64, y: BID64) -> c_int;
   fn __bid64_scalbn(x: BID64, n: c_int) -> BID64;
-  fn __bid64_scalbln(x: BID64, n: c_longlong) -> BID64;
+  fn __bid64_scalbln(x: BID64, n: c_long) -> BID64;
   fn __bid64_signaling_greater(x: BID64, y: BID64, flags: *mut c_uint) -> c_int;
   fn __bid64_signaling_greater_equal(x: BID64, y: BID64, flags: *mut c_uint) -> c_int;
   fn __bid64_signaling_greater_unordered(x: BID64, y: BID64, flags: *mut c_uint) -> c_int;

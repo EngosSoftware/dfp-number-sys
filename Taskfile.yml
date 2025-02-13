@@ -25,6 +25,7 @@ tasks:
     cmds:
       - cmd: cargo llvm-cov --no-cfg-coverage --no-cfg-coverage-nightly --workspace --html
       - cmd: echo -e "\n\e[1;32mOpen coverage report\x3A\e[0m file:///$(pwd)/target/llvm-cov/html/index.html\n"
+      - cmd: rm -rf README.txt
 
   doc:
     desc: Generates documentation
@@ -45,11 +46,13 @@ tasks:
     desc: Tests in debug mode for all settings
     cmds:
       - cmd: cargo +stable test
+      - cmd: rm -rf README.txt
 
   testn:
     desc: Tests in debug mode for all settings using nextest
     cmds:
       - cmd: cargo +stable nextest run --no-fail-fast
+      - cmd: rm -rf README.txt
 
   gen-readme:
     desc: Generates content for README.md file

@@ -277,7 +277,7 @@ extern "C" {
   fn __bid128_round_integral_zero(x: BID128, flags: *mut c_uint) -> BID128;
   fn __bid128_sameQuantum(x: BID128, y: BID128) -> c_int;
   fn __bid128_scalbn(x: BID128, n: c_int) -> BID128;
-  fn __bid128_scalbln(x: BID128, n: c_longlong) -> BID128;
+  fn __bid128_scalbln(x: BID128, n: c_long) -> BID128;
   fn __bid128_signaling_greater(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_signaling_greater_equal(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
   fn __bid128_signaling_greater_unordered(x: BID128, y: BID128, flags: *mut c_uint) -> c_int;
