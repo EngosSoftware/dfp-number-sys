@@ -50,3 +50,8 @@ tasks:
     desc: Tests in debug mode for all settings using nextest
     cmds:
       - cmd: cargo +stable nextest run --no-fail-fast
+
+  gen-readme:
+    desc: Generates content for README.md file
+    cmds:
+      - cmd: cargo test -q generate_readme_content

@@ -3,6 +3,7 @@
 mod bid128_000;
 mod bid32_000;
 mod bid64_000;
+mod generator;
 
 macro_rules! flags {
   () => {
