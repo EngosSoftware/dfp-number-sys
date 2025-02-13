@@ -66,6 +66,7 @@ mod bid128_nexttoward;
 mod bid128_nextup;
 mod bid128_pow;
 mod bid128_quantexp;
+mod bid128_quantize;
 mod bid128_quantum;
 mod bid128_quiet_equal;
 mod bid128_quiet_greater;

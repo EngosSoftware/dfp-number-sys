@@ -11,16 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_quantize_0001() {
-  let x = d128("2.3456");
-  let y = d128("0.001");
-  let mut flags = EXE_CLEAR;
-  let z = bid128_quantize(x, y, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_INEXACT, flags);
-  eq("+2346E-3", z);
-}
-
-#[test]
 fn test_bid128_rem() {
   let x = d128("10");
   let y = d128("3");

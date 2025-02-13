@@ -65,6 +65,7 @@ mod bid64_nexttoward;
 mod bid64_nextup;
 mod bid64_pow;
 mod bid64_quantexp;
+mod bid64_quantize;
 mod bid64_quantum;
 mod bid64_quiet_equal;
 mod bid64_quiet_greater;
