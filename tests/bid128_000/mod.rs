@@ -29,6 +29,7 @@ mod bid128_frexp;
 mod bid128_from;
 mod bid128_from_string;
 mod bid128_hypot;
+mod bid128_ilogb;
 mod bid128_is_canonical;
 mod bid128_is_finite;
 mod bid128_is_nan;

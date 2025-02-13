@@ -11,12 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_ilogb() {
-  assert_eq!(-308, bid128_ilogb(d128("2.22507E-308"), flags!()));
-  assert_eq!(1, bid128_ilogb(d128("22.200"), flags!()));
-}
-
-#[test]
 fn test_bid128_negate_0001() {
   eq("-12345E-4", bid128_negate(d128("+1.2345")));
 }
