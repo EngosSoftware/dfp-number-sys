@@ -12,14 +12,13 @@ const BID32_DOC_LINK: &str = "https://docs.rs/dfp-number-sys/latest/dfp_number_s
 #[test]
 fn generate_readme_content() {
   let mut buffer = String::new();
-  generator(&mut buffer, BID128_FUNCTIONS_FILE, "### 128-bit bindings", "128-bit bindings", BID128_DOC_LINK);
-  generator(&mut buffer, BID64_FUNCTIONS_FILE, "### 64-bit bindings", "64-bit bindings", BID64_DOC_LINK);
-  generator(&mut buffer, BID32_FUNCTIONS_FILE, "### 32-bit bindings", "32-bit bindings", BID32_DOC_LINK);
+  generator(&mut buffer, BID128_FUNCTIONS_FILE, "128-bit bindings", BID128_DOC_LINK);
+  generator(&mut buffer, BID64_FUNCTIONS_FILE, "64-bit bindings", BID64_DOC_LINK);
+  generator(&mut buffer, BID32_FUNCTIONS_FILE, "32-bit bindings", BID32_DOC_LINK);
   fs::write(OUTPUT_FILE, buffer).expect("failed to write output file");
 }
 
-fn generator(w: &mut impl Write, file_name: &str, header: &str, title: &str, doc_link: &str) {
-  let _ = writeln!(w, "\n{}\n", header);
+fn generator(w: &mut impl Write, file_name: &str, title: &str, doc_link: &str) {
   // Load function names from file.
   let function_names = fs::read_to_string(file_name)
     .expect("failed to load input file")
@@ -56,4 +55,6 @@ fn generator(w: &mut impl Write, file_name: &str, header: &str, title: &str, doc
   for function_name in &sorted_function_names {
     let _ = writeln!(w, "[{}]: {}", function_name, doc_link.replace("#FUNCTION#", function_name));
   }
+
+  let _ = writeln!(w);
 }

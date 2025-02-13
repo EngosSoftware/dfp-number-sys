@@ -28,8 +28,6 @@
 [coc-url]: CODE_OF_CONDUCT.md
 [repository-url]: https://github.com/EngosSoftware/dfp-number-sys
 
-### 128-bit bindings
-
 | 128-bit bindings                     |
 |--------------------------------------|
 | [bid128_abs]                         |
@@ -468,8 +466,6 @@
 [bid128_total_order]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid128_000/fn.bid128_total_order.html
 [bid128_total_order_mag]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid128_000/fn.bid128_total_order_mag.html
 
-### 64-bit bindings
-
 | 64-bit bindings                     |
 |-------------------------------------|
 | [bid64_abs]                         |
@@ -907,8 +903,6 @@
 [bid64_to_uint8_xrninta]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid64_000/fn.bid64_to_uint8_xrninta.html
 [bid64_total_order]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid64_000/fn.bid64_total_order.html
 [bid64_total_order_mag]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid64_000/fn.bid64_total_order_mag.html
-
-### 32-bit bindings
 
 | 32-bit bindings                     |
 |-------------------------------------|
