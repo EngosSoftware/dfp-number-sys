@@ -710,12 +710,12 @@ pub fn bid32_same_quantum(x: BID32, y: BID32) -> bool {
 
 /// Returns `x * 10^n` where `n` is of type `c_int`.
 pub fn bid32_scalbn(x: BID32, n: i32) -> BID32 {
-  unsafe { __bid32_scalbn(x, n.clamp(-101, 96)) }
+  unsafe { __bid32_scalbn(x, n.clamp(-101_i32, 96_i32)) }
 }
 
 /// Returns `x * 10^n` where `n` is of type `c_long`.
 pub fn bid32_scalbln(x: BID32, n: Long) -> BID32 {
-  unsafe { __bid32_scalbln(x, n.clamp(-101, 96)) }
+  unsafe { __bid32_scalbln(x, n.clamp(-101 as Long, 96 as Long)) }
 }
 
 pub fn bid32_signaling_greater(x: BID32, y: BID32, flags: &mut ExcFlags) -> bool {

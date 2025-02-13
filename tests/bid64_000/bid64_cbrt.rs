@@ -3,8 +3,8 @@ use super::*;
 #[test]
 fn _0001() {
   let mut flags = EXE_CLEAR;
-  eq("+3E+0", bid64_cbrt(d64("27.0"), RND_NEAREST_EVEN, &mut flags));
-  eqf(EXE_CLEAR, flags);
+  eq("+2962496068407371E-15", bid64_cbrt(d64("26.0"), RND_NEAREST_EVEN, &mut flags));
+  eqf(EXE_INEXACT, flags);
 }
 
 #[test]
