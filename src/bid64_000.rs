@@ -517,7 +517,6 @@ pub fn bid64_logb(x: BID64, flags: &mut ExcFlags) -> BID64 {
 
 /// Returns its argument `x` rounded to the nearest integer value,
 /// rounding according to the provided rounding direction.
-#[cfg(target_pointer_width = "64")]
 pub fn bid64_lrint(x: BID64, round: RndMode, flags: &mut ExcFlags) -> Long {
   unsafe { __bid64_lrint(x, round, flags) }
 }
