@@ -247,8 +247,8 @@
 | bid128_to_uint8_xrnint             | __bid128_to_uint8_xrnint             |
 | bid128_to_uint8_xrninta            | __bid128_to_uint8_xrninta            |
 | bid128_to_string                   | __bid128_to_string                   |
-| bid128_totalOrder                  | __bid128_totalOrder                  |
-| bid128_totalOrderMag               | __bid128_totalOrderMag               |
+| bid128_total_order                 | __bid128_totalOrder                  |
+| [bid128_total_order_mag]           | __bid128_totalOrderMag               |
 
 ### 64-bit bindings
 
@@ -469,8 +469,8 @@
 | bid64_to_uint8_xrnint             | __bid64_to_uint8_xrnint             |
 | bid64_to_uint8_xrninta            | __bid64_to_uint8_xrninta            |
 | bid64_to_string                   | __bid64_to_string                   |
-| bid64_totalOrder                  | __bid64_totalOrder                  |
-| bid64_totalOrderMag               | __bid64_totalOrderMag               |
+| bid64_total_order                 | __bid64_totalOrder                  |
+| bid64_total_order_mag             | __bid64_totalOrderMag               |
 
 ### 32-bit bindings
 
@@ -672,8 +672,8 @@
 | bid32_to_uint8_xrnint             |  __bid32_to_uint8_xrnint             |
 | bid32_to_uint8_xrninta            |  __bid32_to_uint8_xrninta            |
 | bid32_to_string                   |  __bid32_to_string                   |
-| bid32_totalOrder                  |  __bid32_totalOrder                  |
-| bid32_totalOrderMag               |  __bid32_totalOrderMag               |
+| bid32_total_order                 |  __bid32_totalOrder                  |
+| bid32_total_order_mag             |  __bid32_totalOrderMag               |
 
 ## License
 
@@ -694,3 +694,5 @@ Licensed under either of
 Any contributions to [**dfp-number-sys**][repository-url] are greatly appreciated.
 All contributions intentionally submitted for inclusion in the work by you,
 shall be dual licensed as above, without any additional terms or conditions.
+
+[bid32_total_order_mag]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid128_000/fn.bid128_total_order_mag.html
