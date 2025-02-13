@@ -11,16 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_rem() {
-  let x = d128("10");
-  let y = d128("3");
-  let mut flags = EXE_CLEAR;
-  let z = bid128_rem(x, y, &mut flags);
-  assert_eq!(EXE_CLEAR, flags);
-  eq("+1E+0", z);
-}
-
-#[test]
 fn test_bid128_round_integral_nearest_away() {
   eq("-2E+0", bid128_round_integral_nearest_away(d128("-2.0"), flags!()));
   eq("-2E+0", bid128_round_integral_nearest_away(d128("-1.9"), flags!()));

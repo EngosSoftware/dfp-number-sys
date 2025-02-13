@@ -80,6 +80,7 @@ mod bid64_quiet_not_less;
 mod bid64_quiet_ordered;
 mod bid64_quiet_unordered;
 mod bid64_radix;
+mod bid64_rem;
 mod bid64_same_quantum;
 mod bid64_signaling_greater;
 mod bid64_signaling_greater_equal;
