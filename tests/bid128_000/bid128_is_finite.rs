@@ -2,7 +2,7 @@ use super::*;
 
 #[test]
 fn _0001() {
-  assert!(bid128_is_finite(bid128_from_int32(-1)));
+  assert!(bid128_is_finite(d128("-1")));
 }
 
 #[test]

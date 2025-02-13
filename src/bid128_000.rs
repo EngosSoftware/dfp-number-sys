@@ -14,6 +14,9 @@ use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID
 use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
+pub const BID128_MIN: BID128 = BID128([0x378D8E63FFFFFFFF, 0xDFFFED09BEAD87C0]);
+pub const BID128_MAX: BID128 = BID128([0x378D8E63FFFFFFFF, 0x5FFFED09BEAD87C0]);
+
 /// Value `Inf` represented as a 128-bit decimal floating-point.
 ///
 /// # Example
@@ -685,7 +688,6 @@ pub fn bid128_logb(x: BID128, flags: &mut ExcFlags) -> BID128 {
 
 /// Returns its argument `x` rounded to the nearest integer value,
 /// rounding according to the provided rounding direction.
-#[cfg(target_pointer_width = "64")]
 pub fn bid128_lrint(x: BID128, round: RndMode, flags: &mut ExcFlags) -> Long {
   unsafe { __bid128_lrint(x, round, flags) }
 }
@@ -857,7 +859,7 @@ pub fn bid128_rem(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the current [rounding mode](crate::RoundingModes); signals inexact exceptions.
+/// in the same format, using the current rounding mode; signals inexact exceptions.
 pub fn bid128_round_integral_exact(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_exact(x, round, flags) }
 }
@@ -898,12 +900,12 @@ pub fn bid128_same_quantum(x: BID128, y: BID128) -> bool {
 
 /// Returns `x * 10^n` where `n` is of type [i32].
 pub fn bid128_scalbn(x: BID128, n: i32) -> BID128 {
-  unsafe { __bid128_scalbn(x, n) }
+  unsafe { __bid128_scalbn(x, n.clamp(-6176, 6144)) }
 }
 
 /// Returns `x * 10^n` where `n` is of type [i64].
-pub fn bid128_scalbln(x: BID128, n: i64) -> BID128 {
-  unsafe { __bid128_scalbln(x, n) }
+pub fn bid128_scalbln(x: BID128, n: Long) -> BID128 {
+  unsafe { __bid128_scalbln(x, n.clamp(-6176, 6144)) }
 }
 
 pub fn bid128_signaling_greater(x: BID128, y: BID128, flags: &mut ExcFlags) -> bool {

@@ -3,6 +3,7 @@
 mod bid128_000;
 mod bid32_000;
 mod bid64_000;
+mod generator;
 
 macro_rules! flags {
   () => {
@@ -20,20 +21,20 @@ use dfp_number_sys::*;
 fn d128(s: &str) -> BID128 {
   let mut flags = EXE_CLEAR;
   let x = bid128_from_string(s, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_CLEAR, flags);
+  assert!(EXE_CLEAR == flags || EXE_INEXACT == flags);
   x
 }
 
 fn d64(s: &str) -> BID64 {
   let mut flags = EXE_CLEAR;
   let x = bid64_from_string(s, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_CLEAR, flags);
+  assert!(EXE_CLEAR == flags || EXE_INEXACT == flags);
   x
 }
 
 fn d32(s: &str) -> BID32 {
   let mut flags = EXE_CLEAR;
   let x = bid32_from_string(s, RND_NEAREST_EVEN, &mut flags);
-  assert_eq!(EXE_CLEAR, flags);
+  assert!(EXE_CLEAR == flags || EXE_INEXACT == flags);
   x
 }

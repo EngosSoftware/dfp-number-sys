@@ -14,6 +14,8 @@ use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID
 use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
+pub const BID64_MIN: BID64 = BID64(0xF7FB86F26FC0FFFF);
+pub const BID64_MAX: BID64 = BID64(0x77FB86F26FC0FFFF);
 pub const BID64_ZERO: BID64 = BID64(0x31C0000000000000);
 pub const BID64_MINUS_ZERO: BID64 = BID64(0xB1C0000000000000);
 pub const BID64_ONE: BID64 = BID64(0x31C0000000000001);
@@ -517,7 +519,6 @@ pub fn bid64_logb(x: BID64, flags: &mut ExcFlags) -> BID64 {
 
 /// Returns its argument `x` rounded to the nearest integer value,
 /// rounding according to the provided rounding direction.
-#[cfg(target_pointer_width = "64")]
 pub fn bid64_lrint(x: BID64, round: RndMode, flags: &mut ExcFlags) -> Long {
   unsafe { __bid64_lrint(x, round, flags) }
 }
@@ -689,7 +690,7 @@ pub fn bid64_rem(x: BID64, y: BID64, flags: &mut ExcFlags) -> BID64 {
 }
 
 /// Rounds 64-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the current [rounding mode](crate::RoundingModes); signals inexact exceptions.
+/// in the same format, using the current rounding mode; signals inexact exceptions.
 pub fn bid64_round_integral_exact(x: BID64, round: RndMode, flags: &mut ExcFlags) -> BID64 {
   unsafe { __bid64_round_integral_exact(x, round, flags) }
 }
@@ -730,12 +731,12 @@ pub fn bid64_same_quantum(x: BID64, y: BID64) -> bool {
 
 /// Returns `x * 10^n` where `n` is of type [i32].
 pub fn bid64_scalbn(x: BID64, n: i32) -> BID64 {
-  unsafe { __bid64_scalbn(x, n) }
+  unsafe { __bid64_scalbn(x, n.clamp(-398, 384)) }
 }
 
 /// Returns `x * 10^n` where `n` is of type [i64].
-pub fn bid64_scalbln(x: BID64, n: i64) -> BID64 {
-  unsafe { __bid64_scalbln(x, n) }
+pub fn bid64_scalbln(x: BID64, n: Long) -> BID64 {
+  unsafe { __bid64_scalbln(x, n.clamp(-398, 384)) }
 }
 
 pub fn bid64_signaling_greater(x: BID64, y: BID64, flags: &mut ExcFlags) -> bool {
