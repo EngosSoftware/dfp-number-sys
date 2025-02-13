@@ -2,7 +2,7 @@ use super::*;
 
 #[test]
 fn _0001() {
-  assert!(bid64_is_finite(bid64_from_int32(-1)));
+  assert!(bid64_is_finite(d64("-1")));
 }
 
 #[test]

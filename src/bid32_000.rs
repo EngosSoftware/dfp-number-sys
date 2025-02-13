@@ -10,7 +10,7 @@
 //!  └─────── 32-bit decimal in BID format
 //! ```
 
-use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID128, BID32};
+use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID128, BID32, BID64};
 use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
@@ -25,6 +25,8 @@ pub const BID32_INF: BID32 = BID32(0x78000000);
 pub const BID32_MINUS_INF: BID32 = BID32(0xF8000000);
 pub const BID32_BILLION: BID32 = BID32(0x340F4240);
 pub const BID32_MINUS_BILLION: BID32 = BID32(0xB40F4240);
+pub const BID32_MIN: BID32 = BID32(0xF7F8967F);
+pub const BID32_MAX: BID32 = BID32(0x77F8967F);
 
 extern "C" {
   fn __bid32_abs(x: BID32, flags: *mut c_uint) -> BID32;
@@ -121,7 +123,7 @@ extern "C" {
   fn __bid32_round_integral_zero(x: BID32, flags: *mut c_uint) -> BID32;
   fn __bid32_sameQuantum(x: BID32, y: BID32) -> c_int;
   fn __bid32_scalbn(x: BID32, n: c_int) -> BID32;
-  fn __bid32_scalbln(x: BID32, n: c_longlong) -> BID32;
+  fn __bid32_scalbln(x: BID32, n: c_long) -> BID32;
   fn __bid32_signaling_greater(x: BID32, y: BID32, flags: *mut c_uint) -> c_int;
   fn __bid32_signaling_greater_equal(x: BID32, y: BID32, flags: *mut c_uint) -> c_int;
   fn __bid32_signaling_greater_unordered(x: BID32, y: BID32, flags: *mut c_uint) -> c_int;
@@ -137,7 +139,7 @@ extern "C" {
   fn __bid32_tan(x: BID32, round: c_uint, flags: *mut c_uint) -> BID32;
   fn __bid32_tanh(x: BID32, round: c_uint, flags: *mut c_uint) -> BID32;
   fn __bid32_tgamma(x: BID32, round: c_uint, flags: *mut c_uint) -> BID32;
-  fn __bid32_to_bid32(x: BID32, round: c_uint, flags: *mut c_uint) -> BID32;
+  fn __bid32_to_bid64(x: BID32, round: c_uint, flags: *mut c_uint) -> BID64;
   fn __bid32_to_bid128(x: BID32, round: c_uint, flags: *mut c_uint) -> BID128;
   fn __bid32_to_binary32(x: BID32, round: c_uint, flags: *mut c_uint) -> c_float;
   fn __bid32_to_binary64(x: BID32, round: c_uint, flags: *mut c_uint) -> c_double;
@@ -706,14 +708,14 @@ pub fn bid32_same_quantum(x: BID32, y: BID32) -> bool {
   unsafe { __bid32_sameQuantum(x, y) != 0 }
 }
 
-/// Returns `x * 10^n` where `n` is of type [i32].
+/// Returns `x * 10^n` where `n` is of type `c_int`.
 pub fn bid32_scalbn(x: BID32, n: i32) -> BID32 {
-  unsafe { __bid32_scalbn(x, n) }
+  unsafe { __bid32_scalbn(x, n.clamp(-101, 96)) }
 }
 
-/// Returns `x * 10^n` where `n` is of type [i64].
-pub fn bid32_scalbln(x: BID32, n: i64) -> BID32 {
-  unsafe { __bid32_scalbln(x, n) }
+/// Returns `x * 10^n` where `n` is of type `c_long`.
+pub fn bid32_scalbln(x: BID32, n: Long) -> BID32 {
+  unsafe { __bid32_scalbln(x, n.clamp(-101, 96)) }
 }
 
 pub fn bid32_signaling_greater(x: BID32, y: BID32, flags: &mut ExcFlags) -> bool {
@@ -782,8 +784,8 @@ pub fn bid32_tgamma(x: BID32, round: RndMode, flags: &mut ExcFlags) -> BID32 {
   unsafe { __bid32_tgamma(x, round, flags) }
 }
 
-pub fn bid32_to_bid32(x: BID32, round: RndMode, flags: &mut ExcFlags) -> BID32 {
-  unsafe { __bid32_to_bid32(x, round, flags) }
+pub fn bid32_to_bid64(x: BID32, round: RndMode, flags: &mut ExcFlags) -> BID64 {
+  unsafe { __bid32_to_bid64(x, round, flags) }
 }
 
 pub fn bid32_to_bid128(x: BID32, round: RndMode, flags: &mut ExcFlags) -> BID128 {
