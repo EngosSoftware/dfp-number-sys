@@ -59,7 +59,7 @@
  * point is defined.
  *
  * If IEEE floating point is defined, the exception handler assumes the
- * existance of a control register and a set of routines to read and write
+ * existence of a control register and a set of routines to read and write
  * it.  Otherwise the default behavior is defined to signal all exceptions
  * except underflow which is flushed to zero.  The default exception behaviors
  * do not allow for the mixing of IEEE behavior and non-IEEE.  I.e. by default
@@ -103,30 +103,28 @@
 
 
 /*
- * If no user exception environment is defined, read the enviornment from
+ * If no user exception environment is defined, read the environment from
  * the exception enable in the FPCSR for the IEEE case and just set to
  * signal everything except underflow otherwise.
  */
-
 #if !defined(DPML_GET_ENVIRONMENT)
 
-#   if IEEE_EXCEPTION_BEHAVIOR
-#       define DPML_GET_ENVIRONMENT(e) \
-			P_EXCPT_REC_ENVIRONMENT(p, DPML_GET_FPCSR(e))
-#   else
-#       define DPML_GET_ENVIRONMENT(e) \
+    #if IEEE_EXCEPTION_BEHAVIOR
+        #define DPML_GET_ENVIRONMENT(e) P_EXCPT_REC_ENVIRONMENT(p, DPML_GET_FPCSR(e))
+    #else
+        #define DPML_GET_ENVIRONMENT(e) \
 			P_EXCPT_REC_ENVIRONMENT(p, ( ENABLE_FLUSH_TO_ZERO \
 						   | ENABLE_SINGULARITY \
 						   | ENABLE_OVERFLOW \
 						   | ENABLE_INVALID \
 						   | ENABLE_LOST_SIGNIFICANCE ))
-#   endif
+    #endif
+
 #endif
 
 /*
  * If no user supplied signal mechanism, use the ANSI C raise() to generate signal.
  */
-
 #if !defined(DPML_SIGNAL) && !defined(MINIMAL_SILENT_MODE_EXCEPTION_HANDLER) && !defined(wnt) && !defined(win64)
 
     extern int raise(int);
@@ -141,7 +139,7 @@
 
 
 /*
- * If no side effects are specified then set errno, signal if the envirnment
+ * If no side effects are specified then set errno, signal if the environment
  * indicates a signal and for the IEEE case update the sticky bits
  */
 
@@ -197,7 +195,7 @@
 	/*
 	 * NOTE: This should be fixed.  The response table should
 	 * have only one set of (err,value) pairs if only one
-	 * behavior is supportted.
+	 * behavior is supported.
 	 */
 
 #   if IEEE_EXCEPTION_BEHAVIOR

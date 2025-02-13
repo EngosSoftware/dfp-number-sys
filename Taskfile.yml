@@ -58,3 +58,9 @@ tasks:
     desc: Generates content for README.md file
     cmds:
       - cmd: cargo test -q generate_readme_content
+
+  targets:
+    desc: Builds release version for multiple targets
+    cmds:
+      - cmd: cargo +stable build --release --target=x86_64-unknown-linux-gnu
+      - cmd: cargo +stable build --release --target=x86_64-unknown-linux-musl
