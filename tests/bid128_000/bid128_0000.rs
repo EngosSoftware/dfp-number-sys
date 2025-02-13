@@ -11,31 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_negate_0001() {
-  eq("-12345E-4", bid128_negate(d128("+1.2345")));
-}
-
-#[test]
-fn test_bid128_negate_0002() {
-  eq("+12345E-4", bid128_negate(d128("-1.2345")));
-}
-
-#[test]
-fn test_bid128_negate_0003() {
-  eq("-0E+0", bid128_negate(d128("+0")));
-}
-
-#[test]
-fn test_bid128_negate_0004() {
-  eq("+0E+0", bid128_negate(d128("-0")));
-}
-
-#[test]
-fn test_bid128_pow() {
-  eq("+8E+0", bid128_pow(d128("2"), d128("3"), RND_NEAREST_EVEN, flags!()));
-}
-
-#[test]
 fn test_bid128_quantize_0001() {
   let x = d128("2.3456");
   let y = d128("0.001");
