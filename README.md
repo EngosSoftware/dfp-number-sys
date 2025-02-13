@@ -385,7 +385,7 @@
 | bid64_tanh                        | __bid64_tanh                        |
 | bid64_tgamma                      | __bid64_tgamma                      |
 | bid64_to_bid32                    | __bid64_to_bid32                    |
-| bid64_to_bid64                    | __bid64_to_bid64                    |
+| bid64_to_bid128                   | __bid64_to_bid128                   |
 | bid64_to_binary32                 | __bid64_to_binary32                 |
 | bid64_to_binary64                 | __bid64_to_binary64                 |
 | bid64_to_int16_ceil               | __bid64_to_int16_ceil               |
