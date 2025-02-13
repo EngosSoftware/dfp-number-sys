@@ -17,8 +17,8 @@ fn _0002() {
 #[test]
 fn _0003() {
   let mut flags = EXE_CLEAR;
-  eq("+362880E+0", bid32_tgamma(d32("10.0"), RND_NEAREST_EVEN, &mut flags));
-  eqf(EXE_CLEAR, flags);
+  eq("+5836155E-1", bid32_tgamma(d32("10.21"), RND_NEAREST_EVEN, &mut flags));
+  eqf(EXE_INEXACT, flags);
 }
 
 #[test]
