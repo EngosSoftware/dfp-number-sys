@@ -857,7 +857,7 @@ pub fn bid128_rem(x: BID128, y: BID128, flags: &mut ExcFlags) -> BID128 {
 }
 
 /// Rounds 128-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the current [rounding mode](crate::RoundingModes); signals inexact exceptions.
+/// in the same format, using the current rounding mode; signals inexact exceptions.
 pub fn bid128_round_integral_exact(x: BID128, round: RndMode, flags: &mut ExcFlags) -> BID128 {
   unsafe { __bid128_round_integral_exact(x, round, flags) }
 }

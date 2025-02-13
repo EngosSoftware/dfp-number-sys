@@ -689,7 +689,7 @@ pub fn bid64_rem(x: BID64, y: BID64, flags: &mut ExcFlags) -> BID64 {
 }
 
 /// Rounds 64-bit decimal floating-point value to integral-valued decimal floating-point value
-/// in the same format, using the current [rounding mode](crate::RoundingModes); signals inexact exceptions.
+/// in the same format, using the current rounding mode); signals inexact exceptions.
 pub fn bid64_round_integral_exact(x: BID64, round: RndMode, flags: &mut ExcFlags) -> BID64 {
   unsafe { __bid64_round_integral_exact(x, round, flags) }
 }
