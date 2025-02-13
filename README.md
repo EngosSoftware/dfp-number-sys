@@ -30,6 +30,8 @@
 
 ### 128-bit bindings
 
+[bid32_total_order_mag]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid128_000/fn.bid128_total_order_mag.html
+
 | Rust function                      | Library function                     |
 |------------------------------------|--------------------------------------|
 | bid128_abs                         | __bid128_abs                         |
@@ -694,5 +696,3 @@ Licensed under either of
 Any contributions to [**dfp-number-sys**][repository-url] are greatly appreciated.
 All contributions intentionally submitted for inclusion in the work by you,
 shall be dual licensed as above, without any additional terms or conditions.
-
-[bid32_total_order_mag]: https://docs.rs/dfp-number-sys/latest/dfp_number_sys/bid128_000/fn.bid128_total_order_mag.html
