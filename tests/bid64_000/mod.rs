@@ -95,6 +95,7 @@ mod bid64_signaling_not_greater;
 mod bid64_signaling_not_less;
 mod bid64_sin;
 mod bid64_sinh;
+mod bid64_sqrt;
 mod bid64_sub;
 mod bid64_tan;
 mod bid64_tanh;

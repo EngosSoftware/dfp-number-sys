@@ -96,6 +96,7 @@ mod bid128_signaling_not_greater;
 mod bid128_signaling_not_less;
 mod bid128_sin;
 mod bid128_sinh;
+mod bid128_sqrt;
 mod bid128_sub;
 mod bid128_tan;
 mod bid128_tanh;

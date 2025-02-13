@@ -11,18 +11,6 @@
 use super::*;
 
 #[test]
-fn test_bid128_sqrt_0001() {
-  eq("+1414213562373095048801688724209698E-33", bid128_sqrt(d128("2"), RND_NEAREST_EVEN, flags!()));
-}
-
-#[test]
-fn test_bid128_sqrt_0002() {
-  let x = bid128_infinite();
-  let y = bid128_sqrt(x, RND_NEAREST_EVEN, flags!());
-  assert!(!bid128_is_finite(y));
-}
-
-#[test]
 fn test_bid128_to_int32_int() {
   assert_eq!(0, bid128_to_int32_int(d128("0"), flags!()));
   assert_eq!(0, bid128_to_int32_int(d128("0.12"), flags!()));
