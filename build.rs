@@ -301,5 +301,5 @@ fn main() {
     .file("IntelRDFPMathLib20U3/LIBRARY/src/wcstod32.c")
     .file("IntelRDFPMathLib20U3/LIBRARY/src/wcstod64.c")
     .out_dir(output_dir.join("lib"))
-    .compile("dfp-22");
+    .compile("dfp-23");
 }
