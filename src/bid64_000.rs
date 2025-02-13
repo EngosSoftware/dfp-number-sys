@@ -14,6 +14,8 @@ use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID
 use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
+pub const BID64_MIN: BID64 = BID64(0xF7FB86F26FC0FFFF);
+pub const BID64_MAX: BID64 = BID64(0x77FB86F26FC0FFFF);
 pub const BID64_ZERO: BID64 = BID64(0x31C0000000000000);
 pub const BID64_MINUS_ZERO: BID64 = BID64(0xB1C0000000000000);
 pub const BID64_ONE: BID64 = BID64(0x31C0000000000001);

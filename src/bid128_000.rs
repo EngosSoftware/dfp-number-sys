@@ -14,6 +14,9 @@ use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID
 use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
+pub const BID128_MIN: BID128 = BID128([0x378D8E63FFFFFFFF, 0xDFFFED09BEAD87C0]);
+pub const BID128_MAX: BID128 = BID128([0x378D8E63FFFFFFFF, 0x5FFFED09BEAD87C0]);
+
 /// Value `Inf` represented as a 128-bit decimal floating-point.
 ///
 /// # Example

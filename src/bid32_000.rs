@@ -14,6 +14,8 @@ use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID
 use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
+pub const BID32_MIN: BID32 = BID32(0xF7F8967F);
+pub const BID32_MAX: BID32 = BID32(0x77F8967F);
 pub const BID32_ZERO: BID32 = BID32(0x32800000);
 pub const BID32_MINUS_ZERO: BID32 = BID32(0xB2800000);
 pub const BID32_ONE: BID32 = BID32(0x32800001);
@@ -25,8 +27,6 @@ pub const BID32_INF: BID32 = BID32(0x78000000);
 pub const BID32_MINUS_INF: BID32 = BID32(0xF8000000);
 pub const BID32_BILLION: BID32 = BID32(0x340F4240);
 pub const BID32_MINUS_BILLION: BID32 = BID32(0xB40F4240);
-pub const BID32_MIN: BID32 = BID32(0xF7F8967F);
-pub const BID32_MAX: BID32 = BID32(0x77F8967F);
 
 extern "C" {
   fn __bid32_abs(x: BID32, flags: *mut c_uint) -> BID32;
