@@ -9,6 +9,11 @@ tasks:
     cmds:
       - cmd: cargo +stable build
 
+  bench:
+    desc: Runs all benchmarks
+    cmds:
+      - cmd: cargo +nightly bench
+
   clean:
     desc: Cleans all targets
     cmds:
