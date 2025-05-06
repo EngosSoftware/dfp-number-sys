@@ -18,7 +18,7 @@ global-rounding = []
 global-exception-flags = []
 
 [dependencies]
-libc = "0.2"
+libc = "0.2.172"
 
 [build-dependencies]
-cc = "1.2"
+cc = "1.2.21"

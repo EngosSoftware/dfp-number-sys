@@ -15,5 +15,5 @@ fn bid12_display_should_work() {
 fn bid64_clone_should_work() {
   let a = d64("1");
   let b = a.clone();
-  assert_eq!(format!("{:?}", b), format!("{:?}", a));
+  assert_eq!(format!("{b:?}"), format!("{a:?}"));
 }
