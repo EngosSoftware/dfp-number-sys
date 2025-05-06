@@ -11,7 +11,7 @@
 //! ```
 
 use crate::{Class, Double, ExcFlags, Float, Long, LongLong, RndMode, Signed, BID128, BID32, BID64};
-use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
+use libc::{c_char, c_double, c_float, c_int, c_long, c_longlong, c_schar, c_short, c_uchar, c_uint, c_ulonglong, c_ushort};
 use std::ffi::{CStr, CString};
 
 pub const BID128_MIN: BID128 = BID128([0x378D8E63FFFFFFFF, 0xDFFFED09BEAD87C0]);
@@ -327,16 +327,16 @@ extern "C" {
   fn __bid128_to_int64_xint(x: BID128, flags: *mut c_uint) -> c_longlong;
   fn __bid128_to_int64_xrnint(x: BID128, flags: *mut c_uint) -> c_longlong;
   fn __bid128_to_int64_xrninta(x: BID128, flags: *mut c_uint) -> c_longlong;
-  fn __bid128_to_int8_ceil(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_floor(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_int(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_rnint(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_rninta(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_xceil(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_xfloor(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_xint(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_xrnint(x: BID128, flags: *mut c_uint) -> c_char;
-  fn __bid128_to_int8_xrninta(x: BID128, flags: *mut c_uint) -> c_char;
+  fn __bid128_to_int8_ceil(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_floor(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_int(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_rnint(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_rninta(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_xceil(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_xfloor(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_xint(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_xrnint(x: BID128, flags: *mut c_uint) -> c_schar;
+  fn __bid128_to_int8_xrninta(x: BID128, flags: *mut c_uint) -> c_schar;
   fn __bid128_to_uint16_ceil(x: BID128, flags: *mut c_uint) -> c_ushort;
   fn __bid128_to_uint16_floor(x: BID128, flags: *mut c_uint) -> c_ushort;
   fn __bid128_to_uint16_int(x: BID128, flags: *mut c_uint) -> c_ushort;

@@ -19,7 +19,7 @@ fn generate_readme_content() {
 }
 
 fn generator(w: &mut impl Write, file_name: &str, header: &str, title: &str, doc_link: &str) {
-  let _ = writeln!(w, "\n{}\n", header);
+  let _ = writeln!(w, "\n{header}\n");
   // Load function names from file.
   let function_names = fs::read_to_string(file_name)
     .expect("failed to load input file")
@@ -47,7 +47,7 @@ fn generator(w: &mut impl Write, file_name: &str, header: &str, title: &str, doc
   let _ = writeln!(w, "|{}|", "-".repeat(max_width + 4));
   for function_name in &sorted_function_names {
     let fill = " ".repeat(max_width - function_name.len());
-    let _ = writeln!(w, "| [{}]{} |", function_name, fill);
+    let _ = writeln!(w, "| [{function_name}]{fill} |");
   }
 
   let _ = writeln!(w);
